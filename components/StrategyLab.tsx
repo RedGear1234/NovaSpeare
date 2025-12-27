@@ -25,102 +25,121 @@ const StrategyLab: React.FC = () => {
   };
 
   return (
-    <section id="ai-strategy" className="py-24 bg-slate-900/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="ai-strategy" className="py-32 bg-slate-900/50 relative overflow-hidden">
+      {/* Decorative Orbs */}
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center mb-6">
-              <i className="fa-solid fa-flask-vial text-white text-xl"></i>
+          <div className="animate-fadeInUp">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-8 h-[1px] bg-indigo-500"></span>
+              <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">The Innovation Hub</span>
             </div>
-            <h2 className="text-4xl font-bold text-white mb-6">NovaSphere Strategy Lab</h2>
-            <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-8 leading-[0.9]">
+              NovaSphere <br /> 
+              <span className="gradient-text">Strategy Lab</span>
+            </h2>
+            <p className="text-slate-400 text-xl mb-10 leading-relaxed max-w-xl">
               Experience the power of our proprietary AI-driven approach. Enter your business details, and our custom-trained model will generate a foundational growth strategy in seconds.
             </p>
             
-            <form onSubmit={handleGenerate} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Business Name</label>
+            <form onSubmit={handleGenerate} className="space-y-6 max-w-lg">
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Business Name</label>
                 <input 
                   type="text" 
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all placeholder:text-slate-600"
                   placeholder="e.g. BlueWave Fitness"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Industry / Niche</label>
+              <div className="space-y-2">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 ml-1">Industry / Niche</label>
                 <input 
                   type="text" 
                   value={niche}
                   onChange={(e) => setNiche(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all placeholder:text-slate-600"
                   placeholder="e.g. Sustainable Apparel"
                 />
               </div>
               <button 
                 disabled={loading}
-                className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-indigo-600/20 active:scale-95"
               >
                 {loading ? (
-                  <span className="flex items-center justify-center gap-2">
-                    <i className="fa-solid fa-circle-notch animate-spin"></i> Analyzing Industry Data...
+                  <span className="flex items-center justify-center gap-3">
+                    <i className="fa-solid fa-circle-notch animate-spin"></i> Processing Neural Data...
                   </span>
                 ) : 'Generate My AI Strategy'}
               </button>
             </form>
           </div>
 
-          <div className="glass-effect rounded-3xl p-8 min-h-[400px] flex flex-col justify-center border border-white/5 shadow-2xl">
+          <div className="glass-effect rounded-[3rem] p-10 md:p-14 min-h-[500px] flex flex-col justify-center border border-white/5 shadow-2xl relative">
             {!result && !loading && (
               <div className="text-center">
-                <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fa-solid fa-robot text-slate-600 text-3xl"></i>
+                <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10">
+                  <i className="fa-solid fa-microchip text-indigo-500/30 text-4xl"></i>
                 </div>
-                <h3 className="text-xl font-bold text-slate-500">Awaiting Your Input</h3>
-                <p className="text-slate-600 mt-2">The future of your brand starts here.</p>
+                <h3 className="text-2xl font-black text-slate-500 uppercase tracking-widest mb-3">Awaiting Input</h3>
+                <p className="text-slate-600 max-w-xs mx-auto">Input your vision on the left to activate our strategic neural engine.</p>
               </div>
             )}
 
             {loading && (
-              <div className="space-y-6 animate-pulse">
-                <div className="h-4 bg-slate-800 rounded w-3/4"></div>
-                <div className="h-4 bg-slate-800 rounded w-full"></div>
-                <div className="h-32 bg-slate-800 rounded w-full"></div>
-                <div className="h-4 bg-slate-800 rounded w-2/3"></div>
+              <div className="space-y-8 animate-pulse">
+                <div className="h-6 bg-white/5 rounded-full w-1/2"></div>
+                <div className="h-4 bg-white/5 rounded-full w-full"></div>
+                <div className="h-40 bg-white/5 rounded-[2rem] w-full"></div>
+                <div className="flex gap-4">
+                  <div className="h-20 bg-white/5 rounded-2xl w-1/2"></div>
+                  <div className="h-20 bg-white/5 rounded-2xl w-1/2"></div>
+                </div>
               </div>
             )}
 
             {result && !loading && (
-              <div className="space-y-8 animate-fadeIn">
+              <div className="space-y-10 animate-fadeInUp">
                 <div>
-                  <h4 className="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-3">Executive Summary</h4>
-                  <p className="text-slate-200 leading-relaxed text-lg">{result.overview}</p>
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                    <h4 className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px]">Executive Summary</h4>
+                  </div>
+                  <p className="text-slate-200 leading-relaxed text-xl font-medium">{result.overview}</p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="text-purple-400 font-bold uppercase tracking-widest text-xs mb-4">Strategic Tactics</h4>
-                    <ul className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
+                    <h4 className="text-purple-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Strategic Tactics</h4>
+                    <ul className="space-y-4">
                       {result.tactics.map((t, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                          <i className="fa-solid fa-check text-indigo-500 mt-1"></i>
-                          <span>{t}</span>
+                          <i className="fa-solid fa-bolt text-indigo-500 mt-1 text-[10px]"></i>
+                          <span className="leading-tight">{t}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div>
-                    <h4 className="text-pink-400 font-bold uppercase tracking-widest text-xs mb-4">Success Metrics</h4>
-                    <ul className="space-y-3">
+                  <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
+                    <h4 className="text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Success Metrics</h4>
+                    <ul className="space-y-4">
                       {result.metrics.map((m, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
-                          <i className="fa-solid fa-chart-simple text-pink-500 mt-1"></i>
-                          <span>{m}</span>
+                          <i className="fa-solid fa-chart-line text-pink-500 mt-1 text-[10px]"></i>
+                          <span className="leading-tight">{m}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </div>
+                
+                <div className="pt-6 border-t border-white/5">
+                  <button onClick={() => window.print()} className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-2">
+                    <i className="fa-solid fa-download"></i> Save Strategic Report
+                  </button>
                 </div>
               </div>
             )}

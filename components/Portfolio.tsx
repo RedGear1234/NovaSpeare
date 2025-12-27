@@ -15,10 +15,8 @@ const Portfolio: React.FC = () => {
 
   const handleFilterChange = (newFilter: 'All' | 'Web Design' | 'AI Integration') => {
     if (newFilter === filter) return;
-    
     setIsTransitioning(true);
     
-    // Smooth exit phase
     setTimeout(() => {
       setFilter(newFilter);
       const filtered = PROJECTS.filter(project => 
@@ -26,99 +24,139 @@ const Portfolio: React.FC = () => {
       );
       setDisplayProjects(filtered);
       setIsTransitioning(false);
-    }, 400); // Matches the duration of the transition out
+    }, 400);
   };
 
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden">
-      {/* Decorative Blur */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="portfolio" className="py-32 relative overflow-hidden bg-[#0f172a]">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="animate-fadeInUp">
-            <h2 className="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-4">Portfolio</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-white mb-4">Selected Works</h3>
-            <p className="text-slate-400 max-w-xl text-lg">
-              A curated selection of our most impactful digital transformations.
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
+          <div className="max-w-2xl animate-fadeInUp">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-8 h-[1px] bg-indigo-500"></span>
+              <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">The Collection</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-none">
+              Selected <span className="gradient-text">Works</span>
+            </h2>
+            <p className="text-slate-400 text-xl leading-relaxed">
+              Pushing the boundaries of digital possibility through a unique blend of high-end design and disruptive technology.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2 animate-slideInRight">
+
+          <div className="flex flex-wrap gap-3 animate-slideInRight">
             {filterButtons.map((btn) => (
               <button 
                 key={btn.value}
                 onClick={() => handleFilterChange(btn.value)}
-                className={`px-6 py-2.5 rounded-full border text-sm font-bold transition-all duration-300 relative overflow-hidden group ${
+                className={`px-8 py-3 rounded-2xl text-xs font-black tracking-widest uppercase transition-all duration-500 border ${
                   filter === btn.value 
-                  ? 'bg-indigo-600 border-indigo-600 text-white shadow-xl shadow-indigo-600/30 scale-105' 
-                  : 'border-white/10 hover:border-indigo-500/30 text-slate-300 hover:text-white hover:bg-white/5'
+                  ? 'bg-white text-[#0f172a] border-white shadow-2xl shadow-white/10 scale-105' 
+                  : 'bg-white/5 border-white/5 text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/10'
                 }`}
               >
                 {btn.label}
-                {filter === btn.value && (
-                  <span className="absolute inset-0 bg-white/10 animate-pulse"></span>
-                )}
               </button>
             ))}
           </div>
         </div>
 
+        {/* Asymmetric Editorial Grid */}
         <div 
-          className={`grid md:grid-cols-2 gap-10 transition-all duration-500 ease-in-out ${
-            isTransitioning ? 'opacity-0 translate-y-4 scale-[0.98]' : 'opacity-100 translate-y-0 scale-100'
+          className={`grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 transition-all duration-700 ease-in-out ${
+            isTransitioning ? 'opacity-0 translate-y-10 scale-[0.98]' : 'opacity-100 translate-y-0 scale-100'
           }`}
         >
           {displayProjects.length > 0 ? (
-            displayProjects.map((project, index) => (
-              <div 
-                key={`${project.id}-${filter}`}
-                className={`group relative overflow-hidden rounded-[2.5rem] bg-slate-800 cursor-pointer border border-white/5 shadow-2xl opacity-0 animate-fadeInUp stagger-${(index % 6) + 1}`}
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-1"
-                  />
-                </div>
-                
-                {/* Overlay with glassmorphism */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 p-10 flex flex-col justify-end backdrop-blur-[2px] translate-y-4 group-hover:translate-y-0">
-                  <div className="overflow-hidden">
-                    <span className="inline-block text-indigo-400 font-bold text-xs uppercase tracking-[0.2em] mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                      {project.category}
-                    </span>
-                  </div>
-                  <div className="overflow-hidden">
-                    <h4 className="text-3xl font-black text-white mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-                      {project.title}
-                    </h4>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 delay-300">
-                    <div className="h-[1px] w-12 bg-indigo-500/50"></div>
-                    <span className="text-xs font-black uppercase tracking-widest text-indigo-300">View Project</span>
-                    <i className="fa-solid fa-arrow-right-long text-indigo-400 transition-transform group-hover:translate-x-2"></i>
-                  </div>
-                </div>
+            displayProjects.map((project, index) => {
+              // Create an asymmetric layout: first project spans 7 cols, next spans 5, etc.
+              const isLarge = index % 3 === 0;
+              const gridClass = isLarge ? 'md:col-span-7' : index % 3 === 1 ? 'md:col-span-5' : 'md:col-span-12';
+              
+              return (
+                <div 
+                  key={`${project.id}-${filter}`}
+                  className={`group relative rounded-[2.5rem] bg-slate-900 border border-white/5 overflow-hidden transition-all duration-700 hover:border-indigo-500/30 shadow-2xl animate-fadeInUp stagger-${(index % 6) + 1} ${gridClass}`}
+                >
+                  {/* Image Container */}
+                  <div className="relative aspect-[16/10] md:aspect-auto md:h-full min-h-[450px] overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                    />
+                    
+                    {/* Visual Project Number */}
+                    <div className="absolute top-8 left-8 text-white/10 text-8xl font-black leading-none pointer-events-none select-none italic group-hover:text-indigo-500/20 transition-colors duration-700">
+                      0{index + 1}
+                    </div>
 
-                {/* Always visible minimal info for mobile/touch */}
-                <div className="absolute top-6 left-6 md:hidden">
-                   <span className="px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">
-                     {project.category}
-                   </span>
+                    {/* Tech Badges */}
+                    <div className="absolute top-8 right-8 flex flex-col gap-2">
+                      <div className="px-4 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-[9px] font-black uppercase tracking-widest text-white translate-x-12 group-hover:translate-x-0 transition-transform duration-500">
+                        {project.category === 'Web Design' ? 'Next.js + GSAP' : 'Gemini 3 + Python'}
+                      </div>
+                      <div className="px-4 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-[9px] font-black uppercase tracking-widest text-indigo-400 translate-x-20 group-hover:translate-x-0 transition-transform duration-500 delay-75">
+                        Performance Optimized
+                      </div>
+                    </div>
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700"></div>
+
+                    {/* Bottom Info Content */}
+                    <div className="absolute inset-x-0 bottom-0 p-10 md:p-12">
+                      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div className="max-w-md transform transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                          <span className="inline-block text-indigo-400 font-black text-[10px] uppercase tracking-[0.3em] mb-3">
+                            {project.category}
+                          </span>
+                          <h4 className="text-3xl md:text-4xl font-black text-white mb-4 group-hover:text-indigo-300 transition-colors">
+                            {project.title}
+                          </h4>
+                          <p className="text-slate-400 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 max-w-sm">
+                            Pioneering new standards in digital interaction for industry leaders worldwide.
+                          </p>
+                        </div>
+                        
+                        <div className="flex items-center gap-4 group/btn cursor-pointer">
+                          <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white group-hover/btn:bg-indigo-600 group-hover/btn:border-indigo-600 transition-all duration-500 -rotate-45 group-hover:rotate-0">
+                            <i className="fa-solid fa-arrow-right text-xl"></i>
+                          </div>
+                          <span className="text-xs font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-700">
+                            Explore Project
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Top Highlight Border */}
+                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 </div>
-              </div>
-            ))
+              );
+            })
           ) : (
-            <div className="col-span-2 py-32 text-center text-slate-500 border-2 border-dashed border-white/5 rounded-[3rem] animate-fadeInUp">
-              <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fa-solid fa-layer-group text-3xl opacity-20"></i>
+            <div className="col-span-full py-40 text-center glass-effect rounded-[4rem] border-2 border-dashed border-white/10">
+              <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
+                <i className="fa-solid fa-compass-drafting text-4xl text-slate-700"></i>
               </div>
-              <h4 className="text-xl font-bold text-slate-400">Curating the future...</h4>
-              <p className="text-slate-600 mt-2">More projects coming soon to this category.</p>
+              <h4 className="text-2xl font-black text-slate-400 uppercase tracking-widest">Designing the Future</h4>
+              <p className="text-slate-600 mt-4 max-w-sm mx-auto">Our artisans are currently crafting new experiences for this category.</p>
             </div>
           )}
+        </div>
+        
+        {/* Scroll CTA */}
+        <div className="mt-24 flex justify-center animate-bounce">
+          <div className="flex flex-col items-center gap-4">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-600">More Excellence</span>
+            <div className="w-[1px] h-12 bg-gradient-to-b from-indigo-500 to-transparent"></div>
+          </div>
         </div>
       </div>
     </section>
