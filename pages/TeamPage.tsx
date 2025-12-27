@@ -1,8 +1,12 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TEAM } from '../constants';
 
 const TeamPage: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="pt-32 pb-24 bg-[#0f172a]">
       {/* Page Hero */}
@@ -23,7 +27,7 @@ const TeamPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {TEAM.map((member, i) => (
             <div key={i} className="group flex flex-col items-center">
-              <div className="relative w-full aspect-[3/4] rounded-[3rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-10px]">
+              <div className="relative w-full aspect-[3/4] rounded-[3rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-10px] border border-white/5">
                 <img 
                   src={member.img} 
                   alt={member.name} 
@@ -66,7 +70,7 @@ const TeamPage: React.FC = () => {
       </section>
 
       {/* Culture Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden bg-[#0f172a]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-600/5 blur-[120px] rounded-full"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="glass-effect rounded-[4rem] p-12 md:p-24 border border-white/5">
@@ -105,16 +109,16 @@ const TeamPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="aspect-square bg-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="aspect-square bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
                     <img src="https://picsum.photos/seed/culture1/400/400" className="w-full h-full object-cover" alt="Culture 1" />
                   </div>
-                  <div className="aspect-[3/4] bg-indigo-600 rounded-3xl flex flex-col justify-end p-6 text-white">
+                  <div className="aspect-[3/4] bg-indigo-600 rounded-3xl flex flex-col justify-end p-6 text-white border border-white/10 shadow-xl shadow-indigo-600/20">
                     <span className="text-4xl font-black mb-2">12+</span>
                     <span className="text-xs uppercase font-bold tracking-widest opacity-80">Countries Represented</span>
                   </div>
                 </div>
                 <div className="space-y-4 pt-12">
-                  <div className="aspect-[3/4] bg-slate-800 rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="aspect-[3/4] bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
                     <img src="https://picsum.photos/seed/culture2/400/530" className="w-full h-full object-cover" alt="Culture 2" />
                   </div>
                   <div className="aspect-square bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl flex flex-col justify-center items-center text-center p-6">
@@ -129,7 +133,7 @@ const TeamPage: React.FC = () => {
       </section>
 
       {/* Hiring CTA */}
-      <section className="max-w-7xl mx-auto px-6 mt-32 text-center">
+      <section className="max-w-7xl mx-auto px-6 mt-32 text-center pb-24">
         <h2 className="text-3xl font-bold text-white mb-6">Want to join the sphere?</h2>
         <p className="text-slate-400 mb-10">We're always looking for world-class designers and engineers.</p>
         <a href="mailto:careers@novasphere.digital" className="px-10 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold transition-all inline-block shadow-xl shadow-indigo-600/20">

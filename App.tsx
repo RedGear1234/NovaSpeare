@@ -9,6 +9,7 @@ import StrategyLab from './components/StrategyLab';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import ContactMapSection from './components/ContactMapSection';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -26,12 +27,10 @@ const App: React.FC = () => {
     }
   };
 
-  // Effect to handle scrolling when moving back to the Home view with a pending hash
   useEffect(() => {
     if (currentView === 'home' && pendingHash) {
       const element = document.querySelector(pendingHash);
       if (element) {
-        // Small delay to ensure the DOM has updated/rendered the sections
         const timeoutId = setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
           setPendingHash(null);
@@ -42,49 +41,74 @@ const App: React.FC = () => {
   }, [currentView, pendingHash]);
 
   const renderHome = () => (
-    <>
+    <div className="relative overflow-x-hidden w-full">
       <Hero onNavigate={handleNavigate} />
-      <Services />
-      <Portfolio />
-      <StrategyLab />
-      <Team />
-      <Testimonials onNavigate={handleNavigate} />
       
-      <section className="py-24 bg-indigo-600 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 -skew-x-12 transform translate-x-20"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="max-w-2xl text-center lg:text-left">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6">Let's build something <br /> legendary together.</h2>
-            <p className="text-indigo-100 text-xl font-medium">Connect with our team to start your transformation journey.</p>
+      {/* Dynamic Background Atmosphere - Layered Glows */}
+      <div className="absolute top-[10%] left-0 w-full h-[800px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
+      <div className="absolute top-[30%] right-0 w-[800px] h-[800px] bg-purple-600/5 blur-[150px] pointer-events-none rounded-full z-0"></div>
+      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-full h-[1000px] bg-indigo-600/5 blur-[150px] pointer-events-none rounded-full z-0"></div>
+      <div className="absolute top-[75%] right-1/4 w-[600px] h-[600px] bg-pink-600/5 blur-[130px] pointer-events-none rounded-full z-0"></div>
+      <div className="absolute bottom-0 left-0 w-full h-[600px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
+
+      <div className="relative z-10">
+        <Services />
+        <Portfolio />
+        <StrategyLab />
+        <Team />
+        <Testimonials onNavigate={handleNavigate} />
+        <ContactMapSection />
+        
+        {/* Final CTA Section - Resized to Medium */}
+        <section className="py-20 relative overflow-hidden bg-transparent">
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="glass-effect p-10 md:p-16 rounded-[3rem] w-full flex flex-col lg:flex-row items-center justify-between gap-8 border border-white/5 group hover:border-indigo-500/20 transition-all duration-700">
+              <div className="max-w-xl text-center lg:text-left">
+                <h2 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">
+                  Let's build something <br /> <span className="gradient-text">legendary</span> together.
+                </h2>
+                <p className="text-slate-400 text-lg font-medium">
+                  Your digital evolution begins with a single conversation.
+                </p>
+              </div>
+              <a 
+                href="mailto:hello@novasphere.digital" 
+                className="px-10 py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/20 active:scale-95 whitespace-nowrap"
+              >
+                Start Project
+              </a>
+            </div>
           </div>
-          <a href="mailto:hello@novasphere.digital" className="px-12 py-6 bg-white text-indigo-600 rounded-2xl font-black text-xl hover:bg-slate-100 transition-all shadow-2xl shadow-black/20">
-            Start Your Project
-          </a>
-        </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </div>
   );
 
   const renderContent = () => {
     switch (currentView) {
-      case 'services':
-        return <ServicesPage />;
-      case 'team':
-        return <TeamPage />;
-      case 'privacy':
-        return <PrivacyPolicyPage />;
+      case 'services': return <ServicesPage />;
+      case 'team': return <TeamPage />;
+      case 'privacy': return <PrivacyPolicyPage />;
       case 'home':
-      default:
-        return renderHome();
+      default: return renderHome();
     }
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#0f172a] text-slate-200 selection:bg-indigo-500/30 w-full overflow-x-hidden">
+      {/* Global Persistence Layer: Background Texture */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.12] z-0" 
+           style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      </div>
+
       <Navbar currentView={currentView} onNavigate={handleNavigate} />
-      <main>
-        {renderContent()}
+      
+      <main className="relative z-10 w-full">
+        <div key={currentView} className="animate-page-enter">
+          {renderContent()}
+        </div>
       </main>
+      
       <Footer currentView={currentView} onNavigate={handleNavigate} />
       <ChatWidget />
     </div>

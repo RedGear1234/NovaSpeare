@@ -3,6 +3,7 @@
   "description": "A cutting-edge digital agency website featuring AI-powered strategy consulting, sleek portfolio showcase, and high-performance design.",
   "requestFramePermissions": [
     "camera",
-    "microphone"
+    "microphone",
+    "geolocation"
   ]
 }

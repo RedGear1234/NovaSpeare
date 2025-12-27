@@ -4,10 +4,7 @@ import { SERVICES } from '../constants';
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-32 bg-[#0f172a] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-
+    <section id="services" className="pt-16 pb-32 bg-transparent relative overflow-visible">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="max-w-4xl mb-20 animate-fadeInUp">
           <div className="inline-flex items-center gap-2 mb-4">

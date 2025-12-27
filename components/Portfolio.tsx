@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
 
 const Portfolio: React.FC = () => {
@@ -15,6 +15,7 @@ const Portfolio: React.FC = () => {
 
   const handleFilterChange = (newFilter: 'All' | 'Web Design' | 'AI Integration') => {
     if (newFilter === filter) return;
+    
     setIsTransitioning(true);
     
     setTimeout(() => {
@@ -24,39 +25,39 @@ const Portfolio: React.FC = () => {
       );
       setDisplayProjects(filtered);
       setIsTransitioning(false);
-    }, 400);
+    }, 400); 
   };
 
   return (
-    <section id="portfolio" className="py-32 relative overflow-hidden bg-[#0f172a]">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="portfolio" className="py-24 relative overflow-visible bg-transparent">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 blur-[150px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl animate-fadeInUp">
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="w-8 h-[1px] bg-indigo-500"></span>
               <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">The Collection</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black text-white mb-6 leading-none">
-              Selected <span className="gradient-text">Works</span>
+            <h2 className="text-5xl md:text-7xl font-black text-white mb-8 leading-[0.9]">
+              Selected <br /> <span className="gradient-text">Works</span>
             </h2>
-            <p className="text-slate-400 text-xl leading-relaxed">
+            <p className="text-slate-400 text-base md:text-lg leading-relaxed">
               Pushing the boundaries of digital possibility through a unique blend of high-end design and disruptive technology.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 animate-slideInRight">
+          <div className="flex flex-wrap gap-3 animate-slideInRight stagger-2">
             {filterButtons.map((btn) => (
               <button 
                 key={btn.value}
                 onClick={() => handleFilterChange(btn.value)}
-                className={`px-8 py-3 rounded-2xl text-xs font-black tracking-widest uppercase transition-all duration-500 border ${
+                className={`px-6 py-2.5 rounded-2xl text-[10px] font-black tracking-widest uppercase transition-all duration-500 border ${
                   filter === btn.value 
-                  ? 'bg-white text-[#0f172a] border-white shadow-2xl shadow-white/10 scale-105' 
-                  : 'bg-white/5 border-white/5 text-slate-400 hover:text-white hover:border-white/20 hover:bg-white/10'
+                  ? 'bg-white text-[#0f172a] border-white shadow-xl shadow-white/10 scale-105' 
+                  : 'glass-effect border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5'
                 }`}
               >
                 {btn.label}
@@ -65,98 +66,84 @@ const Portfolio: React.FC = () => {
           </div>
         </div>
 
-        {/* Asymmetric Editorial Grid */}
         <div 
-          className={`grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 transition-all duration-700 ease-in-out ${
-            isTransitioning ? 'opacity-0 translate-y-10 scale-[0.98]' : 'opacity-100 translate-y-0 scale-100'
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ease-in-out ${
+            isTransitioning ? 'opacity-0 translate-y-6 scale-[0.99]' : 'opacity-100 translate-y-0 scale-100'
           }`}
         >
           {displayProjects.length > 0 ? (
             displayProjects.map((project, index) => {
-              // Create an asymmetric layout: first project spans 7 cols, next spans 5, etc.
-              const isLarge = index % 3 === 0;
-              const gridClass = isLarge ? 'md:col-span-7' : index % 3 === 1 ? 'md:col-span-5' : 'md:col-span-12';
-              
+              const isWeb = project.category === 'Web Design';
+              const accentColor = isWeb ? 'indigo' : 'purple';
+              const glowClass = isWeb ? 'hover:shadow-indigo-500/20' : 'hover:shadow-fuchsia-500/20';
+              const techTag = isWeb ? 'Next.js + Three.js' : 'Gemini 3 + LangChain';
+
               return (
                 <div 
                   key={`${project.id}-${filter}`}
-                  className={`group relative rounded-[2.5rem] bg-slate-900 border border-white/5 overflow-hidden transition-all duration-700 hover:border-indigo-500/30 shadow-2xl animate-fadeInUp stagger-${(index % 6) + 1} ${gridClass}`}
+                  className={`group relative rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:border-${accentColor}-500/40 shadow-2xl animate-fadeInUp stagger-${(index % 3) + 1} ${glowClass}`}
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-[16/10] md:aspect-auto md:h-full min-h-[450px] overflow-hidden">
+                  {/* Subtle noise/texture overlay */}
+                  <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                  
+                  {/* Animated Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${isWeb ? 'from-indigo-600/10 to-transparent' : 'from-purple-600/10 to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
+
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-[2s] cubic-bezier(0.2, 0.8, 0.2, 1) group-hover:scale-110 group-hover:rotate-1"
                     />
                     
-                    {/* Visual Project Number */}
-                    <div className="absolute top-8 left-8 text-white/10 text-8xl font-black leading-none pointer-events-none select-none italic group-hover:text-indigo-500/20 transition-colors duration-700">
+                    {/* Index Number */}
+                    <div className="absolute top-6 left-6 text-white/5 text-7xl font-black italic leading-none pointer-events-none group-hover:text-white/10 transition-all duration-700 group-hover:scale-110">
                       0{index + 1}
                     </div>
 
-                    {/* Tech Badges */}
-                    <div className="absolute top-8 right-8 flex flex-col gap-2">
-                      <div className="px-4 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-[9px] font-black uppercase tracking-widest text-white translate-x-12 group-hover:translate-x-0 transition-transform duration-500">
-                        {project.category === 'Web Design' ? 'Next.js + GSAP' : 'Gemini 3 + Python'}
-                      </div>
-                      <div className="px-4 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full text-[9px] font-black uppercase tracking-widest text-indigo-400 translate-x-20 group-hover:translate-x-0 transition-transform duration-500 delay-75">
-                        Performance Optimized
+                    {/* Tech Pill */}
+                    <div className="absolute top-6 right-6">
+                      <div className={`px-4 py-1.5 glass-effect border-white/10 rounded-full text-[8px] font-black uppercase tracking-[0.2em] text-white/80 translate-y-[-20px] group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl`}>
+                        {techTag}
                       </div>
                     </div>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700"></div>
+                    {/* Bottom Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
 
-                    {/* Bottom Info Content */}
-                    <div className="absolute inset-x-0 bottom-0 p-10 md:p-12">
-                      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div className="max-w-md transform transition-all duration-700 translate-y-4 group-hover:translate-y-0">
-                          <span className="inline-block text-indigo-400 font-black text-[10px] uppercase tracking-[0.3em] mb-3">
+                    {/* Content Area */}
+                    <div className="absolute inset-x-0 bottom-0 p-8">
+                      <div className="flex items-end justify-between gap-4">
+                        <div className="transform transition-all duration-700 translate-y-3 group-hover:translate-y-0">
+                          <div className={`inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest ${isWeb ? 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30' : 'bg-purple-500/20 text-purple-400 border-purple-500/30'} border`}>
+                            <i className={`fa-solid ${isWeb ? 'fa-code' : 'fa-brain'} text-[8px]`}></i>
                             {project.category}
-                          </span>
-                          <h4 className="text-3xl md:text-4xl font-black text-white mb-4 group-hover:text-indigo-300 transition-colors">
+                          </div>
+                          <h4 className="text-xl md:text-2xl font-black text-white leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-indigo-300 transition-all duration-500">
                             {project.title}
                           </h4>
-                          <p className="text-slate-400 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100 max-w-sm">
-                            Pioneering new standards in digital interaction for industry leaders worldwide.
-                          </p>
                         </div>
                         
-                        <div className="flex items-center gap-4 group/btn cursor-pointer">
-                          <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white group-hover/btn:bg-indigo-600 group-hover/btn:border-indigo-600 transition-all duration-500 -rotate-45 group-hover:rotate-0">
-                            <i className="fa-solid fa-arrow-right text-xl"></i>
+                        <div className="flex-shrink-0">
+                          <div className={`w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-white/40 group-hover:bg-${accentColor}-600 group-hover:border-${accentColor}-500 group-hover:text-white transition-all duration-500 shadow-xl group-hover:shadow-${accentColor}-600/30 -rotate-45 group-hover:rotate-0`}>
+                            <i className="fa-solid fa-arrow-right text-lg"></i>
                           </div>
-                          <span className="text-xs font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-700">
-                            Explore Project
-                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  {/* Top Highlight Border */}
-                  <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 </div>
               );
             })
           ) : (
-            <div className="col-span-full py-40 text-center glass-effect rounded-[4rem] border-2 border-dashed border-white/10">
-              <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
-                <i className="fa-solid fa-compass-drafting text-4xl text-slate-700"></i>
+            <div className="col-span-full py-32 text-center glass-effect rounded-[4rem] border-2 border-dashed border-white/5">
+              <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10">
+                <i className="fa-solid fa-layer-group text-slate-600 text-3xl"></i>
               </div>
-              <h4 className="text-2xl font-black text-slate-400 uppercase tracking-widest">Designing the Future</h4>
-              <p className="text-slate-600 mt-4 max-w-sm mx-auto">Our artisans are currently crafting new experiences for this category.</p>
+              <h4 className="text-xl font-black text-slate-500 uppercase tracking-widest">Designing the Future</h4>
+              <p className="text-slate-600 mt-2">Check back soon for more breakthrough cases.</p>
             </div>
           )}
-        </div>
-        
-        {/* Scroll CTA */}
-        <div className="mt-24 flex justify-center animate-bounce">
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-600">More Excellence</span>
-            <div className="w-[1px] h-12 bg-gradient-to-b from-indigo-500 to-transparent"></div>
-          </div>
         </div>
       </div>
     </section>

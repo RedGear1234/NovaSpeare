@@ -25,9 +25,10 @@ const StrategyLab: React.FC = () => {
   };
 
   return (
-    <section id="ai-strategy" className="py-32 bg-slate-900/50 relative overflow-hidden">
-      {/* Decorative Orbs */}
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <section id="ai-strategy" className="pt-32 pb-16 bg-transparent relative overflow-visible">
+      {/* Decorative Orbs - Positioned to bleed into the next section */}
+      <div className="absolute -bottom-48 -left-24 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+      <div className="absolute top-1/2 -right-48 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">

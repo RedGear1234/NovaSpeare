@@ -46,47 +46,59 @@ export const PROJECTS: Project[] = [
     id: 1,
     title: 'Lumina Dashboard',
     category: 'Web Design',
-    image: 'https://picsum.photos/seed/lumina/800/600'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 2,
     title: 'Vanguard AI Assistant',
     category: 'AI Integration',
-    image: 'https://picsum.photos/seed/vanguard/800/600'
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 3,
     title: 'Nexus Platform',
     category: 'Web Design',
-    image: 'https://picsum.photos/seed/nexus/800/600'
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 4,
     title: 'EcoSphere Smart Engine',
     category: 'AI Integration',
-    image: 'https://picsum.photos/seed/eco/800/600'
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 5,
+    title: 'Velocity CRM',
+    category: 'Web Design',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 6,
+    title: 'Synapse Search',
+    category: 'AI Integration',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
 export const TEAM: TeamMember[] = [
   { 
-    name: 'Alex Rivera', 
+    name: 'Kunal Gakiwad', 
     role: 'Founder & CEO', 
-    img: 'https://picsum.photos/seed/alexr/600/800',
-    bio: 'Former tech lead at major Silicon Valley firms, Alex founded NovaSphere to bridge the gap between aesthetics and raw computational power.',
+    img: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?auto=format&fit=crop&w=800&q=80',
+    bio: 'Former tech lead at major Silicon Valley firms, Kunal founded NovaSphere to bridge the gap between aesthetics and raw computational power.',
     socials: { twitter: '#', linkedin: '#' }
   },
   { 
-    name: 'Sarah Chen', 
+    name: 'Kaustubh Chaure', 
     role: 'Head of AI Strategy', 
-    img: 'https://picsum.photos/seed/sarahc/600/800',
+    img: 'https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?auto=format&fit=crop&w=800&q=80',
     bio: 'A PhD in Machine Learning with a passion for creative applications of LLMs and generative art systems.',
     socials: { linkedin: '#', github: '#' }
   },
   { 
-    name: 'Marcus Thorne', 
+    name: 'Shubham Chavan', 
     role: 'Creative Director', 
-    img: 'https://picsum.photos/seed/marcust/600/800',
+    img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80',
     bio: 'Award-winning designer focused on minimal, high-impact digital experiences that resonate emotionally with users.',
     socials: { twitter: '#', linkedin: '#' }
   }

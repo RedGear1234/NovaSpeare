@@ -8,31 +8,38 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
-    // Since Hero is only on Home, we navigate to 'home' with the hash
     onNavigate('home', hash);
   };
 
+  const logos = [
+    { icon: 'fa-google', color: 'hover:text-red-500' },
+    { icon: 'fa-microsoft', color: 'hover:text-blue-500' },
+    { icon: 'fa-amazon', color: 'hover:text-orange-400' },
+    { icon: 'fa-shopify', color: 'hover:text-green-500' },
+    { icon: 'fa-stripe', color: 'hover:text-indigo-400' }
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-visible">
       {/* Background Orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse transition-all duration-[5000ms]"></div>
+      <div className="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[130px] animate-pulse transition-all duration-[5000ms]"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-xs font-bold tracking-wider mb-6 animate-bounce">
           <i className="fa-solid fa-sparkles"></i> REINVENTING DIGITAL EXCELLENCE
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-8 leading-[1.1]">
+        <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-8 leading-[1.1] animate-fadeInUp">
           We Build The <br />
           <span className="gradient-text">Future Of Digital</span>
         </h1>
         
-        <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed animate-fadeInUp stagger-1">
           Merging high-end aesthetics with cutting-edge AI to create digital experiences that don't just exist—they lead.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeInUp stagger-2">
           <a 
             href="#portfolio" 
             onClick={(e) => handleButtonClick(e, '#portfolio')}
@@ -49,12 +56,21 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </a>
         </div>
 
-        <div className="mt-20 flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-          <i className="fa-brands fa-google text-3xl"></i>
-          <i className="fa-brands fa-microsoft text-3xl"></i>
-          <i className="fa-brands fa-amazon text-3xl"></i>
-          <i className="fa-brands fa-shopify text-3xl"></i>
-          <i className="fa-brands fa-stripe text-3xl"></i>
+        {/* Enhanced Partners Section */}
+        <div className="mt-24 animate-fadeInUp stagger-3 relative">
+          <div className="inline-block">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-8">
+              Trusted by industry disruptors
+            </p>
+            <div className="glass-effect px-10 py-8 rounded-[3rem] border border-white/5 shadow-2xl flex flex-wrap justify-center items-center gap-12 md:gap-16">
+              {logos.map((logo, i) => (
+                <i 
+                  key={i} 
+                  className={`fa-brands ${logo.icon} text-3xl text-slate-600 transition-all duration-500 cursor-pointer ${logo.color} hover:scale-110 hover:opacity-100 opacity-60`}
+                ></i>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
