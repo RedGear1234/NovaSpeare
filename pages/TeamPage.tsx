@@ -31,19 +31,23 @@ const TeamPage: React.FC = () => {
                 i % 2 === 0 ? 'lg:mt-24' : 'lg:-mt-4'
               }`}
             >
-              <div className="relative w-full aspect-[4/5] rounded-[3.5rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-12px] border border-white/5 bg-slate-900">
+              {/* Fix: Added isolation-isolate and transform-gpu to prevent border-radius clipping failure */}
+              <div 
+                className="relative w-full aspect-[4/5] rounded-[3.5rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-12px] border border-white/5 bg-slate-900 isolation-isolate transform-gpu"
+                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+              >
                 {/* Lens Flare Hover Effect */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-indigo-500/20 to-transparent rotate-45 transition-all duration-1000 -translate-x-full group-hover:translate-x-full"></div>
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-indigo-500/20 to-transparent rotate-45 transition-all duration-1000 -translate-x-full group-hover:translate-x-full z-20"></div>
                 
                 <img 
                   src={member.img} 
                   alt={member.name} 
-                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110 z-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity z-10"></div>
                 
                 {/* Overlay Social Links */}
-                <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+                <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 z-30">
                   <div className="flex justify-center gap-4 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
                     {member.socials.linkedin && (
                       <a href={member.socials.linkedin} className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white hover:bg-indigo-600 border border-white/10 transition-all hover:scale-110">
