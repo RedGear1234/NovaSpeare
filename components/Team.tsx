@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TEAM } from '../constants';
 
@@ -49,7 +48,7 @@ const Team: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {TEAM.map((member, i) => (
             <div key={i} className={`group animate-fadeInUp stagger-${i + 1}`}>
               <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-800/50 backdrop-blur-sm mb-6 border border-white/5 shadow-2xl transition-all duration-500 hover:border-indigo-500/30">
@@ -63,7 +62,7 @@ const Team: React.FC = () => {
                 </div>
               </div>
               <div className="px-4">
-                <h4 className="text-2xl font-bold text-white mb-1 group-hover:text-indigo-400 transition-colors">{member.name}</h4>
+                <h4 className="text-xl font-bold text-white mb-1 group-hover:text-indigo-400 transition-colors whitespace-nowrap">{member.name}</h4>
                 <p className="text-slate-500 font-black uppercase tracking-[0.2em] text-[10px]">{member.role}</p>
               </div>
             </div>
