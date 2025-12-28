@@ -102,7 +102,7 @@ export const TEAM: TeamMember[] = [
     socials: { twitter: '#', linkedin: '#' }
   },
   {
-    name: 'Priya Sharma',
+    name: 'Neeraj Waghmare',
     role: 'Head of Digital Experience',
     img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
     bio: 'Expert in crafting intuitive user journeys and high-conversion interfaces. Priya brings over a decade of experience in UX research and interaction design.',
