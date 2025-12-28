@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeroProps {
@@ -30,12 +29,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <i className="fa-solid fa-sparkles"></i> REINVENTING DIGITAL EXCELLENCE
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-8 leading-[1.1] animate-fadeInUp">
+        <h1 className="text-5xl md:text-7xl lg:text-[8.5rem] font-black tracking-tighter text-white mb-8 leading-[0.85] animate-fadeInUp select-none">
           We Build The <br />
           <span className="gradient-text">Future Of Digital</span>
         </h1>
         
-        <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed animate-fadeInUp stagger-1">
+        <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed animate-fadeInUp stagger-1 opacity-90">
           Merging high-end aesthetics with cutting-edge AI to create digital experiences that don't just exist—they lead.
         </p>
         
