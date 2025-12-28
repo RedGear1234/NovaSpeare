@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Service, Project, TeamMember, Testimonial } from './types';
 
@@ -101,6 +100,13 @@ export const TEAM: TeamMember[] = [
     img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80',
     bio: 'Award-winning designer focused on minimal, high-impact digital experiences that resonate emotionally with users.',
     socials: { twitter: '#', linkedin: '#' }
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Head of Digital Experience',
+    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
+    bio: 'Expert in crafting intuitive user journeys and high-conversion interfaces. Priya brings over a decade of experience in UX research and interaction design.',
+    socials: { linkedin: '#', twitter: '#' }
   }
 ];
 
