@@ -1,12 +1,8 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const getAIInstance = () => {
-  return new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-};
-
 export const generateMarketingStrategy = async (businessName: string, niche: string) => {
-  const ai = getAIInstance();
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   try {
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -26,7 +22,7 @@ export const generateMarketingStrategy = async (businessName: string, niche: str
 };
 
 export const getAssistantResponse = async (history: {role: string, content: string}[], message: string) => {
-  const ai = getAIInstance();
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   try {
     const chat = ai.chats.create({
       model: 'gemini-3-flash-preview',
