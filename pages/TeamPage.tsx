@@ -8,12 +8,17 @@ const TeamPage: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 bg-[#0f172a] relative overflow-hidden">
+      {/* Background Decorative Atmosphere */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+      <div className="absolute bottom-1/4 -left-48 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
       {/* Page Hero */}
       <section className="max-w-7xl mx-auto px-6 mb-32 text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-xs font-bold tracking-wider mb-6">
-          THE HUMAN ENGINE
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6 animate-fadeInUp">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+          The Human Engine
         </div>
-        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tighter">
           Behind Every <span className="gradient-text">Pixel</span> <br /> is a Person.
         </h1>
         <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
@@ -21,62 +26,86 @@ const TeamPage: React.FC = () => {
         </p>
       </section>
 
-      {/* Full Team Grid - Creative Staggered Layout */}
+      {/* Full Team Grid - Refined 4 Cards */}
       <section className="max-w-7xl mx-auto px-6 mb-48 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-start">
           {TEAM.map((member, i) => (
             <div 
               key={i} 
-              className={`group flex flex-col items-center transition-all duration-1000 ${
+              className={`group flex flex-col transition-all duration-1000 ${
                 i % 2 === 0 ? 'lg:mt-24' : 'lg:-mt-4'
               }`}
             >
-              {/* Fix: Added isolation-isolate and transform-gpu to prevent border-radius clipping failure */}
+              {/* Fixed Refined Image Container */}
               <div 
-                className="relative w-full aspect-[4/5] rounded-[3.5rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-12px] border border-white/5 bg-slate-900 isolation-isolate transform-gpu"
-                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                className="relative w-full aspect-[4/5] rounded-[3rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-10px] bg-slate-900 border border-white/5 isolation-isolate group-hover:border-indigo-500/30 group-hover:shadow-indigo-500/10"
+                style={{ 
+                  transform: 'translateZ(0)', 
+                  WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                  backfaceVisibility: 'hidden'
+                }}
               >
-                {/* Lens Flare Hover Effect */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-indigo-500/20 to-transparent rotate-45 transition-all duration-1000 -translate-x-full group-hover:translate-x-full z-20"></div>
+                {/* Neural Mesh Overlay (Visible on hover) */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-10" 
+                     style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
+                
+                {/* Animated Light Sweep */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-white/10 to-transparent rotate-45 transition-all duration-1000 -translate-x-full group-hover:translate-x-full z-20"></div>
                 
                 <img 
                   src={member.img} 
                   alt={member.name} 
-                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110 z-0"
+                  className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 z-0 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity z-10"></div>
                 
-                {/* Overlay Social Links */}
-                <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 z-30">
-                  <div className="flex justify-center gap-4 mb-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                {/* Dark Gradient Mask */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity z-10"></div>
+                
+                {/* Information Panel Reveal */}
+                <div className="absolute inset-x-4 bottom-4 p-6 glass-effect border-white/10 rounded-[2rem] transform translate-y-[120%] group-hover:translate-y-0 transition-all duration-500 ease-out z-30 shadow-2xl">
+                  <p className="text-white text-xs leading-relaxed font-medium">
+                    {member.bio}
+                  </p>
+                  <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
                     {member.socials.linkedin && (
-                      <a href={member.socials.linkedin} className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white hover:bg-indigo-600 border border-white/10 transition-all hover:scale-110">
-                        <i className="fa-brands fa-linkedin-in"></i>
+                      <a href={member.socials.linkedin} className="text-slate-400 hover:text-white transition-colors">
+                        <i className="fa-brands fa-linkedin-in text-sm"></i>
                       </a>
                     )}
                     {member.socials.github && (
-                      <a href={member.socials.github} className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white hover:bg-indigo-600 border border-white/10 transition-all hover:scale-110">
-                        <i className="fa-brands fa-github"></i>
+                      <a href={member.socials.github} className="text-slate-400 hover:text-white transition-colors">
+                        <i className="fa-brands fa-github text-sm"></i>
                       </a>
                     )}
                     {member.socials.twitter && (
-                      <a href={member.socials.twitter} className="w-12 h-12 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white hover:bg-indigo-600 border border-white/10 transition-all hover:scale-110">
-                        <i className="fa-brands fa-x-twitter"></i>
+                      <a href={member.socials.twitter} className="text-slate-400 hover:text-white transition-colors">
+                        <i className="fa-brands fa-x-twitter text-sm"></i>
                       </a>
                     )}
                   </div>
                 </div>
+
+                {/* Status Badge */}
+                <div className="absolute top-6 left-6 z-30 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span className="text-[8px] font-black uppercase tracking-widest text-white/80">Active</span>
+                  </div>
+                </div>
               </div>
               
-              <div className="text-center px-4">
-                <div className="inline-block relative">
-                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">{member.name}</h3>
-                   <div className="h-px w-0 group-hover:w-full bg-indigo-500/50 absolute bottom-1 left-0 transition-all duration-500"></div>
+              <div className="text-left px-2">
+                <div className="flex items-center gap-3 mb-1">
+                  <h3 className="text-2xl font-black text-white group-hover:gradient-text transition-all duration-500 tracking-tight">
+                    {member.name}
+                  </h3>
                 </div>
-                <p className="text-indigo-500 font-bold uppercase tracking-[0.2em] text-[10px] mb-4">{member.role}</p>
-                <p className="text-slate-400 text-sm max-w-[280px] mx-auto leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
-                  {member.bio}
-                </p>
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <span className="w-4 h-[1px] bg-indigo-500/50"></span>
+                  <p className="text-indigo-400 font-bold uppercase tracking-[0.2em] text-[10px]">
+                    {member.role}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -87,7 +116,6 @@ const TeamPage: React.FC = () => {
       <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="glass-effect rounded-[4rem] p-12 md:p-24 border border-white/5 relative overflow-hidden">
-            {/* Background Blob */}
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-indigo-600/10 rounded-full blur-[100px]"></div>
             
             <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
