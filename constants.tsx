@@ -43,9 +43,10 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'Lumina Dashboard',
+    title: 'GrowFastShareMarket',
     category: 'Web Design',
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
+    url: 'https://growfastsharemarket.com/'
   },
   {
     id: 2,

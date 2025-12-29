@@ -1,4 +1,3 @@
-
 export interface Service {
   id: string;
   title: string;
@@ -14,6 +13,7 @@ export interface Project {
   title: string;
   category: string;
   image: string;
+  url?: string;
 }
 
 export interface TeamMember {

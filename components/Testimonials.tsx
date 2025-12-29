@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TESTIMONIALS } from '../constants';
 
@@ -17,9 +16,15 @@ const Testimonials: React.FC<TestimonialsProps> = ({ onNavigate }) => {
   return (
     <section id="testimonials" className="py-32 bg-transparent relative overflow-visible">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-4">Client Feedback</h2>
-          <h3 className="text-4xl md:text-5xl font-black text-white">The <span className="gradient-text">Impact</span> We Create</h3>
+        <div className="text-center mb-24 animate-fadeInUp">
+          <div className="inline-flex items-center justify-center gap-2 mb-4">
+            <span className="w-8 h-[1px] bg-indigo-500"></span>
+            <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">Client Feedback</span>
+            <span className="w-8 h-[1px] bg-indigo-500"></span>
+          </div>
+          <h3 className="text-5xl md:text-7xl font-black text-white leading-[0.9] tracking-tight">
+            The <span className="gradient-text">Impact</span> <br className="hidden md:block" /> We Create
+          </h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

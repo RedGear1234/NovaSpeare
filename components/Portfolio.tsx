@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
 
@@ -18,14 +17,19 @@ const Portfolio: React.FC = () => {
     
     setIsTransitioning(true);
     
+    // Smooth exit phase
     setTimeout(() => {
       setFilter(newFilter);
       const filtered = PROJECTS.filter(project => 
         newFilter === 'All' ? true : project.category === newFilter
       );
       setDisplayProjects(filtered);
-      setIsTransitioning(false);
-    }, 400); 
+      
+      // Brief delay to allow DOM update before entry animation
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 50);
+    }, 300); // Faster exit for snappier feel
   };
 
   return (
@@ -56,8 +60,8 @@ const Portfolio: React.FC = () => {
                 onClick={() => handleFilterChange(btn.value)}
                 className={`px-6 py-2.5 rounded-2xl text-[10px] font-black tracking-widest uppercase transition-all duration-500 border ${
                   filter === btn.value 
-                  ? 'bg-white text-[#0f172a] border-white shadow-xl shadow-white/10 scale-105' 
-                  : 'glass-effect border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5'
+                  ? 'bg-white text-[#0f172a] border-white shadow-xl shadow-white/20 scale-105' 
+                  : 'glass-effect border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5 hover:shadow-lg hover:shadow-indigo-500/10'
                 }`}
               >
                 {btn.label}
@@ -67,8 +71,10 @@ const Portfolio: React.FC = () => {
         </div>
 
         <div 
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ease-in-out ${
-            isTransitioning ? 'opacity-0 translate-y-6 scale-[0.99]' : 'opacity-100 translate-y-0 scale-100'
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500 ease-out ${
+            isTransitioning 
+              ? 'opacity-0 translate-y-8 scale-[0.98] blur-sm' 
+              : 'opacity-100 translate-y-0 scale-100 blur-0'
           }`}
         >
           {displayProjects.length > 0 ? (
@@ -76,17 +82,11 @@ const Portfolio: React.FC = () => {
               const isWeb = project.category === 'Web Design';
               const accentColor = isWeb ? 'indigo' : 'purple';
               const glowClass = isWeb ? 'hover:shadow-indigo-500/20' : 'hover:shadow-fuchsia-500/20';
-              const techTag = isWeb ? 'Next.js + Three.js' : 'Gemini 3 + LangChain';
+              const techTag = isWeb ? 'Next.js' : 'Gemini 3 + LangChain';
 
-              return (
-                <div 
-                  key={`${project.id}-${filter}`}
-                  className={`group relative rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:border-${accentColor}-500/40 shadow-2xl animate-fadeInUp stagger-${(index % 3) + 1} ${glowClass}`}
-                >
-                  {/* Subtle noise/texture overlay */}
+              const CardContent = (
+                <>
                   <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-                  
-                  {/* Animated Background Gradient */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${isWeb ? 'from-indigo-600/10 to-transparent' : 'from-purple-600/10 to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
 
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -96,22 +96,18 @@ const Portfolio: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-[2s] cubic-bezier(0.2, 0.8, 0.2, 1) group-hover:scale-110 group-hover:rotate-1"
                     />
                     
-                    {/* Index Number */}
                     <div className="absolute top-6 left-6 text-white/5 text-7xl font-black italic leading-none pointer-events-none group-hover:text-white/10 transition-all duration-700 group-hover:scale-110">
                       0{index + 1}
                     </div>
 
-                    {/* Tech Pill */}
                     <div className="absolute top-6 right-6">
                       <div className={`px-4 py-1.5 glass-effect border-white/10 rounded-full text-[8px] font-black uppercase tracking-[0.2em] text-white/80 translate-y-[-20px] group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-xl`}>
                         {techTag}
                       </div>
                     </div>
 
-                    {/* Bottom Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
 
-                    {/* Content Area */}
                     <div className="absolute inset-x-0 bottom-0 p-8">
                       <div className="flex items-end justify-between gap-4">
                         <div className="transform transition-all duration-700 translate-y-3 group-hover:translate-y-0">
@@ -132,6 +128,25 @@ const Portfolio: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                </>
+              );
+
+              return project.url ? (
+                <a 
+                  key={`${project.id}-${filter}`}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative block rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:border-${accentColor}-500/40 shadow-2xl ${glowClass}`}
+                >
+                  {CardContent}
+                </a>
+              ) : (
+                <div 
+                  key={`${project.id}-${filter}`}
+                  className={`group relative rounded-[2.5rem] bg-slate-900/40 backdrop-blur-xl border border-white/5 overflow-hidden transition-all duration-700 hover:-translate-y-3 hover:border-${accentColor}-500/40 shadow-2xl ${glowClass}`}
+                >
+                  {CardContent}
                 </div>
               );
             })

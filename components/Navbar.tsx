@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 interface NavbarProps {
@@ -16,7 +15,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -45,14 +43,23 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isMobileMenuOpen ? 'bg-[#0f172a]/90 backdrop-blur-md border-b border-white/10 py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          {/* Logo Section */}
           <div 
-            className="flex items-center gap-2 cursor-pointer z-[60]"
+            className="flex items-center gap-4 cursor-pointer z-[60] group"
             onClick={() => { onNavigate('home'); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-600/20">
-              <i className="fa-solid fa-bolt text-white text-sm"></i>
+            <div className="relative w-9 h-9">
+              {/* Outer Glow */}
+              <div className="absolute inset-0 bg-indigo-500/30 blur-lg rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Diamond Mark */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg shadow-indigo-600/20 rotate-45 group-hover:rotate-[135deg] transition-transform duration-700 flex items-center justify-center">
+                <i className="fa-solid fa-circle-nodes text-white text-xs -rotate-45 group-hover:rotate-[-135deg] transition-transform duration-700"></i>
+              </div>
             </div>
-            <span className="text-xl font-bold tracking-tighter text-white">NOVASPHERE</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-extrabold tracking-[0.15em] text-white leading-none">NOVASPHERE</span>
+              <span className="text-[8px] font-bold text-indigo-400 uppercase tracking-[0.3em] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Digital Era</span>
+            </div>
           </div>
           
           {/* Desktop Navigation */}
@@ -89,7 +96,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
 
       {/* Mobile Overlay Menu */}
       <div className={`fixed inset-0 z-[45] bg-[#0f172a] transition-all duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        {/* Decorative Background for Mobile Menu */}
         <div className="absolute top-1/4 -right-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px]"></div>
 
@@ -113,12 +119,6 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           >
             AI Strategy Lab
           </a>
-          
-          <div className={`pt-12 flex gap-8 transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '500ms' }}>
-            <a href="#" className="text-slate-500 hover:text-white text-xl transition-colors"><i className="fa-brands fa-twitter"></i></a>
-            <a href="#" className="text-slate-500 hover:text-white text-xl transition-colors"><i className="fa-brands fa-linkedin"></i></a>
-            <a href="#" className="text-slate-500 hover:text-white text-xl transition-colors"><i className="fa-brands fa-instagram"></i></a>
-          </div>
         </div>
       </div>
     </>

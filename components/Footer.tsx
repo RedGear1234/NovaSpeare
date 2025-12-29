@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface FooterProps {
@@ -19,20 +18,22 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
 
   return (
     <footer className="bg-[#0f172a] pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
-      {/* Subtle bottom glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-indigo-500/5 blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
+            {/* Consistent Logo Mark */}
             <div 
-              className="flex items-center gap-2 mb-8 cursor-pointer w-fit"
+              className="flex items-center gap-4 mb-8 cursor-pointer w-fit group"
               onClick={() => { onNavigate('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <i className="fa-solid fa-bolt text-white text-sm"></i>
+              <div className="relative w-9 h-9">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg rotate-45 group-hover:rotate-[135deg] transition-transform duration-700 flex items-center justify-center">
+                  <i className="fa-solid fa-circle-nodes text-white text-xs -rotate-45 group-hover:rotate-[-135deg] transition-transform duration-700"></i>
+                </div>
               </div>
-              <span className="text-xl font-bold tracking-tighter text-white">NOVASPHERE</span>
+              <span className="text-xl font-extrabold tracking-[0.15em] text-white">NOVASPHERE</span>
             </div>
             <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
               Ready to build the <br /> extraordinary?
