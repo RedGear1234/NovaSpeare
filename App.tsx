@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,6 +9,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import ContactMapSection from './components/ContactMapSection';
+import ImpactStats from './components/ImpactStats';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -54,6 +54,7 @@ const App: React.FC = () => {
       <div className="relative z-10">
         <Services />
         <Portfolio />
+        <ImpactStats />
         <StrategyLab />
         <Team />
         <Testimonials onNavigate={handleNavigate} />
@@ -109,7 +110,9 @@ const App: React.FC = () => {
         </div>
       </main>
       
-      <Footer currentView={currentView} onNavigate={handleNavigate} />
+      <footer className="w-full">
+        <Footer currentView={currentView} onNavigate={handleNavigate} />
+      </footer>
       <ChatWidget />
     </div>
   );
