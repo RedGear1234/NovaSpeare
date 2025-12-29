@@ -4,6 +4,13 @@ import { SERVICES, PROCESS_STEPS } from '../constants';
 import ContactForm from '../components/ContactForm';
 
 const ServicesPage: React.FC = () => {
+  const handleScrollToConsultation = () => {
+    const element = document.getElementById('consultation-form');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Map icons to process steps for more visual meaning
   const processIcons = [
     'fa-magnifying-glass-chart',
@@ -94,9 +101,6 @@ const ServicesPage: React.FC = () => {
           </div>
           
           <div className="relative">
-            {/* Connection Line (Desktop) */}
-            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-1/2"></div>
-            
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {PROCESS_STEPS.map((step, i) => (
                 <div key={i} className="group relative h-full">
@@ -145,7 +149,10 @@ const ServicesPage: React.FC = () => {
               Tell us about your project requirements and let's explore how our expertise can help you reach your goals.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-4 bg-white text-[#0f172a] rounded-2xl font-bold text-lg hover:bg-slate-200 transition-all">
+              <button 
+                onClick={handleScrollToConsultation}
+                className="px-8 py-4 bg-white text-[#0f172a] rounded-2xl font-bold text-lg hover:bg-slate-200 transition-all active:scale-95"
+              >
                 Schedule a Consultation
               </button>
               <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold text-lg transition-all">
