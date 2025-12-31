@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { TEAM } from '../constants';
 
@@ -34,7 +35,7 @@ const Team: React.FC = () => {
 
   return (
     <section id="team" className="pt-16 pb-32 relative overflow-visible bg-transparent">
-      {/* Background Bridge Glow - Connects from previous section */}
+      {/* Background Bridge Glow */}
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-indigo-500/5 to-transparent blur-[120px] pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -50,20 +51,59 @@ const Team: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
           {TEAM.map((member, i) => (
-            <div key={i} className={`group animate-fadeInUp stagger-${i + 1}`}>
-              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-800/50 backdrop-blur-sm mb-6 border border-white/5 shadow-2xl transition-all duration-500 hover:border-indigo-500/30">
+            <div key={i} className={`group flex flex-col animate-fadeInUp stagger-${i + 1}`}>
+              {/* Image Container with Corner Fix */}
+              <div 
+                className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-900 mb-6 border border-white/5 shadow-2xl transition-all duration-700 hover:translate-y-[-10px] isolation-isolate group-hover:border-indigo-500/30 group-hover:shadow-indigo-500/10"
+                style={{ 
+                  transform: 'translateZ(0)', 
+                  WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                  backfaceVisibility: 'hidden'
+                }}
+              >
+                {/* Neural Mesh Overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-10" 
+                     style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
+                
                 <img 
                   src={member.img} 
                   alt={member.name} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 z-0 will-change-transform"
                 />
-                <div className="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-black via-black/60 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-slate-300 text-sm leading-relaxed font-medium">{member.bio}</p>
+                
+                {/* Dark Mask */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity z-10"></div>
+                
+                {/* Info Overlay */}
+                <div className="absolute inset-x-3 bottom-3 p-6 glass-effect border-white/10 rounded-[2rem] transform translate-y-[120%] group-hover:translate-y-0 transition-all duration-500 ease-out z-30 shadow-2xl">
+                  <p className="text-white text-[11px] leading-relaxed font-medium">
+                    {member.bio}
+                  </p>
+                  <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
+                    {member.socials.linkedin && (
+                      <i className="fa-brands fa-linkedin-in text-slate-400 hover:text-white transition-colors cursor-pointer text-xs"></i>
+                    )}
+                    {member.socials.twitter && (
+                      <i className="fa-brands fa-x-twitter text-slate-400 hover:text-white transition-colors cursor-pointer text-xs"></i>
+                    )}
+                  </div>
+                </div>
+                
+                {/* Status Badge */}
+                <div className="absolute top-5 left-5 z-30 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span className="text-[7px] font-black uppercase tracking-widest text-white/80">Available</span>
+                  </div>
                 </div>
               </div>
-              <div className="px-4">
-                <h4 className="text-xl font-bold text-white mb-1 group-hover:text-indigo-400 transition-colors whitespace-nowrap">{member.name}</h4>
-                <p className="text-slate-500 font-black uppercase tracking-[0.2em] text-[10px]">{member.role}</p>
+              
+              <div className="px-2">
+                <h4 className="text-xl font-bold text-white mb-1 group-hover:gradient-text transition-all duration-500 tracking-tight">{member.name}</h4>
+                <div className="flex items-center gap-2">
+                  <span className="w-4 h-[1px] bg-indigo-500/50"></span>
+                  <p className="text-indigo-400 font-bold uppercase tracking-[0.2em] text-[10px]">{member.role}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -76,7 +116,6 @@ const Team: React.FC = () => {
                 key={i} 
                 className={`group relative glass-effect rounded-[3rem] p-10 border border-white/5 transition-all duration-500 hover:border-white/20 hover:-translate-y-2 animate-fadeInUp stagger-${i + 4} hover:shadow-2xl ${v.glow}`}
               >
-                {/* Dynamic Background Glow Layer */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${v.color} opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-[3rem] blur-2xl -z-10`}></div>
                 
                 <div className="relative z-10">

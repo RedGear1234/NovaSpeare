@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface HeroProps {
@@ -55,17 +56,17 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </a>
         </div>
 
-        {/* Enhanced Partners Section */}
+        {/* Enhanced Partners Section with Improved Contrast */}
         <div className="mt-24 animate-fadeInUp stagger-3 relative">
           <div className="inline-block">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-8">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8 opacity-60">
               Trusted by industry disruptors
             </p>
             <div className="glass-effect px-10 py-8 rounded-[3rem] border border-white/5 shadow-2xl flex flex-wrap justify-center items-center gap-12 md:gap-16">
               {logos.map((logo, i) => (
                 <i 
                   key={i} 
-                  className={`fa-brands ${logo.icon} text-3xl text-slate-600 transition-all duration-500 cursor-pointer ${logo.color} hover:scale-110 hover:opacity-100 opacity-60`}
+                  className={`fa-brands ${logo.icon} text-3xl text-slate-400 transition-all duration-500 cursor-pointer ${logo.color} hover:scale-110 hover:opacity-100 opacity-50`}
                 ></i>
               ))}
             </div>
