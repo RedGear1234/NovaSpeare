@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Service, Project, TeamMember, Testimonial } from './types';
 
@@ -82,7 +83,7 @@ export const PROJECTS: Project[] = [
 
 export const TEAM: TeamMember[] = [
   { 
-    name: 'Kunal Gakiwad', 
+    name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
     img: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?auto=format&fit=crop&w=800&q=80',
     bio: 'Former tech lead at major Silicon Valley firms, Kunal founded NovaSphere to bridge the gap between aesthetics and raw computational power.',
@@ -91,7 +92,7 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kaustubh Chaure', 
     role: 'Head of AI Strategy', 
-    img: 'https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
     bio: 'A PhD in Machine Learning with a passion for creative applications of LLMs and generative art systems.',
     socials: { linkedin: '#', github: '#' }
   },
@@ -106,7 +107,7 @@ export const TEAM: TeamMember[] = [
     name: 'Neeraj Waghmare',
     role: 'Head of Digital Experience',
     img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-    bio: 'Expert in crafting intuitive user journeys and high-conversion interfaces. Priya brings over a decade of experience in UX research and interaction design.',
+    bio: 'Expert in crafting intuitive user journeys and high-conversion interfaces. Neeraj brings over a decade of experience in UX research and interaction design.',
     socials: { linkedin: '#', twitter: '#' }
   }
 ];

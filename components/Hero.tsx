@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeroProps {
@@ -36,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </h1>
         
         <p className="max-w-2xl mx-auto text-xl text-slate-400 mb-10 leading-relaxed animate-fadeInUp stagger-1 opacity-90">
-          Merging high-end aesthetics with cutting-edge AI to create digital experiences that don't just exist—they lead.
+          A results-driven Digital Marketing Agency in Pune offering SEO, PPC, Social Media, and Azure, Salesforce & Cloud Services in Pune.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeInUp stagger-2">
