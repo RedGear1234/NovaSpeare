@@ -10,6 +10,13 @@ const ServicesPage: React.FC = () => {
     }
   };
 
+  const technicalMeta = [
+    { label: "Sensing", val: "Deep Logic" },
+    { label: "Architecture", val: "Scalable" },
+    { label: "Pulse", val: "High Freq" },
+    { label: "Velocity", val: "Compounding" }
+  ];
+
   return (
     <div className="pt-32 pb-24 relative overflow-hidden">
       {/* Refined Page Header */}
@@ -28,7 +35,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Refined Services List - More Minimalist */}
+      {/* Refined Services List */}
       <section className="max-w-7xl mx-auto px-6 space-y-48 relative z-10">
         {SERVICES.map((service, index) => (
           <div 
@@ -47,7 +54,7 @@ const ServicesPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Clean Feature List - Removed boxy pills */}
+              {/* Clean Feature List */}
               <div className="space-y-4 pt-4">
                 {service.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-4 group">
@@ -82,7 +89,7 @@ const ServicesPage: React.FC = () => {
 
                     <div className="w-full h-px bg-white/5"></div>
 
-                    {/* Pro Insight - Replaced the heavy box with a clean quote style */}
+                    {/* Pro Insight */}
                     <div className="relative pl-8">
                       <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-transparent rounded-full opacity-50"></div>
                       <div className="flex items-center gap-3 mb-4">
@@ -101,50 +108,121 @@ const ServicesPage: React.FC = () => {
         ))}
       </section>
 
-      {/* Refined Process Section - More Compact */}
-      <section className="py-48 mt-32 relative bg-[#0f172a]/40">
+      {/* ULTRA STYLISH PROCESS SECTION: THE PATH TO SCALE */}
+      <section className="py-48 mt-32 relative overflow-visible">
+        {/* Deep Atmosphere */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-600/[0.03] to-transparent pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] bg-indigo-500/5 blur-[160px] rounded-full pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-xl">
-              <h3 className="text-5xl font-black text-white mb-6 tracking-tighter">The Path to <br /><span className="gradient-text">Scale</span></h3>
-              <p className="text-slate-400 text-lg font-medium opacity-70">
-                A systematic approach engineered for performance.
-              </p>
+          <div className="text-center mb-32">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-black text-slate-500 uppercase tracking-[0.3em]">Operational Protocol v2.4</span>
             </div>
-            <div className="hidden md:block">
-              <div className="px-6 py-3 rounded-full border border-white/5 text-[10px] font-black text-slate-500 uppercase tracking-widest">
-                Data Driven • Result Obsessed
-              </div>
-            </div>
+            <h3 className="text-5xl md:text-[8rem] font-black text-white mb-8 tracking-tighter leading-[0.85]">
+              The Path <br /><span className="gradient-text">To Scale</span>
+            </h3>
+            <p className="text-slate-400 text-xl font-medium opacity-70 max-w-2xl mx-auto italic">
+              "Systematic growth isn't accidental. It's engineered."
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-12">
-            {PROCESS_STEPS.map((step, i) => (
-              <div key={i} className="group relative">
-                <div className="relative z-10 space-y-6">
-                  <div className="text-7xl font-black text-white/5 group-hover:text-indigo-500/10 transition-colors duration-500 mb-[-1.5rem] select-none">
-                    {step.step}
+          <div className="relative">
+            {/* Energy Conduit Line (Desktop) */}
+            <svg className="absolute top-1/2 left-0 w-full h-24 -translate-y-1/2 opacity-20 hidden lg:block pointer-events-none" viewBox="0 0 1200 100" fill="none">
+              <path d="M0 50C150 50 300 20 450 20C600 20 750 80 900 80C1050 80 1200 50 1200 50" stroke="url(#lineGradient)" strokeWidth="2" strokeDasharray="10 10" />
+              <defs>
+                <linearGradient id="lineGradient" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#6366f1" />
+                  <stop offset="1" stopColor="#ec4899" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div className="grid lg:grid-cols-4 gap-8 relative z-10">
+              {PROCESS_STEPS.map((step, i) => (
+                <div 
+                  key={i} 
+                  className={`relative group transition-all duration-700 ${i % 2 === 0 ? 'lg:-translate-y-12' : 'lg:translate-y-12'}`}
+                >
+                  {/* Step Card */}
+                  <div className="glass-effect rounded-[3.5rem] p-10 border border-white/5 hover:border-indigo-500/40 transition-all duration-500 group-hover:bg-[#111827]/80 group-hover:shadow-[0_0_50px_rgba(99,102,241,0.1)] h-full flex flex-col relative overflow-hidden">
+                    
+                    {/* Background "Ghost" Typography */}
+                    <div className="absolute top-0 right-0 p-8 text-white/[0.03] text-[12rem] font-black italic select-none pointer-events-none group-hover:text-white/[0.07] transition-all duration-700 -rotate-12 translate-x-12 -translate-y-12">
+                      {step.step}
+                    </div>
+
+                    {/* Technical Tagging */}
+                    <div className="flex justify-between items-start mb-12 relative z-10">
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[8px] font-black uppercase tracking-[0.4em] text-indigo-500">Phase_{step.step}</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                          <span className="text-[7px] font-black uppercase tracking-widest text-emerald-500/80">System: Online</span>
+                        </div>
+                      </div>
+                      <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-[10px] text-slate-600 group-hover:text-white group-hover:border-indigo-500/50 transition-all">
+                        <i className="fa-solid fa-plus rotate-45 group-hover:rotate-0 transition-transform"></i>
+                      </div>
+                    </div>
+
+                    <div className="flex-grow relative z-10">
+                      <h4 className="text-3xl font-black text-white mb-6 tracking-tight group-hover:gradient-text transition-all">
+                        {step.title}
+                      </h4>
+                      <p className="text-slate-400 text-base leading-relaxed font-medium">
+                        {step.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom Metadata Bar */}
+                    <div className="pt-10 mt-10 border-t border-white/5 relative z-10 flex flex-col gap-6">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-600 group-hover:text-indigo-400 transition-colors">Output Log</span>
+                        <div className="h-px flex-grow mx-4 bg-white/5"></div>
+                        <i className="fa-solid fa-chevron-right text-[8px] text-slate-700"></i>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <div className="flex-1">
+                          <p className="text-[7px] font-black uppercase tracking-widest text-slate-500 mb-1">{technicalMeta[i].label}</p>
+                          <p className="text-[10px] font-bold text-white tracking-wide">{technicalMeta[i].val}</p>
+                        </div>
+                        <div className="w-px h-8 bg-white/5"></div>
+                        <div className="flex-1 text-right">
+                          <p className="text-[7px] font-black uppercase tracking-widest text-slate-500 mb-1">Impact</p>
+                          <p className="text-[10px] font-bold text-indigo-400">Validated</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Interactive Corner Accents */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-transparent group-hover:border-indigo-500/20 transition-all duration-700 rounded-tl-[3.5rem]"></div>
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-transparent group-hover:border-pink-500/20 transition-all duration-700 rounded-br-[3.5rem]"></div>
                   </div>
-                  <h4 className="text-2xl font-black text-white group-hover:text-indigo-400 transition-colors">{step.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium group-hover:text-slate-400 transition-colors">
-                    {step.desc}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Clean Call to Action */}
-      <section className="max-w-7xl mx-auto px-6 mt-40 pb-24">
+      <section className="max-w-7xl mx-auto px-6 mt-40 pb-24 relative z-10">
         <div className="text-center space-y-12">
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter">Ready to shift <br /> gears?</h2>
+          <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none">
+            Ready To Initiate <br /> 
+            <span className="gradient-text">Deployment?</span>
+          </h2>
           <button 
             onClick={handleScrollToConsultation}
-            className="px-14 py-6 bg-indigo-600 text-white rounded-[2rem] font-black text-xl hover:bg-indigo-500 transition-all shadow-3xl shadow-indigo-600/30 hover:scale-105 active:scale-95 flex items-center gap-4 mx-auto"
+            className="px-16 py-7 bg-indigo-600 text-white rounded-[2.5rem] font-black text-xl hover:bg-indigo-500 transition-all shadow-3xl shadow-indigo-600/30 hover:scale-105 active:scale-95 flex items-center gap-4 mx-auto group"
           >
-            Start Your Project <i className="fa-solid fa-arrow-right-long text-lg"></i>
+            Start Your Project 
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:translate-x-2 transition-transform">
+              <i className="fa-solid fa-arrow-right-long text-sm"></i>
+            </div>
           </button>
         </div>
       </section>
