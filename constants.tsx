@@ -1,43 +1,114 @@
-
-import React from 'react';
 import { Service, Project, TeamMember, Testimonial } from './types';
 
 export const SERVICES: Service[] = [
   {
-    id: 'web-dev',
-    title: 'Web Experiences',
-    description: 'Bespoke web applications built with performance and scalability at their core.',
-    icon: 'fa-code',
-    color: 'from-blue-500 to-cyan-400',
-    longDescription: 'We build high-performance, accessible, and scalable web applications using the latest modern frameworks. Our focus is on delivering seamless user experiences that drive conversion.',
-    features: ['React & Next.js Expertise', 'Cloud Native Architecture', 'Headless CMS Integration', 'Performance Optimization']
+    id: 'seo',
+    title: 'Search Engine Optimization (SEO)',
+    description: 'Rank everywhere customers search – Google + AI platforms. We optimize for all.',
+    icon: 'fa-magnifying-glass-chart',
+    color: 'from-blue-600 to-indigo-500',
+    longDescription: 'Go beyond basic keywords. We provide complete SEO and AEO (Answer Engine Optimization) strategies to dominate standard search and emerging AI search platforms like ChatGPT and Perplexity.',
+    features: [
+      'On-Page + AI Optimization (Schema, E-E-A-T, Core Web Vitals)',
+      'Smart Keyword Strategy (GEO, AEO, Semantic Clusters)',
+      'Authority Backlinks & Digital PR',
+      'Local GEO Domination (Google Maps 3-pack)',
+      'Multi-Platform AEO (ChatGPT, Perplexity, Gemini)',
+      'Monthly ROI & Traffic Reports'
+    ],
+    resultsSummary: 'Page 1 Google | ChatGPT/Perplexity authority | Gemini citations | 24/7 qualified leads | Multi-platform discovery',
+    proInsight: 'Rank everywhere customers search – Google + AI platforms. We optimize for all.'
   },
   {
-    id: 'ai-solutions',
-    title: 'AI Integration',
-    description: 'Transforming businesses with custom LLM implementations and generative AI workflows.',
-    icon: 'fa-microchip',
-    color: 'from-purple-500 to-pink-400',
-    longDescription: 'Leverage the power of Generative AI to automate workflows, enhance customer support, and gain predictive insights. We integrate LLMs safely and effectively into your existing ecosystem.',
-    features: ['Custom LLM Fine-tuning', 'RAG (Retrieval Augmented Generation)', 'AI Agents & Automation', 'Prompt Engineering']
-  },
-  {
-    id: 'branding',
-    title: 'Brand Identity',
-    description: 'Visual storytelling that resonates with your audience and builds lasting loyalty.',
-    icon: 'fa-pen-nib',
-    color: 'from-orange-500 to-yellow-400',
-    longDescription: 'We define the visual and verbal soul of your brand. From logo design to comprehensive brand guidelines, we ensure your identity is consistent and compelling across all touchpoints.',
-    features: ['Visual Identity Systems', 'Brand Voice & Strategy', 'UI/UX Design Systems', 'Motion Branding']
-  },
-  {
-    id: 'marketing',
-    title: 'Growth Marketing',
-    description: 'Data-driven strategies designed to scale your reach and maximize ROI.',
-    icon: 'fa-chart-line',
+    id: 'ppc',
+    title: 'Performance Marketing (PPC)',
+    description: 'Run profitable paid campaigns on Google and Meta Ads for immediate growth.',
+    icon: 'fa-chart-area',
     color: 'from-emerald-500 to-teal-400',
-    longDescription: 'Scale your business with measurable results. We combine SEO, performance marketing, and content strategy to put your brand in front of the right people at the right time.',
-    features: ['SEO & SEM Mastery', 'Performance Marketing', 'Conversion Rate Optimization', 'Social Growth Strategy']
+    longDescription: 'Capture high-intent customers with data-backed paid strategies. We use AI-powered optimization to ensure every Rupee spent contributes to your bottom line.',
+    features: [
+      'Google Search Ads (High-intent capture)',
+      'Google Shopping & Performance Max Campaigns',
+      'Meta/Facebook Advanced Audience Targeting',
+      'AI-Powered Automated Bidding & Scaling',
+      'Continuous A/B Testing of Creatives & Copy',
+      'Cross-Platform Scaling (YouTube, TikTok, emerging channels)',
+      'Monthly ROAS & CPA Tracking Reports'
+    ],
+    resultsSummary: 'Leads in 7-14 days | 3x+ ROAS | 50% lower CPA | Scalable campaigns | Predictable revenue',
+    proInsight: 'AI bidding + full-funnel social commerce = exponential growth. We optimize everything.'
+  },
+  {
+    id: 'smm',
+    title: 'Social Media Marketing (SMM)',
+    description: 'Build brand presence and turn discovery into direct sales across all social platforms.',
+    icon: 'fa-hashtag',
+    color: 'from-purple-500 to-pink-400',
+    longDescription: 'Social platforms are the new search engines. We build community and drive native commerce through high-impact content and strategic management.',
+    features: [
+      'Custom Content Strategy (Instagram, TikTok, LinkedIn, YouTube)',
+      'Short-form Video Creation (Reels, Shorts, UGC)',
+      'Real-time Community Management & Engagement',
+      'Social Commerce Ads (Shopify/Meta Integration)',
+      'Micro-influencer & Creator Partnerships',
+      'In-depth Performance & Growth Analytics'
+    ],
+    resultsSummary: '3x engagement growth | Social commerce revenue | Loyal community | 30% lower CAC | Brand authority',
+    proInsight: 'Social platforms = search engines. We turn discovery into direct sales.'
+  },
+  {
+    id: 'cro',
+    title: 'Landing Page & Conversion Optimization',
+    description: 'Turn website visitors into paying customers with conversion-first design.',
+    icon: 'fa-laptop-code',
+    color: 'from-orange-500 to-amber-400',
+    longDescription: 'A click is only valuable if it converts. We engineer frictionless user journeys using conversion psychology and rigorous A/B testing.',
+    features: [
+      'Mobile-First High-Converting Layouts',
+      'Benefit-Driven Persuasive Copywriting',
+      'Scientific A/B Testing (Headlines, Forms, CTAs)',
+      'Conversion Psychology & Urgency Triggers',
+      'Seamless CRM & Email Automation Integration',
+      'Heatmaps & Session Recording Analysis'
+    ],
+    resultsSummary: '2-5x conversion rates | 50% lower cost per lead | Higher customer LTV | Scalable revenue growth',
+    proInsight: 'Landing pages = your #1 revenue driver. We make every click count.'
+  },
+  {
+    id: 'content',
+    title: 'Content Marketing & Copywriting',
+    description: 'Attract and convince your ideal customers with authority-building content.',
+    icon: 'fa-pen-nib',
+    color: 'from-cyan-500 to-blue-400',
+    longDescription: 'Content is the fuel for trust and SEO. We create assets that rank high, build deep authority, and convince prospects to become customers.',
+    features: [
+      'SEO Blog Posts & Pillar Content',
+      'High-Converting Sales Funnel Copy',
+      'Automated Email Nurture Sequences',
+      'Lead Magnets (Guides, Checklists, Templates)',
+      'B2B Thought Leadership & Whitepapers',
+      'Strategic Content Repurposing Across 7 Channels'
+    ],
+    resultsSummary: 'Authority positioning | Consistent organic traffic | Email list growth | Higher conversions | Industry leadership',
+    proInsight: 'Content = trust + SEO + lead gen. One asset works across 7 channels.'
+  },
+  {
+    id: 'email',
+    title: 'Email Marketing & Automation',
+    description: 'Stay connected and drive repeat sales with hands-free ROI-focused automation.',
+    icon: 'fa-envelope-open-text',
+    color: 'from-rose-500 to-pink-400',
+    longDescription: 'Email delivers the highest ROI in digital marketing. We automate the customer lifecycle to drive repeat purchases and increase lifetime value.',
+    features: [
+      'List Building & Lead Magnet Flows',
+      'Automated Lifecycle Sequences (Welcome, Cart, Upsell)',
+      'Value-Driven Newsletter Campaigns',
+      'Behavioral Trigger & Purchase Personalization',
+      'Advanced Customer Journey Segmentation',
+      'Shopify/HubSpot/ActiveCampaign CRM Sync'
+    ],
+    resultsSummary: '30-50% higher LTV | 20%+ repeat purchase rate | 40% open rates | Automated revenue | Lower churn',
+    proInsight: 'Email delivers 40x ROI. Automation makes it hands-free.'
   }
 ];
 
@@ -51,33 +122,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
-    title: 'Vanguard AI Assistant',
-    category: 'AI Integration',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 3,
-    title: 'Nexus Platform',
-    category: 'Web Design',
+    title: 'TechHub Solutions',
+    category: 'SEO',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 4,
-    title: 'EcoSphere Smart Engine',
-    category: 'AI Integration',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 5,
-    title: 'Velocity CRM',
-    category: 'Web Design',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 6,
-    title: 'Synapse Search',
-    category: 'AI Integration',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -86,29 +133,29 @@ export const TEAM: TeamMember[] = [
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
     img: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?auto=format&fit=crop&w=800&q=80',
-    bio: 'Former tech lead at major Silicon Valley firms, Kunal founded NovaSphere to bridge the gap between aesthetics and raw computational power.',
-    socials: { twitter: '#', linkedin: '#' }
-  },
-  { 
-    name: 'Kaustubh Chaure', 
-    role: 'Head of AI Strategy', 
-    img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80',
-    bio: 'A PhD in Machine Learning with a passion for creative applications of LLMs and generative art systems.',
-    socials: { linkedin: '#', github: '#' }
-  },
-  { 
-    name: 'Shubham Chavan', 
-    role: 'Creative Director', 
-    img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80',
-    bio: 'Award-winning designer focused on minimal, high-impact digital experiences that resonate emotionally with users.',
+    bio: 'Founder of I Web Optimizer, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: '#', linkedin: '#' }
   },
   {
-    name: 'Neeraj Waghmare',
-    role: 'Head of Digital Experience',
+    name: 'Elena Vance',
+    role: 'Head of AI Research',
+    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    bio: 'A neural architecture specialist, Elena leads our Strategy Lab development, ensuring our AI insights are grounded in the most advanced LLM technology available.',
+    socials: { github: '#', linkedin: '#' }
+  },
+  {
+    name: 'Marcus Thorne',
+    role: 'Creative Director',
+    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    bio: 'Marcus focuses on high-performance user experiences that blend human emotion with algorithmic precision, making every brand story unforgettable.',
+    socials: { twitter: '#', linkedin: '#' }
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Head of Growth',
     img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-    bio: 'Expert in crafting intuitive user journeys and high-conversion interfaces. Neeraj brings over a decade of experience in UX research and interaction design.',
-    socials: { linkedin: '#', twitter: '#' }
+    bio: 'Data scientist turned marketer, Priya manages multi-million dollar ad spends with a focus on deep-funnel optimization and customer lifetime value.',
+    socials: { linkedin: '#' }
   }
 ];
 
@@ -118,32 +165,43 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Sarah Jenkins",
     role: "Marketing Director",
     company: "TechFlow Systems",
-    companyUrl: "https://example.com/techflow",
-    projectLink: "#portfolio",
-    content: "NovaSphere didn't just rebuild our platform; they reimagined our entire digital footprint. Their AI integration saved our support team 40 hours a week.",
-    avatar: "https://i.pravatar.cc/150?u=sarah",
+    companyUrl: "#",
+    projectLink: "#",
+    content: "NovaSphere transformed our lead generation. Their SEO and PPC strategy alone doubled our organic pipeline in under 4 months. The transparency in their reporting is refreshing.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5
   },
   {
     id: 2,
-    name: "David Chen",
-    role: "CTO",
-    company: "FinVertex",
-    companyUrl: "https://example.com/finvertex",
-    projectLink: "#portfolio",
-    content: "The level of technical depth combined with aesthetic precision is something you rarely find. Our conversion rates jumped 24% after the redesign.",
-    avatar: "https://i.pravatar.cc/150?u=david",
+    name: "Rohan Mehta",
+    role: "Founder",
+    company: "Vibe Retail Pune",
+    companyUrl: "#",
+    projectLink: "#",
+    content: "We were struggling with low ROAS on Meta ads until we partnered with Kunal's team. They restructured our entire funnel and achieved a 4.5x return within the first quarter.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5
   },
   {
     id: 3,
-    name: "Elena Rodriguez",
-    role: "Founder",
-    company: "Aura E-commerce",
-    companyUrl: "https://example.com/aura",
-    projectLink: "#portfolio",
-    content: "The Strategy Lab provided insights we hadn't considered in years of operations. They are truly partners in growth, not just another agency.",
-    avatar: "https://i.pravatar.cc/150?u=elena",
+    name: "Dr. Anita Desai",
+    role: "Director",
+    company: "Aura Health Group",
+    companyUrl: "#",
+    projectLink: "#",
+    content: "The AI Strategy Lab provided us with insights we hadn't considered for our healthcare marketing. Their technical SEO for medical keywords is world-class.",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80",
+    rating: 5
+  },
+  {
+    id: 4,
+    name: "James Wilson",
+    role: "Product Lead",
+    company: "Skyline SaaS",
+    companyUrl: "#",
+    projectLink: "#",
+    content: "Their approach to Answer Engine Optimization (AEO) put us ahead of the curve. We're now ranking in ChatGPT and Perplexity citations, driving massive high-intent traffic.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5
   }
 ];
@@ -157,16 +215,16 @@ export const PROCESS_STEPS = [
   {
     step: '02',
     title: 'Strategy',
-    desc: 'Crafting a bespoke roadmap integrating design, technology, and AI.'
+    desc: 'Crafting a bespoke roadmap integrating SEO, PPC, and content flows.'
   },
   {
     step: '03',
     title: 'Execution',
-    desc: 'Agile development and design iterations with transparent communication.'
+    desc: 'Agile campaign launches and content production with transparent reporting.'
   },
   {
     step: '04',
     title: 'Growth',
-    desc: 'Continuous monitoring, optimization, and scaling based on real-world data.'
+    desc: 'Continuous monitoring, testing, and optimization based on ROI metrics.'
   }
 ];

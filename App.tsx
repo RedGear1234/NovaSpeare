@@ -9,7 +9,8 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import ContactMapSection from './components/ContactMapSection';
-import ImpactStats from './components/ImpactStats';
+import USPSection from './components/USPSection';
+import KeyBenefits from './components/KeyBenefits';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -53,57 +54,16 @@ const App: React.FC = () => {
 
       <div className="relative z-10">
         <Services />
-        
-        {/* Mid-Page Strategic CTA Banner */}
-        <section className="py-24 relative overflow-visible">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="relative group">
-              {/* Outer Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-              
-              <div className="relative glass-effect p-8 md:p-16 rounded-[3rem] border border-white/10 overflow-hidden flex flex-col lg:flex-row items-center gap-12">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
-                
-                <div className="flex-1 text-center lg:text-left">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                    Now Booking for Q3 2024
-                  </div>
-                  <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-[1.1] tracking-tight">
-                    Scale your digital <br /> footprint <span className="gradient-text">effortlessly.</span>
-                  </h2>
-                  <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
-                    Stop guessing and start growing. We're offering a limited number of 1-on-1 strategy sessions to audit your current digital stack.
-                  </p>
-                </div>
-                
-                <div className="flex-shrink-0 flex flex-col items-center gap-4">
-                  <a 
-                    href="#contact" 
-                    onClick={(e) => { e.preventDefault(); handleNavigate('home', '#contact'); }}
-                    className="group relative px-10 py-5 bg-white text-slate-900 rounded-2xl font-black text-lg hover:bg-indigo-500 hover:text-white transition-all duration-500 shadow-2xl hover:shadow-indigo-500/50 flex items-center gap-3 overflow-hidden"
-                  >
-                    <span className="relative z-10">Get Your Free Strategy Session</span>
-                    <i className="fa-solid fa-arrow-right relative z-10 group-hover:translate-x-2 transition-transform"></i>
-                  </a>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                    No commitment • 30 Minutes • Expert Insight
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <USPSection />
+        <KeyBenefits />
         <Portfolio />
-        <ImpactStats />
         <StrategyLab />
         <Team />
         <Testimonials onNavigate={handleNavigate} />
         <ContactMapSection />
         
         {/* Final CTA Section - Refined for Strategy Focus */}
-        <section className="py-24 relative overflow-hidden bg-transparent">
+        <section className="py-24 relative overflow-hidden bg-transparent text-center md:text-left">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="glass-effect p-12 md:p-20 rounded-[4rem] w-full flex flex-col lg:flex-row items-center justify-between gap-12 border border-white/5 group hover:border-indigo-500/20 transition-all duration-700 shadow-3xl">
               <div className="max-w-2xl text-center lg:text-left">
@@ -131,7 +91,7 @@ const App: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Joined by 500+ disruptors</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Joined by 200+ Pune Businesses</span>
                 </div>
               </div>
             </div>

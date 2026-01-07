@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-xs font-bold tracking-wider mb-6 animate-bounce">
-          <i className="fa-solid fa-sparkles"></i> REINVENTING DIGITAL EXCELLENCE
+          <i className="fa-solid fa-wand-magic-sparkles"></i> REINVENTING DIGITAL EXCELLENCE
         </div>
         
         <h1 className="text-5xl md:text-7xl lg:text-[8.5rem] font-black tracking-tighter text-white mb-8 leading-[0.85] animate-fadeInUp select-none">
@@ -58,8 +58,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         {/* Enhanced Partners Section with Improved Contrast */}
         <div className="mt-24 animate-fadeInUp stagger-3 relative">
           <div className="inline-block">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8 opacity-60">
-              Trusted by industry disruptors
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-8 opacity-60">
+              Trusted by 200+ local businesses | 5+ years serving Pune
             </p>
             <div className="glass-effect px-10 py-8 rounded-[3rem] border border-white/5 shadow-2xl flex flex-wrap justify-center items-center gap-12 md:gap-16">
               {logos.map((logo, i) => (

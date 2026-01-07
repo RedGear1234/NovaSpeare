@@ -6,6 +6,8 @@ export interface Service {
   color: string;
   longDescription: string;
   features: string[];
+  resultsSummary: string;
+  proInsight: string;
 }
 
 export interface Project {
