@@ -52,7 +52,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onNavigate }) => {
             <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">Competitive Matrix</span>
             <span className="w-8 h-[1px] bg-indigo-500"></span>
           </div>
-          <h2 className="text-5xl md:text-[6.5rem] font-black text-white mb-8 tracking-tighter leading-none">
+          <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">
             Why Choose <br /> <span className="gradient-text">Us?</span>
           </h2>
           <p className="text-slate-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed opacity-80 italic">
