@@ -12,6 +12,7 @@ import ContactMapSection from './components/ContactMapSection';
 import USPSection from './components/USPSection';
 import KeyBenefits from './components/KeyBenefits';
 import WhyChooseUs from './components/WhyChooseUs';
+import IndustriesWeServe from './components/IndustriesWeServe';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         <Services />
         <USPSection />
         <KeyBenefits />
+        <IndustriesWeServe />
         <WhyChooseUs onNavigate={handleNavigate} />
         <Portfolio />
         <StrategyLab />
