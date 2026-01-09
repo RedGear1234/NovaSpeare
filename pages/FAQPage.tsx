@@ -1,9 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 const FAQPage: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', _gotcha: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'submitted' | 'error'>('idle');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isModalOpen]);
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formData._gotcha) return;
+    setStatus('sending');
+
+    try {
+      const response = await fetch('https://formspree.io/shubhamchavan@live.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ ...formData, _subject: `FAQ Page Inquiry: ${formData.name}` })
+      });
+
+      if (response.ok) {
+        setStatus('submitted');
+        setFormData({ name: '', email: '', message: '', _gotcha: '' });
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setStatus('idle');
+        }, 2000);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
+  };
 
   const faqs = [
     {
@@ -68,8 +109,96 @@ const FAQPage: React.FC = () => {
     }
   ];
 
+  // Modal Component to be Portaled
+  const ContactModal = (
+    <div className="fixed inset-0 flex items-center justify-center p-6" style={{ zIndex: 9999 }}>
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-[#0f172a]/95 backdrop-blur-lg animate-fadeIn"
+        onClick={() => setIsModalOpen(false)}
+      ></div>
+      
+      {/* Modal Card */}
+      <div className="relative glass-effect p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-3xl w-full max-w-xl animate-scaleIn">
+        <button 
+          onClick={() => setIsModalOpen(false)}
+          className="absolute top-8 right-8 text-slate-500 hover:text-white transition-colors"
+        >
+          <i className="fa-solid fa-xmark text-2xl"></i>
+        </button>
+
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="w-6 h-[1px] bg-indigo-500"></span>
+            <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[8px]">Direct Channel</span>
+          </div>
+          <h2 className="text-3xl font-black text-white">Ask Anything</h2>
+          <p className="text-slate-400 text-sm mt-2">Get direct answers from our specialized strategy team.</p>
+        </div>
+
+        <form onSubmit={handleFormSubmit} className="space-y-6">
+          <input type="text" name="_gotcha" value={formData._gotcha} onChange={(e) => setFormData({...formData, _gotcha: e.target.value})} className="hidden" />
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Name</label>
+              <input 
+                type="text" 
+                required
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50" 
+                placeholder="John Doe"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Email</label>
+              <input 
+                type="email" 
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50" 
+                placeholder="john@example.com"
+              />
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">How can we help?</label>
+            <textarea 
+              required
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 resize-none"
+              placeholder="Tell us about your breakthrough goals..."
+            />
+          </div>
+
+          <button 
+            type="submit"
+            disabled={status === 'sending' || status === 'submitted'}
+            className={`w-full py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-xl active:scale-95 flex items-center justify-center gap-3 ${
+              status === 'submitted' ? 'bg-emerald-600 text-white' : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-600/20'
+            }`}
+          >
+            {status === 'sending' ? <i className="fa-solid fa-circle-notch animate-spin"></i> : 
+             status === 'submitted' ? <i className="fa-solid fa-check"></i> : 'Submit Inquiry'}
+          </button>
+          
+          {status === 'error' && (
+            <p className="text-center text-rose-500 text-[10px] font-bold uppercase tracking-widest">
+              Transmission failed. Please try again.
+            </p>
+          )}
+        </form>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="pt-32 pb-24 bg-[#0f172a] relative overflow-hidden">
+    <div className="pt-32 pb-24 bg-[#0f172a] relative">
       {/* Background Decorative Atmosphere */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
       <div className="absolute bottom-1/4 -left-48 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
@@ -120,21 +249,32 @@ const FAQPage: React.FC = () => {
           <div className="absolute inset-0 bg-indigo-600/5 opacity-0 group-hover:opacity-100 transition-opacity blur-3xl"></div>
           <h2 className="text-3xl font-black text-white mb-6 relative z-10">Still have a question?</h2>
           <p className="text-slate-400 mb-10 text-lg relative z-10">Our strategists are ready to provide the answers you need to scale your business.</p>
-          <button 
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                window.location.href = '/#contact';
-              }
-            }}
-            className="px-12 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-3xl font-black text-lg transition-all relative z-10 shadow-3xl shadow-indigo-600/30 hover:scale-105 active:scale-95 flex items-center gap-4 mx-auto"
+          <a 
+            href="javascript:void(0)"
+            onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }}
+            className="px-12 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-3xl font-black text-lg transition-all relative z-10 shadow-3xl shadow-indigo-600/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-4 mx-auto w-fit"
+            role="button"
           >
             Connect With Us <i className="fa-solid fa-arrow-right-long text-sm"></i>
-          </button>
+          </a>
         </div>
       </section>
+
+      {/* Render Modal via Portal to avoid clipping from parent stacking contexts */}
+      {isModalOpen && ReactDOM.createPortal(ContactModal, document.body)}
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn { animation: fadeIn 0.3s ease-out forwards; }
+        .animate-scaleIn { animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      `}</style>
     </div>
   );
 };
