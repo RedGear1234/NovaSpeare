@@ -1,12 +1,12 @@
 import React from 'react';
 
 interface FooterProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy';
+  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => void;
+  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works';
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
     e.preventDefault();
     if (view === 'home' && hash) {
       onNavigate('home', hash);
@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
                   <i className="fa-solid fa-circle-nodes text-white text-xs -rotate-45 group-hover:rotate-[-135deg] transition-transform duration-700"></i>
                 </div>
               </div>
-              <span className="text-xl font-extrabold tracking-[0.15em] text-white">NOVASPHERE</span>
+              <span className="text-xl font-black tracking-[0.1em] text-white">NOVASPHERE</span>
             </div>
             <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
               Ready to build the <br /> extraordinary?
@@ -55,22 +55,21 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
           </div>
           
           <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Services</h4>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Navigation</h4>
             <ul className="space-y-4">
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">Web Development</a></li>
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">AI Consulting</a></li>
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">Digital Branding</a></li>
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">UI/UX Design</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">Our Mastery</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'how-it-works')} className="text-slate-400 hover:text-white transition-colors text-sm">How it Works</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'team')} className="text-slate-400 hover:text-white transition-colors text-sm">The Collective</a></li>
+              <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Company</h4>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
             <ul className="space-y-4">
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'team')} className="text-slate-400 hover:text-white transition-colors text-sm">Our Story</a></li>
-              <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
-              <li><a href="#" onClick={(e) => handleLinkClick(e, 'team')} className="text-slate-400 hover:text-white transition-colors text-sm">Careers</a></li>
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'privacy')} className="text-slate-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+              <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
+              <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Cookie Settings</a></li>
             </ul>
           </div>
         </div>
@@ -84,7 +83,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> System Status: Operational
              </span>
              <span className="text-slate-500 text-xs uppercase tracking-widest">
-               Handcrafted in the future
+               Handcrafted in Pune
              </span>
           </div>
         </div>

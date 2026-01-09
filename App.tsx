@@ -14,12 +14,13 @@ import KeyBenefits from './components/KeyBenefits';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import HowItWorksPage from './pages/HowItWorksPage';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'services' | 'team' | 'privacy'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'services' | 'team' | 'privacy' | 'how-it-works'>('home');
   const [pendingHash, setPendingHash] = useState<string | null>(null);
 
-  const handleNavigate = (view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => {
+  const handleNavigate = (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
     setCurrentView(view);
     if (hash) {
       setPendingHash(hash);
@@ -62,7 +63,7 @@ const App: React.FC = () => {
         <Testimonials onNavigate={handleNavigate} />
         <ContactMapSection />
         
-        {/* Final CTA Section - Refined for Strategy Focus */}
+        {/* Final CTA Section */}
         <section className="py-24 relative overflow-hidden bg-transparent text-center md:text-left">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="glass-effect p-12 md:p-20 rounded-[4rem] w-full flex flex-col lg:flex-row items-center justify-between gap-12 border border-white/5 group hover:border-indigo-500/20 transition-all duration-700 shadow-3xl">
@@ -72,7 +73,7 @@ const App: React.FC = () => {
                   Your vision deserves <br /> <span className="gradient-text">legendary execution.</span>
                 </h2>
                 <p className="text-slate-400 text-xl font-medium leading-relaxed">
-                  Ready to transform your business? Let's map out your next move in a free, high-intensity strategy deep dive.
+                  Ready to transform your business? Let's map out your next move with NovaSphere's free, high-intensity strategy deep dive.
                 </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
@@ -104,6 +105,7 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (currentView) {
       case 'services': return <ServicesPage />;
+      case 'how-it-works': return <HowItWorksPage />;
       case 'team': return <TeamPage />;
       case 'privacy': return <PrivacyPolicyPage />;
       case 'home':

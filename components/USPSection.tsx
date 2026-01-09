@@ -54,7 +54,7 @@ const USPSection: React.FC = () => {
             <span className="w-8 h-[1px] bg-indigo-500"></span>
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            What Makes <span className="gradient-text">I Web Optimizer</span> Different
+            What Makes <span className="gradient-text">NovaSphere</span> Different
           </h2>
           <p className="text-xl md:text-2xl text-slate-300 font-medium max-w-3xl mx-auto italic opacity-80">
             "Campaigns Are Easy. Results Are Earned."

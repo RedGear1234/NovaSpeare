@@ -1,19 +1,41 @@
-
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 
 export const generateMarketingStrategy = async (businessName: string, niche: string) => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   try {
+    // Using gemini-3-pro-preview for complex reasoning task as per guidelines
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3-pro-preview",
       contents: `Generate a high-level digital marketing strategy for a business named "${businessName}" in the "${niche}" industry. 
       Format the response as a JSON object with these keys: 
       "overview" (a string), "tactics" (an array of strings), "metrics" (an array of strings).`,
       config: {
         responseMimeType: "application/json",
+        // Implementing responseSchema for consistent JSON output as per guidelines
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            overview: {
+              type: Type.STRING,
+              description: 'A brief executive overview of the strategy.',
+            },
+            tactics: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING },
+              description: 'Key marketing tactics to implement.',
+            },
+            metrics: {
+              type: Type.ARRAY,
+              items: { type: Type.STRING },
+              description: 'Key performance indicators to measure success.',
+            },
+          },
+          required: ["overview", "tactics", "metrics"],
+        },
       },
     });
 
+    // Accessing .text property directly as per guidelines
     return JSON.parse(response.text || '{}');
   } catch (error) {
     console.error("Gemini API Error:", error);
@@ -32,6 +54,7 @@ export const getAssistantResponse = async (history: {role: string, content: stri
     });
 
     const response = await chat.sendMessage({ message });
+    // Accessing .text property directly as per guidelines
     return response.text;
   } catch (error) {
     console.error("Assistant Error:", error);

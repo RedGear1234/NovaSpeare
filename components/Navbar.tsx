@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 interface NavbarProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy';
+  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => void;
+  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works';
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     }
   }, [isMobileMenuOpen]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
     e.preventDefault();
     onNavigate(view, hash);
     setIsMobileMenuOpen(false);
@@ -34,6 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
 
   const navLinks = [
     { label: 'Services', view: 'services' as const },
+    { label: 'How it Works', view: 'how-it-works' as const },
     { label: 'Team', view: 'team' as const },
     { label: 'Portfolio', view: 'home' as const, hash: '#portfolio' },
     { label: 'Client Tales', view: 'home' as const, hash: '#testimonials' },
@@ -57,8 +58,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-extrabold tracking-[0.15em] text-white leading-none">NOVASPHERE</span>
-              <span className="text-[8px] font-bold text-indigo-400 uppercase tracking-[0.3em] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Digital Era</span>
+              <span className="text-xl font-black tracking-[0.1em] text-white leading-none">NOVASPHERE</span>
+              <span className="text-[8px] font-bold text-indigo-400 uppercase tracking-[0.3em] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Digital Solutions</span>
             </div>
           </div>
           
