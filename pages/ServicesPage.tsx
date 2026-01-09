@@ -22,7 +22,7 @@ const ServicesPage: React.FC = () => {
       {/* Background Atmosphere */}
       <div className="absolute top-0 left-0 w-full h-[1000px] bg-indigo-600/[0.02] blur-[150px] rounded-full -z-10"></div>
       
-      {/* Refined Page Header with Abstract Visualization */}
+      {/* Hero Section with Refined 3D Array Graphic */}
       <section className="max-w-7xl mx-auto px-6 mb-40 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -30,57 +30,90 @@ const ServicesPage: React.FC = () => {
               <span className="w-12 h-[1px] bg-indigo-500/50"></span>
               <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">Strategic Solutions</span>
             </div>
-            <h1 className="text-5xl md:text-[6.5rem] font-black text-white mb-10 leading-[0.9] tracking-tight">
-              Our Core <br /><span className="gradient-text pr-4 pb-2 inline-block">Mastery</span>
+            {/* Added extra padding-right to the gradient span to ensure 'y' in 'Mastery' is never clipped */}
+            <h1 className="text-5xl md:text-[7rem] font-black text-white mb-10 leading-[0.85] tracking-tight">
+              Our Core <br /><span className="gradient-text pr-6 pb-2 inline-block">Mastery</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 leading-relaxed max-w-xl font-medium opacity-80 italic">
               "Precision-engineered digital marketing solutions designed for high-growth businesses. We focus on ROI, not just clicks."
             </p>
           </div>
 
-          {/* Right Side: Capability Constellation Visual */}
-          <div className="hidden lg:flex justify-center items-center relative h-[500px]">
-            {/* The Neural Constellation */}
-            <div className="relative w-80 h-80">
-               {/* Central Orb */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-[0_0_40px_white] z-20"></div>
+          {/* Right Side: High-End 3D Logic Array Graphic */}
+          <div className="hidden lg:flex justify-center items-center relative h-[600px] perspective-[1500px]">
+            <div className="relative w-full h-full flex items-center justify-center transform-style-3d">
+              
+              {/* Vertical Data Stream Lines */}
+              <div className="absolute inset-0 flex justify-around opacity-20 pointer-events-none">
+                {[...Array(5)].map((_, i) => (
+                  <div key={i} className="w-px h-full bg-gradient-to-b from-transparent via-indigo-500 to-transparent animate-[pulse_3s_ease-in-out_infinite]" style={{ animationDelay: `${i * 0.5}s` }}></div>
+                ))}
+              </div>
 
-               {/* Constellation Nodes */}
-               <div className="absolute inset-0 animate-[spin_40s_linear_infinite]">
-                 {/* Node 1: SEO */}
-                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-effect w-16 h-16 rounded-full flex items-center justify-center border border-white/20 shadow-2xl -rotate-[spin_40s_linear_infinite]">
-                    <i className="fa-solid fa-magnifying-glass-chart text-indigo-400"></i>
-                 </div>
-                 {/* Connection Line */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-px h-1/2 bg-gradient-to-t from-white/40 to-transparent origin-top"></div>
-               </div>
+              {/* Central Power Core */}
+              <div className="absolute z-20 w-32 h-32">
+                <div className="absolute inset-0 bg-indigo-500 blur-[60px] opacity-20 animate-pulse"></div>
+                <div className="relative w-full h-full glass-effect rounded-[2rem] border border-white/20 rotate-45 shadow-[0_0_50px_rgba(99,102,241,0.2)] flex items-center justify-center">
+                   <div className="w-12 h-12 bg-white rounded-full blur-[2px] shadow-[0_0_30px_white] animate-pulse"></div>
+                   <div className="absolute inset-0 border border-white/10 rounded-[2rem] animate-[spin_10s_linear_infinite]"></div>
+                </div>
+              </div>
 
-               <div className="absolute inset-0 animate-[spin_30s_linear_infinite_reverse]">
-                  {/* Node 2: AI */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 glass-effect w-20 h-20 rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                    <i className="fa-solid fa-brain text-pink-400 text-xl"></i>
+              {/* Layered Holographic Logic Plates */}
+              {/* Plate 1: Performance */}
+              <div className="absolute z-30 transform -translate-x-32 -translate-y-20 rotate-x-[25deg] rotate-y-[-35deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
+                <div className="glass-effect p-6 rounded-3xl border border-white/10 w-48 shadow-2xl backdrop-blur-xl group-hover/plate:border-indigo-500/50 transition-colors">
+                  <div className="flex justify-between items-center mb-4">
+                    <i className="fa-solid fa-bolt text-indigo-400 text-xs"></i>
+                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Sys_Velocity</span>
                   </div>
-                  {/* Connection Line */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-px h-1/2 bg-gradient-to-b from-white/40 to-transparent origin-bottom"></div>
-               </div>
-
-               <div className="absolute inset-0 animate-[spin_25s_linear_infinite]">
-                  {/* Node 3: Growth */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 glass-effect w-14 h-14 rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
-                    <i className="fa-solid fa-chart-line text-emerald-400"></i>
+                  <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mb-2">
+                    <div className="h-full w-4/5 bg-indigo-500 animate-[loading_2s_linear_infinite]"></div>
                   </div>
-                   {/* Connection Line */}
-                  <div className="absolute top-1/2 left-1/2 -translate-y-1/2 w-1/2 h-px bg-gradient-to-l from-white/40 to-transparent origin-left"></div>
-               </div>
-            </div>
-            
-            {/* Ambient Labels */}
-            <div className="absolute top-10 right-0 glass-effect px-4 py-2 rounded-xl border border-white/10 opacity-40 hover:opacity-100 transition-opacity">
-               <span className="text-[8px] font-black text-white uppercase tracking-widest">Logic_Synthesis_v4</span>
-            </div>
-            <div className="absolute bottom-10 left-0 glass-effect px-4 py-2 rounded-xl border border-white/10 opacity-40 hover:opacity-100 transition-opacity">
-               <span className="text-[8px] font-black text-white uppercase tracking-widest">Growth_Architecture</span>
+                  <p className="text-white font-black text-xl tracking-tighter">MAX_SCALE</p>
+                </div>
+              </div>
+
+              {/* Plate 2: AI Synthesis */}
+              <div className="absolute z-10 transform translate-x-32 translate-y-20 rotate-x-[-15deg] rotate-y-[35deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
+                <div className="glass-effect p-6 rounded-3xl border border-white/10 w-52 shadow-2xl backdrop-blur-xl group-hover/plate:border-pink-500/50 transition-colors">
+                  <div className="flex justify-between items-center mb-4">
+                    <i className="fa-solid fa-brain text-pink-400 text-xs"></i>
+                    <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Neural_Sync</span>
+                  </div>
+                  <div className="flex items-center gap-1 mb-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest">Active</span>
+                  </div>
+                  <p className="text-white font-black text-xl tracking-tighter">AEO_OPTIMIZED</p>
+                </div>
+              </div>
+
+              {/* Plate 3: Market Logic */}
+              <div className="absolute z-40 transform translate-y-32 -translate-x-10 rotate-x-[40deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
+                <div className="glass-effect p-5 rounded-3xl border border-white/10 w-56 shadow-2xl backdrop-blur-xl group-hover/plate:border-emerald-500/50 transition-colors">
+                  <div className="flex gap-2 mb-3">
+                    <div className="w-1 h-3 bg-indigo-500/40"></div>
+                    <div className="w-1 h-5 bg-indigo-500/60"></div>
+                    <div className="w-1 h-8 bg-indigo-500"></div>
+                  </div>
+                  <p className="text-slate-400 text-[9px] font-black uppercase tracking-widest mb-1">Growth Index</p>
+                  <p className="text-white font-black text-2xl tracking-tighter">420%_ROI</p>
+                </div>
+              </div>
+
+              {/* Floating Tech Chips (Ambient) */}
+              <div className="absolute top-1/4 left-1/4 animate-bounce duration-[4000ms] opacity-30">
+                <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[7px] text-white font-black uppercase tracking-[0.3em]">
+                  Algorithmic_Edge
+                </div>
+              </div>
+              <div className="absolute bottom-1/4 right-1/4 animate-bounce duration-[5000ms] delay-700 opacity-30">
+                <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[7px] text-white font-black uppercase tracking-[0.3em]">
+                  Data_Synthesis
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -212,6 +245,12 @@ const ServicesPage: React.FC = () => {
       </section>
 
       <ContactForm />
+      <style>{`
+        @keyframes loading {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 };

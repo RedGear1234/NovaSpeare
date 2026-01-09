@@ -1,12 +1,12 @@
 import React from 'react';
 
 interface FooterProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works';
+  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => void;
+  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq';
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
     e.preventDefault();
     if (view === 'home' && hash) {
       onNavigate('home', hash);
@@ -59,8 +59,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
             <ul className="space-y-4">
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'services')} className="text-slate-400 hover:text-white transition-colors text-sm">Our Mastery</a></li>
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'how-it-works')} className="text-slate-400 hover:text-white transition-colors text-sm">How it Works</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'faq')} className="text-slate-400 hover:text-white transition-colors text-sm">FAQ</a></li>
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'team')} className="text-slate-400 hover:text-white transition-colors text-sm">The Collective</a></li>
-              <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
             </ul>
           </div>
           
@@ -70,6 +70,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'privacy')} className="text-slate-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
               <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
               <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Cookie Settings</a></li>
+              <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
             </ul>
           </div>
         </div>

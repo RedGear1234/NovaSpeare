@@ -117,13 +117,13 @@ const HowItWorksPage: React.FC = () => {
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-full h-[1000px] bg-indigo-600/[0.03] blur-[150px] rounded-full -z-10"></div>
       
-      {/* Redesigned Hero with Abstract Visual */}
+      {/* Refined Hero with High-End 3D Visualization */}
       <section className="max-w-7xl mx-auto px-6 mb-40 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-3 mb-8">
               <span className="w-12 h-[1px] bg-indigo-500/50"></span>
-              <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">The Operational Helix</span>
+              <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">Operational Architecture</span>
             </div>
             <h1 className="text-5xl md:text-[6.5rem] font-black text-white mb-10 leading-[0.9] tracking-tight">
               Our Proven <br />
@@ -134,41 +134,77 @@ const HowItWorksPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Side: The Strategic Helix Visual */}
-          <div className="hidden lg:flex justify-center relative h-[500px]">
-            {/* The Central Flow Line */}
-            <div className="absolute inset-y-0 w-1 bg-gradient-to-b from-indigo-500/0 via-indigo-500/20 to-indigo-500/0 left-1/2 -translate-x-1/2"></div>
-            
-            {/* Pulsing Nodes on the Flow */}
-            <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.5)] animate-pulse"></div>
-            <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)] animate-pulse [animation-delay:1s]"></div>
-            <div className="absolute top-[80%] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.5)] animate-pulse [animation-delay:0.5s]"></div>
+          {/* Right Side: Refined 3D Strategic Architecture Visual */}
+          <div className="hidden lg:flex justify-center items-center relative h-[600px] perspective-[2000px]">
+            <div className="relative w-full h-full flex items-center justify-center transform-style-3d">
+              
+              {/* Vertical Conduit Glow */}
+              <div className="absolute w-[2px] h-[400px] bg-gradient-to-b from-transparent via-indigo-500 to-transparent opacity-20 blur-[2px]"></div>
+              
+              {/* Floating Processing Layers (Stacked vertically in 3D) */}
+              {/* Layer 1: Input/Discovery (Top) */}
+              <div className="absolute top-[15%] transform rotate-x-[60deg] transition-all duration-1000 group-hover:translate-y-[-10px]">
+                <div className="w-64 h-64 glass-effect rounded-[3rem] border border-white/20 flex items-center justify-center shadow-2xl relative overflow-hidden">
+                   <div className="absolute inset-0 bg-indigo-500/5 animate-pulse"></div>
+                   <div className="relative z-10 flex flex-col items-center gap-2 -rotate-x-[60deg]">
+                      <i className="fa-solid fa-satellite text-indigo-400 text-3xl"></i>
+                      <span className="text-[8px] font-black text-white uppercase tracking-widest">Discovery_Module</span>
+                   </div>
+                   {/* Scanning Beam */}
+                   <div className="absolute top-0 left-0 w-full h-1 bg-indigo-500/40 blur-sm animate-[scan_3s_linear_infinite]"></div>
+                </div>
+              </div>
 
-            {/* Orbiting Service Badges */}
-            <div className="absolute w-full h-full animate-[spin_20s_linear_infinite]">
-               <div className="absolute top-10 left-1/4 glass-effect p-4 rounded-2xl border border-white/10 flex items-center gap-3 -rotate-12">
-                  <i className="fa-solid fa-brain text-indigo-400"></i>
-                  <span className="text-[10px] font-black text-white uppercase tracking-widest">Strategy_Lab</span>
-               </div>
-               <div className="absolute bottom-20 right-1/4 glass-effect p-4 rounded-2xl border border-white/10 flex items-center gap-3 rotate-12">
-                  <i className="fa-solid fa-chart-line text-emerald-400"></i>
-                  <span className="text-[10px] font-black text-white uppercase tracking-widest">Growth_Pulse</span>
-               </div>
+              {/* Layer 2: Logic/Strategy (Middle) */}
+              <div className="absolute top-[45%] transform rotate-x-[60deg] transition-all duration-1000 group-hover:scale-110">
+                <div className="w-80 h-80 glass-effect rounded-[4rem] border border-white/20 flex items-center justify-center shadow-[0_0_50px_rgba(99,102,241,0.15)] relative overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 to-pink-500/5"></div>
+                   <div className="relative z-10 flex flex-col items-center gap-2 -rotate-x-[60deg]">
+                      <i className="fa-solid fa-microchip text-pink-400 text-4xl animate-pulse"></i>
+                      <span className="text-[10px] font-black text-white uppercase tracking-widest">Core_Strategy_v4</span>
+                   </div>
+                   {/* Interlocking Rings Animation */}
+                   <div className="absolute inset-8 border border-white/10 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                   <div className="absolute inset-16 border border-indigo-500/20 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                </div>
+              </div>
+
+              {/* Layer 3: Growth/Output (Bottom) */}
+              <div className="absolute top-[75%] transform rotate-x-[60deg] transition-all duration-1000 group-hover:translate-y-[10px]">
+                <div className="w-56 h-56 glass-effect rounded-[2.5rem] border border-white/20 flex items-center justify-center shadow-2xl relative overflow-hidden">
+                   <div className="absolute inset-0 bg-emerald-500/5"></div>
+                   <div className="relative z-10 flex flex-col items-center gap-2 -rotate-x-[60deg]">
+                      <i className="fa-solid fa-arrow-trend-up text-emerald-400 text-2xl"></i>
+                      <span className="text-[8px] font-black text-white uppercase tracking-widest">Growth_Expander</span>
+                   </div>
+                </div>
+              </div>
+
+              {/* Flowing Data Particles */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {[...Array(6)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className="absolute w-1.5 h-1.5 bg-white rounded-full blur-[1px] animate-[particle_4s_linear_infinite]"
+                    style={{ 
+                      animationDelay: `${i * 0.7}s`,
+                      left: `${45 + (i % 3) * 5}%`
+                    }}
+                  ></div>
+                ))}
+              </div>
+
+              {/* Ambient Holographic Readouts */}
+              <div className="absolute left-[80%] top-1/4 glass-effect px-4 py-2 rounded-xl border border-white/10 -rotate-12 group-hover:rotate-0 transition-transform">
+                <p className="text-[7px] font-black text-indigo-400 uppercase tracking-widest mb-1">Status</p>
+                <p className="text-[9px] font-bold text-white tracking-tight">OPTIMIZING_ROI</p>
+              </div>
+              
+              <div className="absolute right-[80%] bottom-1/4 glass-effect px-4 py-2 rounded-xl border border-white/10 rotate-12 group-hover:rotate-0 transition-transform">
+                <p className="text-[7px] font-black text-pink-400 uppercase tracking-widest mb-1">Compute</p>
+                <p className="text-[9px] font-bold text-white tracking-tight">NEURAL_TRAFFIC_ACTIVE</p>
+              </div>
             </div>
-
-            <div className="absolute w-full h-full animate-[spin_30s_linear_infinite_reverse]">
-               <div className="absolute top-1/2 left-0 glass-effect p-4 rounded-2xl border border-white/10 flex items-center gap-3 rotate-6">
-                  <i className="fa-solid fa-code text-pink-400"></i>
-                  <span className="text-[10px] font-black text-white uppercase tracking-widest">Logic_Engine</span>
-               </div>
-               <div className="absolute top-1/4 right-0 glass-effect p-4 rounded-2xl border border-white/10 flex items-center gap-3 -rotate-6">
-                  <i className="fa-solid fa-magnifying-glass-chart text-amber-400"></i>
-                  <span className="text-[10px] font-black text-white uppercase tracking-widest">Market_Scan</span>
-               </div>
-            </div>
-
-            {/* Background Diffusion */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full"></div>
           </div>
         </div>
       </section>
@@ -353,6 +389,19 @@ const HowItWorksPage: React.FC = () => {
       </section>
 
       <ContactForm />
+      
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(0); opacity: 0; }
+          50% { opacity: 1; }
+          100% { transform: translateY(240px); opacity: 0; }
+        }
+        @keyframes particle {
+          0% { transform: translateY(-100px) scale(0); opacity: 0; }
+          50% { opacity: 0.8; }
+          100% { transform: translateY(300px) scale(1.5); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 };

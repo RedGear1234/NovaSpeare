@@ -11,16 +11,18 @@ import ChatWidget from './components/ChatWidget';
 import ContactMapSection from './components/ContactMapSection';
 import USPSection from './components/USPSection';
 import KeyBenefits from './components/KeyBenefits';
+import WhyChooseUs from './components/WhyChooseUs';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import HowItWorksPage from './pages/HowItWorksPage';
+import FAQPage from './pages/FAQPage';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'services' | 'team' | 'privacy' | 'how-it-works'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq'>('home');
   const [pendingHash, setPendingHash] = useState<string | null>(null);
 
-  const handleNavigate = (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
+  const handleNavigate = (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
     setCurrentView(view);
     if (hash) {
       setPendingHash(hash);
@@ -57,6 +59,7 @@ const App: React.FC = () => {
         <Services />
         <USPSection />
         <KeyBenefits />
+        <WhyChooseUs onNavigate={handleNavigate} />
         <Portfolio />
         <StrategyLab />
         <Team />
@@ -108,6 +111,7 @@ const App: React.FC = () => {
       case 'how-it-works': return <HowItWorksPage />;
       case 'team': return <TeamPage />;
       case 'privacy': return <PrivacyPolicyPage />;
+      case 'faq': return <FAQPage />;
       case 'home':
       default: return renderHome();
     }

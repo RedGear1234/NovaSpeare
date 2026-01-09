@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 interface NavbarProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works';
+  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => void;
+  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq';
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     }
   }, [isMobileMenuOpen]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
     e.preventDefault();
     onNavigate(view, hash);
     setIsMobileMenuOpen(false);
@@ -35,9 +35,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   const navLinks = [
     { label: 'Services', view: 'services' as const },
     { label: 'How it Works', view: 'how-it-works' as const },
+    { label: 'FAQ', view: 'faq' as const },
     { label: 'Team', view: 'team' as const },
     { label: 'Portfolio', view: 'home' as const, hash: '#portfolio' },
-    { label: 'Client Tales', view: 'home' as const, hash: '#testimonials' },
   ];
 
   return (
