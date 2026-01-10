@@ -13,6 +13,7 @@ import USPSection from './components/USPSection';
 import KeyBenefits from './components/KeyBenefits';
 import WhyChooseUs from './components/WhyChooseUs';
 import IndustriesWeServe from './components/IndustriesWeServe';
+import StartNowSection from './components/StartNowSection';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -82,6 +83,7 @@ const App: React.FC = () => {
         <StrategyLab />
         <Team />
         <Testimonials onNavigate={handleNavigate} />
+        <StartNowSection />
         <ContactMapSection />
         
         {/* Final CTA Section */}
