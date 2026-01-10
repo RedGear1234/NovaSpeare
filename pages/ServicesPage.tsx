@@ -30,7 +30,6 @@ const ServicesPage: React.FC = () => {
               <span className="w-12 h-[1px] bg-indigo-500/50"></span>
               <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px]">Strategic Solutions</span>
             </div>
-            {/* Added extra padding-right to the gradient span to ensure 'y' in 'Mastery' is never clipped */}
             <h1 className="text-5xl md:text-[7rem] font-black text-white mb-10 leading-[0.85] tracking-tight">
               Our Core <br /><span className="gradient-text pr-6 pb-2 inline-block">Mastery</span>
             </h1>
@@ -60,7 +59,6 @@ const ServicesPage: React.FC = () => {
               </div>
 
               {/* Layered Holographic Logic Plates */}
-              {/* Plate 1: Performance */}
               <div className="absolute z-30 transform -translate-x-32 -translate-y-20 rotate-x-[25deg] rotate-y-[-35deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
                 <div className="glass-effect p-6 rounded-3xl border border-white/10 w-48 shadow-2xl backdrop-blur-xl group-hover/plate:border-indigo-500/50 transition-colors">
                   <div className="flex justify-between items-center mb-4">
@@ -74,7 +72,6 @@ const ServicesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Plate 2: AI Synthesis */}
               <div className="absolute z-10 transform translate-x-32 translate-y-20 rotate-x-[-15deg] rotate-y-[35deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
                 <div className="glass-effect p-6 rounded-3xl border border-white/10 w-52 shadow-2xl backdrop-blur-xl group-hover/plate:border-pink-500/50 transition-colors">
                   <div className="flex justify-between items-center mb-4">
@@ -89,7 +86,6 @@ const ServicesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Plate 3: Market Logic */}
               <div className="absolute z-40 transform translate-y-32 -translate-x-10 rotate-x-[40deg] transition-all duration-700 hover:scale-110 cursor-default group/plate">
                 <div className="glass-effect p-5 rounded-3xl border border-white/10 w-56 shadow-2xl backdrop-blur-xl group-hover/plate:border-emerald-500/50 transition-colors">
                   <div className="flex gap-2 mb-3">
@@ -102,7 +98,6 @@ const ServicesPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Floating Tech Chips (Ambient) */}
               <div className="absolute top-1/4 left-1/4 animate-bounce duration-[4000ms] opacity-30">
                 <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[7px] text-white font-black uppercase tracking-[0.3em]">
                   Algorithmic_Edge
@@ -151,19 +146,29 @@ const ServicesPage: React.FC = () => {
               <div className="relative group">
                 <div className={`absolute -inset-4 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-1000 blur-3xl rounded-[4rem]`}></div>
                 
-                <div className="glass-effect rounded-[4rem] p-12 border border-white/5 relative z-10 shadow-3xl overflow-hidden">
+                <div className="glass-effect rounded-[4rem] p-12 md:p-16 border border-white/5 relative z-10 shadow-3xl overflow-hidden">
                   <div className="absolute top-0 right-0 p-8 opacity-5">
                     <i className={`fa-solid ${service.icon} text-[12rem] -rotate-12`}></i>
                   </div>
                   
                   <div className="relative z-10 space-y-12">
                     <div>
-                      <div className="flex items-center gap-3 mb-6">
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Target Results</span>
+                      <div className="flex items-center gap-3 mb-8">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-400">Target Results Matrix</span>
+                        <div className="flex-grow h-px bg-indigo-500/10"></div>
                       </div>
-                      <p className="text-2xl font-black text-white leading-[1.1] tracking-tight group-hover:gradient-text transition-all duration-500">
-                        {service.resultsSummary}
-                      </p>
+                      
+                      {/* Refined Results Display: From pipe-separated string to discrete data nodes */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {service.resultsSummary.split('|').map((result, rIdx) => (
+                          <div key={rIdx} className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/5 group-hover:border-white/10 group-hover:bg-white/[0.05] transition-all duration-500">
+                             <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse"></div>
+                             <span className="text-sm md:text-base font-black text-white tracking-tight leading-tight">
+                               {result.trim()}
+                             </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     <div className="w-full h-px bg-white/5"></div>

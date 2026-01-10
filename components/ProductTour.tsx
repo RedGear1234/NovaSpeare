@@ -29,7 +29,7 @@ const TOUR_STEPS: TourStep[] = [
     subtitle: 'CAPABILITY_MATRIX',
     content: 'Our core services are precision-engineered to scale. From SEO to AI integration, every node in this matrix is designed for maximum ROI.',
     targetId: 'services',
-    icon: 'fa-layers-group'
+    icon: 'fa-layer-group'
   },
   {
     id: 'usp',
