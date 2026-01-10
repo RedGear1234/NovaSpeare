@@ -16,14 +16,18 @@ import IndustriesWeServe from './components/IndustriesWeServe';
 import ServicesPage from './pages/ServicesPage';
 import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import CookiePolicyPage from './pages/CookiePolicyPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import FAQPage from './pages/FAQPage';
 
+export type ViewType = 'home' | 'services' | 'team' | 'privacy' | 'terms' | 'cookies' | 'how-it-works' | 'faq';
+
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq'>('home');
+  const [currentView, setCurrentView] = useState<ViewType>('home');
   const [pendingHash, setPendingHash] = useState<string | null>(null);
 
-  const handleNavigate = (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
+  const handleNavigate = (view: ViewType, hash?: string) => {
     setCurrentView(view);
     if (hash) {
       setPendingHash(hash);
@@ -113,6 +117,8 @@ const App: React.FC = () => {
       case 'how-it-works': return <HowItWorksPage />;
       case 'team': return <TeamPage />;
       case 'privacy': return <PrivacyPolicyPage />;
+      case 'terms': return <TermsOfServicePage />;
+      case 'cookies': return <CookiePolicyPage />;
       case 'faq': return <FAQPage />;
       case 'home':
       default: return renderHome();

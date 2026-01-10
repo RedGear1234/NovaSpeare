@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { ViewType } from '../App';
 
 interface NavbarProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq';
+  onNavigate: (view: ViewType, hash?: string) => void;
+  currentView: ViewType;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
@@ -23,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     }
   }, [isMobileMenuOpen]);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: ViewType, hash?: string) => {
     e.preventDefault();
     onNavigate(view, hash);
     setIsMobileMenuOpen(false);
@@ -33,11 +34,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   };
 
   const navLinks = [
-    { label: 'Services', view: 'services' as const },
-    { label: 'How it Works', view: 'how-it-works' as const },
-    { label: 'FAQ', view: 'faq' as const },
-    { label: 'Team', view: 'team' as const },
-    { label: 'Portfolio', view: 'home' as const, hash: '#portfolio' },
+    { label: 'Services', view: 'services' as ViewType },
+    { label: 'How it Works', view: 'how-it-works' as ViewType },
+    { label: 'FAQ', view: 'faq' as ViewType },
+    { label: 'Team', view: 'team' as ViewType },
+    { label: 'Portfolio', view: 'home' as ViewType, hash: '#portfolio' },
   ];
 
   return (

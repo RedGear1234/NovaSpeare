@@ -28,7 +28,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onNavigate }) => {
       other: "Monthly PDFs",
       novaSub: "REALTIME_INTEL",
       legacySub: "POST_MORTEM_DATA",
-      icon: "fa-chart-network"
+      icon: "fa-chart-column"
     },
     {
       feature: "Freedom",

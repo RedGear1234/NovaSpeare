@@ -1,12 +1,13 @@
 import React from 'react';
+import { ViewType } from '../App';
 
 interface FooterProps {
-  onNavigate: (view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => void;
-  currentView: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq';
+  onNavigate: (view: ViewType, hash?: string) => void;
+  currentView: ViewType;
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: 'home' | 'services' | 'team' | 'privacy' | 'how-it-works' | 'faq', hash?: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, view: ViewType, hash?: string) => {
     e.preventDefault();
     if (view === 'home' && hash) {
       onNavigate('home', hash);
@@ -43,7 +44,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
             </p>
             <div className="flex gap-4">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10">
-                <i className="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10">
                 <i className="fa-brands fa-linkedin-in"></i>
@@ -68,8 +69,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
             <ul className="space-y-4">
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'privacy')} className="text-slate-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-white transition-colors text-sm">Cookie Settings</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'terms')} className="text-slate-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'cookies')} className="text-slate-400 hover:text-white transition-colors text-sm">Cookie Settings</a></li>
               <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
             </ul>
           </div>

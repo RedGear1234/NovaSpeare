@@ -6,6 +6,21 @@ const TeamPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const values = [
+    { title: "Results Over Everything", desc: "We measure success by your business growth, not vanity metrics.", icon: "fa-chart-line" },
+    { title: "Complete Transparency", desc: "You always know exactly what we're doing and why, no hidden agendas.", icon: "fa-eye" },
+    { title: "Client Partnership", desc: "Your success is our success. We operate as an extension of your team.", icon: "fa-handshake" },
+    { title: "Continuous Learning", desc: "We stay updated on the latest strategies and AI-driven platforms.", icon: "fa-brain" },
+    { title: "Ethical Practices", desc: "No black-hat tactics or misleading promises. Only sustainable growth.", icon: "fa-shield-heart" }
+  ];
+
+  const expertisePoints = [
+    { label: "Credentials", val: "Certified Google Partner & Meta Business Partner", icon: "fa-certificate" },
+    { label: "Experience", val: "Combined 30+ years of digital marketing experience", icon: "fa-hourglass-half" },
+    { label: "Specialization", val: "SEO, PPC, Social Media, and Content Marketing", icon: "fa-laptop-code" },
+    { label: "Perspective", val: "Real business owners (we understand your challenges)", icon: "fa-briefcase" }
+  ];
+
   return (
     <div className="pt-32 pb-24 bg-[#0f172a] relative overflow-hidden">
       {/* Background Decorative Atmosphere */}
@@ -13,7 +28,7 @@ const TeamPage: React.FC = () => {
       <div className="absolute bottom-1/4 -left-48 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
 
       {/* Page Hero */}
-      <section className="max-w-7xl mx-auto px-6 mb-32 text-center relative z-10">
+      <section className="max-w-7xl mx-auto px-6 mb-24 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6 animate-fadeInUp">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
           The Human Engine
@@ -26,8 +41,74 @@ const TeamPage: React.FC = () => {
         </p>
       </section>
 
-      {/* Full Team Grid - Refined 4 Cards */}
+      {/* About NovaSphere Section */}
+      <section className="max-w-7xl mx-auto px-6 mb-32 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-24">
+          <div className="space-y-8">
+            <div className="glass-effect p-8 md:p-12 rounded-[3rem] border border-white/5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 text-indigo-500/10 text-8xl font-black italic -rotate-12 pointer-events-none">WHO</div>
+              <h2 className="text-3xl font-black text-white mb-6 flex items-center gap-3">
+                <span className="w-8 h-1 bg-indigo-500 rounded-full"></span> Who We Are
+              </h2>
+              <p className="text-slate-300 text-lg leading-relaxed font-medium">
+                NovaSphere is a results-driven digital marketing agency based in Pune, specializing in helping local businesses and national brands grow online. Since our founding, we've generated <span className="text-white font-bold">1,500+ qualified leads</span> for clients and helped businesses scale their revenue through strategic digital marketing.
+              </p>
+            </div>
+
+            <div className="glass-effect p-8 md:p-12 rounded-[3rem] border border-white/5 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 text-purple-500/10 text-8xl font-black italic -rotate-12 pointer-events-none">STORY</div>
+              <h2 className="text-3xl font-black text-white mb-6 flex items-center gap-3">
+                <span className="w-8 h-1 bg-purple-500 rounded-full"></span> Our Story
+              </h2>
+              <p className="text-slate-300 text-lg leading-relaxed font-medium italic opacity-90">
+                "We started NovaSphere with a simple belief: digital marketing should be transparent, data-driven, and focused on real business results — not vanity metrics. We saw too many agencies running campaigns for the sake of running campaigns. So we built something different."
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <h2 className="text-3xl font-black text-white flex items-center gap-3 mb-4">
+              <span className="w-8 h-1 bg-emerald-500 rounded-full"></span> Core Values
+            </h2>
+            <div className="grid gap-4">
+              {values.map((v, i) => (
+                <div key={i} className="glass-effect px-8 py-6 rounded-3xl border border-white/5 flex items-center gap-6 group hover:border-indigo-500/30 transition-all duration-500">
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-lg">
+                    <i className={`fa-solid ${v.icon} text-lg`}></i>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-black text-sm uppercase tracking-widest mb-1">{v.title}</h4>
+                    <p className="text-slate-500 text-xs leading-relaxed">{v.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Team Expertise Bar */}
+        <div className="glass-effect p-8 md:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden mb-32 group">
+          <div className="absolute inset-0 bg-indigo-600/[0.02] pointer-events-none"></div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            {expertisePoints.map((p, i) => (
+              <div key={i} className="text-center md:text-left">
+                <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                  <i className={`fa-solid ${p.icon} text-indigo-400 text-xs`}></i>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">{p.label}</span>
+                </div>
+                <p className="text-white font-black text-lg leading-tight tracking-tight">{p.val}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Full Team Grid - Original Content */}
       <section className="max-w-7xl mx-auto px-6 mb-48 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Meet The <span className="gradient-text">Collective</span></h2>
+          <p className="text-slate-400">The specialists driving your growth.</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-start">
           {TEAM.map((member, i) => (
             <div 
