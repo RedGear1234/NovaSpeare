@@ -17,6 +17,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
     }
   };
 
+  const socialLinks = [
+    { href: "https://x.com", icon: "fa-brands fa-x-twitter", label: "X (formerly Twitter)" },
+    { href: "https://linkedin.com", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
+    { href: "https://instagram.com", icon: "fa-brands fa-instagram", label: "Instagram" }
+  ];
+
   return (
     <footer className="bg-[#0f172a] pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-indigo-500/5 blur-[100px] pointer-events-none"></div>
@@ -43,15 +49,21 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
               Join the ranks of forward-thinking brands that choose NovaSphere for their digital evolution.
             </p>
             <div className="flex gap-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10">
-                <i className="fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10">
-                <i className="fa-brands fa-instagram"></i>
-              </a>
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.label}
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 transition-all border border-white/10 group/social relative"
+                >
+                  <i className={`${social.icon}`}></i>
+                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-indigo-600 text-white text-[8px] font-black uppercase tracking-widest rounded opacity-0 group-hover/social:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                    {social.label.split(' ')[0]}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
           

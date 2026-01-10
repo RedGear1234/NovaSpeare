@@ -15,10 +15,10 @@ const TeamPage: React.FC = () => {
   ];
 
   const expertisePoints = [
-    { label: "Credentials", val: "Certified Google Partner & Meta Business Partner", icon: "fa-certificate" },
-    { label: "Experience", val: "Combined 30+ years of digital marketing experience", icon: "fa-hourglass-half" },
-    { label: "Specialization", val: "SEO, PPC, Social Media, and Content Marketing", icon: "fa-laptop-code" },
-    { label: "Perspective", val: "Real business owners (we understand your challenges)", icon: "fa-briefcase" }
+    { label: "Credentials", val: "Certified Google & Meta Partner", icon: "fa-certificate", code: "AUTH_01", color: "text-blue-400" },
+    { label: "Experience", val: "30+ Years Combined Mastery", icon: "fa-hourglass-half", code: "AUTH_02", color: "text-indigo-400" },
+    { label: "Specialization", val: "Full-Funnel Digital Growth", icon: "fa-laptop-code", code: "AUTH_03", color: "text-purple-400" },
+    { label: "Perspective", val: "Real Business Owner Insights", icon: "fa-briefcase", code: "AUTH_04", color: "text-pink-400" }
   ];
 
   return (
@@ -39,6 +39,56 @@ const TeamPage: React.FC = () => {
         <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
           We are a distributed collective of creative thinkers, algorithmic architects, and digital pioneers obsessed with crafting the future.
         </p>
+      </section>
+
+      {/* Trust Protocol Bar (Refined Expertise Section) */}
+      <section className="max-w-7xl mx-auto px-6 mb-32 relative z-10">
+        <div className="relative group">
+          {/* Decorative Outer Glow */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-indigo-500/20 rounded-[4rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+          
+          <div className="glass-effect rounded-[4rem] border border-white/10 relative overflow-hidden p-1 px-1">
+            {/* Animated Scanline */}
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent -translate-y-full group-hover:animate-[scan_4s_linear_infinite] pointer-events-none"></div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 relative z-10">
+              {expertisePoints.map((p, i) => (
+                <div 
+                  key={i} 
+                  className={`p-10 md:p-12 relative flex flex-col gap-6 transition-all duration-500 hover:bg-white/[0.02] ${
+                    i !== expertisePoints.length - 1 ? 'border-b md:border-b-0 lg:border-r border-white/5' : ''
+                  }`}
+                >
+                  <div className="flex justify-between items-start">
+                    <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:border-indigo-500/40 ${p.color}`}>
+                      <i className={`fa-solid ${p.icon} text-xl`}></i>
+                    </div>
+                    <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest">{p.code}</span>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_5px_#10b981]"></span>
+                      <p className="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em]">{p.label}</p>
+                    </div>
+                    <h4 className="text-white font-black text-xl md:text-lg xl:text-xl tracking-tight leading-tight">
+                      {p.val}
+                    </h4>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto opacity-40 group-hover:opacity-100 transition-opacity">
+                    <span className="text-[7px] font-bold text-slate-500 uppercase tracking-widest">Status: VERIFIED</span>
+                    <div className="flex gap-1">
+                      {[1,2,3].map(dot => (
+                        <div key={dot} className="w-1 h-1 rounded-full bg-indigo-500/30"></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* About NovaSphere Section */}
@@ -85,25 +135,9 @@ const TeamPage: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Team Expertise Bar */}
-        <div className="glass-effect p-8 md:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden mb-32 group">
-          <div className="absolute inset-0 bg-indigo-600/[0.02] pointer-events-none"></div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
-            {expertisePoints.map((p, i) => (
-              <div key={i} className="text-center md:text-left">
-                <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
-                  <i className={`fa-solid ${p.icon} text-indigo-400 text-xs`}></i>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">{p.label}</span>
-                </div>
-                <p className="text-white font-black text-lg leading-tight tracking-tight">{p.val}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
-      {/* Full Team Grid - Original Content */}
+      {/* Full Team Grid */}
       <section className="max-w-7xl mx-auto px-6 mb-48 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Meet The <span className="gradient-text">Collective</span></h2>
@@ -117,7 +151,6 @@ const TeamPage: React.FC = () => {
                 i % 2 === 0 ? 'lg:mt-24' : 'lg:-mt-4'
               }`}
             >
-              {/* Fixed Refined Image Container */}
               <div 
                 className="relative w-full aspect-[4/5] rounded-[3rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 hover:translate-y-[-10px] bg-slate-900 border border-white/5 isolation-isolate group-hover:border-indigo-500/30 group-hover:shadow-indigo-500/10"
                 style={{ 
@@ -126,12 +159,8 @@ const TeamPage: React.FC = () => {
                   backfaceVisibility: 'hidden'
                 }}
               >
-                {/* Neural Mesh Overlay (Visible on hover) */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-10" 
                      style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
-                
-                {/* Animated Light Sweep */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 bg-gradient-to-tr from-transparent via-white/10 to-transparent rotate-45 transition-all duration-1000 -translate-x-full group-hover:translate-x-full z-20"></div>
                 
                 <img 
                   src={member.img} 
@@ -139,34 +168,31 @@ const TeamPage: React.FC = () => {
                   className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 z-0 will-change-transform"
                 />
                 
-                {/* Dark Gradient Mask */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity z-10"></div>
                 
-                {/* Information Panel Reveal */}
                 <div className="absolute inset-x-4 bottom-4 p-6 glass-effect border-white/10 rounded-[2rem] transform translate-y-[120%] group-hover:translate-y-0 transition-all duration-500 ease-out z-30 shadow-2xl">
                   <p className="text-white text-xs leading-relaxed font-medium">
                     {member.bio}
                   </p>
                   <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
                     {member.socials.linkedin && (
-                      <a href={member.socials.linkedin} className="text-slate-400 hover:text-white transition-colors">
+                      <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
                         <i className="fa-brands fa-linkedin-in text-sm"></i>
                       </a>
                     )}
                     {member.socials.github && (
-                      <a href={member.socials.github} className="text-slate-400 hover:text-white transition-colors">
+                      <a href={member.socials.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
                         <i className="fa-brands fa-github text-sm"></i>
                       </a>
                     )}
                     {member.socials.twitter && (
-                      <a href={member.socials.twitter} className="text-slate-400 hover:text-white transition-colors">
+                      <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
                         <i className="fa-brands fa-x-twitter text-sm"></i>
                       </a>
                     )}
                   </div>
                 </div>
 
-                {/* Status Badge */}
                 <div className="absolute top-6 left-6 z-30 px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -265,6 +291,15 @@ const TeamPage: React.FC = () => {
           View Open Roles
         </a>
       </section>
+
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(0); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(500px); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 };
