@@ -41,7 +41,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="pt-32 pb-12 relative overflow-hidden bg-transparent">
+    <section id="why-us" className="pt-32 pb-12 relative overflow-hidden bg-transparent scroll-mt-24">
       {/* Subtle Background Glows */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/5 blur-[120px] rounded-full -z-10"></div>
       

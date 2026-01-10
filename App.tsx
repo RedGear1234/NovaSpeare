@@ -20,12 +20,14 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import FAQPage from './pages/FAQPage';
+import ProductTour from './components/ProductTour';
 
 export type ViewType = 'home' | 'services' | 'team' | 'privacy' | 'terms' | 'cookies' | 'how-it-works' | 'faq';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewType>('home');
   const [pendingHash, setPendingHash] = useState<string | null>(null);
+  const [isTourActive, setIsTourActive] = useState(false);
 
   const handleNavigate = (view: ViewType, hash?: string) => {
     setCurrentView(view);
@@ -49,9 +51,18 @@ const App: React.FC = () => {
     }
   }, [currentView, pendingHash]);
 
+  const startTour = () => {
+    if (currentView !== 'home') {
+      setCurrentView('home');
+      setTimeout(() => setIsTourActive(true), 100);
+    } else {
+      setIsTourActive(true);
+    }
+  };
+
   const renderHome = () => (
     <div className="relative overflow-x-hidden w-full">
-      <Hero onNavigate={handleNavigate} />
+      <Hero onNavigate={handleNavigate} onStartTour={startTour} />
       
       {/* Dynamic Background Atmosphere - Layered Glows */}
       <div className="absolute top-[10%] left-0 w-full h-[800px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
@@ -144,6 +155,11 @@ const App: React.FC = () => {
         <Footer currentView={currentView} onNavigate={handleNavigate} />
       </footer>
       <ChatWidget />
+      
+      {/* Home Tour UI */}
+      {currentView === 'home' && (
+        <ProductTour isActive={isTourActive} onClose={() => setIsTourActive(false)} />
+      )}
     </div>
   );
 };

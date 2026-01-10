@@ -2,9 +2,10 @@ import React from 'react';
 
 interface HeroProps {
   onNavigate: (view: 'home' | 'services' | 'team' | 'privacy', hash?: string) => void;
+  onStartTour?: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+const Hero: React.FC<HeroProps> = ({ onNavigate, onStartTour }) => {
   const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
     onNavigate('home', hash);
@@ -19,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-visible">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-16 overflow-visible">
       {/* Background Orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] animate-pulse"></div>
       <div className="absolute bottom-0 -right-20 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[130px] animate-pulse transition-all duration-[5000ms]"></div>
@@ -46,13 +47,16 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           >
             Visit Our Works
           </a>
-          <a 
-            href="#services" 
-            onClick={(e) => handleButtonClick(e, '#services')}
-            className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl font-bold text-lg transition-all"
+          <button 
+            onClick={onStartTour}
+            className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-xl font-bold text-lg transition-all flex items-center gap-3 group"
           >
-            Our Expertise
-          </a>
+            <div className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+            </div>
+            Experience Tour
+          </button>
         </div>
 
         {/* Enhanced Partners Section with Improved Contrast */}
