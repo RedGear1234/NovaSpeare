@@ -17,7 +17,7 @@ const StartNowSection: React.FC = () => {
     {
       title: "No Hidden Costs",
       desc: "Total pricing transparency. What you see is exactly what you pay.",
-      icon: "fa-shield-check",
+      icon: "fa-shield-halved",
       color: "from-blue-500 to-cyan-500"
     },
     {
