@@ -137,25 +137,25 @@ export const TEAM: TeamMember[] = [
     socials: { twitter: '#', linkedin: '#' }
   },
   {
-    name: 'Elena Vance',
-    role: 'Head of AI Research',
+    name: 'Kaustubh Chaure',
+    role: 'Social Media Head',
     img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
-    bio: 'A neural architecture specialist, Elena leads our Strategy Lab development, ensuring our AI insights are grounded in the most advanced LLM technology available.',
-    socials: { github: '#', linkedin: '#' }
+    bio: 'A social media visionary, Kaustubh leads our engagement strategies, ensuring our clients\' brand authority is established across all digital platforms through data-backed content.',
+    socials: { linkedin: 'https://www.linkedin.com/in/kaustubh-chaure-583143291/' }
   },
   {
-    name: 'Marcus Thorne',
-    role: 'Creative Director',
+    name: 'Neeraj Waghmare',
+    role: 'Salesforce / Cloud Services Expert',
     img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
-    bio: 'Marcus focuses on high-performance user experiences that blend human emotion with algorithmic precision, making every brand story unforgettable.',
-    socials: { twitter: '#', linkedin: '#' }
+    bio: 'Neeraj focuses on high-performance cloud solutions and Salesforce architectures, ensuring enterprise-grade scalability and seamless integration for complex business ecosystems.',
+    socials: { linkedin: 'https://www.linkedin.com/in/neeraj-waghmare-054324239/' }
   },
   {
-    name: 'Priya Sharma',
-    role: 'Head of Growth',
+    name: 'Shubham Chavan',
+    role: 'Web Services',
     img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
-    bio: 'Data scientist turned marketer, Priya manages multi-million dollar ad spends with a focus on deep-funnel optimization and customer lifetime value.',
-    socials: { linkedin: '#' }
+    bio: 'A technical powerhouse, Shubham manages our Web Services division, focusing on high-velocity performance, secure infrastructure, and pixel-perfect deployment.',
+    socials: { github: 'https://github.com/RedGear1234' }
   }
 ];
 
