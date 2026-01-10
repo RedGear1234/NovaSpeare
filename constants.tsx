@@ -132,14 +132,14 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
-    img: 'https://images.unsplash.com/photo-1507152832244-10d45c7eda57?auto=format&fit=crop&w=800&q=80',
+    img: 'team-member-images/kunal.jpg',
     bio: 'Founder of I Web Optimizer, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: 'https://x.com', linkedin: 'https://www.linkedin.com/in/kunal-gaikwad-211b47186/' }
   },
   {
     name: 'Kaustubh Chaure',
     role: 'Social Media Head',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    img: 'team-member-images/kaustubh.jpg',
     bio: 'A social media visionary, Kaustubh leads our engagement strategies, ensuring our clients\' brand authority is established across all digital platforms through data-backed content.',
     socials: { linkedin: 'https://www.linkedin.com/in/kaustubh-chaure-583143291/' }
   },

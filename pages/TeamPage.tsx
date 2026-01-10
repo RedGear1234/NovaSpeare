@@ -41,7 +41,7 @@ const TeamPage: React.FC = () => {
         </p>
       </section>
 
-      {/* Trust Protocol Bar (Refined Expertise Section) */}
+      {/* Re-Refined Trust Protocol Bar */}
       <section className="max-w-7xl mx-auto px-6 mb-32 relative z-10">
         <div className="relative group">
           {/* Decorative Outer Glow */}
@@ -55,7 +55,7 @@ const TeamPage: React.FC = () => {
               {expertisePoints.map((p, i) => (
                 <div 
                   key={i} 
-                  className={`p-10 md:p-12 relative flex flex-col gap-6 transition-all duration-500 hover:bg-white/[0.02] ${
+                  className={`p-10 md:p-12 lg:p-14 relative flex flex-col gap-6 transition-all duration-500 hover:bg-white/[0.02] ${
                     i !== expertisePoints.length - 1 ? 'border-b md:border-b-0 lg:border-r border-white/5' : ''
                   }`}
                 >
@@ -68,7 +68,7 @@ const TeamPage: React.FC = () => {
 
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_5px_#10b981]"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_5px_#10b981]"></span>
                       <p className="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em]">{p.label}</p>
                     </div>
                     <h4 className="text-white font-black text-xl md:text-lg xl:text-xl tracking-tight leading-tight">
@@ -166,6 +166,11 @@ const TeamPage: React.FC = () => {
                   src={member.img} 
                   alt={member.name} 
                   className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 z-0 will-change-transform"
+                  onError={(e) => {
+                    // Fallback in case local images aren't found
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80';
+                  }}
                 />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity z-10"></div>
