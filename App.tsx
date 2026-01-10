@@ -50,6 +50,16 @@ const App: React.FC = () => {
         }, 100);
         return () => clearTimeout(timeoutId);
       }
+    } else if (currentView !== 'home' && pendingHash) {
+      // Handle scrolling on sub-pages
+      const timeoutId = setTimeout(() => {
+        const element = document.querySelector(pendingHash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setPendingHash(null);
+        }
+      }, 500); // Wait for page transition
+      return () => clearTimeout(timeoutId);
     }
   }, [currentView, pendingHash]);
 
@@ -74,7 +84,7 @@ const App: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-full h-[600px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
 
       <div className="relative z-10">
-        <Services />
+        <Services onNavigate={handleNavigate} />
         <USPSection />
         <KeyBenefits />
         <IndustriesWeServe />

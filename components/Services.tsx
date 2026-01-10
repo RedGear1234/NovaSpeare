@@ -1,7 +1,12 @@
 import React from 'react';
 import { SERVICES } from '../constants';
+import { ViewType } from '../App';
 
-const Services: React.FC = () => {
+interface ServicesProps {
+  onNavigate: (view: ViewType, hash?: string) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
   return (
     <section id="services" className="pt-16 pb-32 bg-transparent relative overflow-visible">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -34,9 +39,12 @@ const Services: React.FC = () => {
               </p>
               
               <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-                <a href="#" className="inline-flex items-center gap-2 text-indigo-400 text-xs font-black uppercase tracking-widest group-hover:text-indigo-300 transition-colors">
+                <button 
+                  onClick={() => onNavigate('services', `#${service.id}`)}
+                  className="inline-flex items-center gap-2 text-indigo-400 text-xs font-black uppercase tracking-widest group-hover:text-indigo-300 transition-colors cursor-pointer"
+                >
                   Learn Details <i className="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1"></i>
-                </a>
+                </button>
                 <span className="text-[9px] font-black uppercase tracking-widest text-slate-500 group-hover:text-slate-300 transition-colors">ROI Focused</span>
               </div>
             </div>

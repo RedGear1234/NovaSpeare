@@ -119,7 +119,8 @@ const ServicesPage: React.FC = () => {
         {SERVICES.map((service, index) => (
           <div 
             key={service.id} 
-            className={`flex flex-col lg:flex-row items-center gap-16 lg:gap-24 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+            id={service.id}
+            className={`flex flex-col lg:flex-row items-center gap-16 lg:gap-24 scroll-mt-32 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
           >
             <div className="flex-1 w-full space-y-10">
               <div className="space-y-6">
