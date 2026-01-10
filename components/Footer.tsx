@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
         
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-500 text-sm">
-            © 2024 NovaSphere Digital Agency. All rights reserved.
+            © 2026 NovaSphere Digital Agency. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
              <span className="text-slate-500 text-xs flex items-center gap-2">
