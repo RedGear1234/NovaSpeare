@@ -70,6 +70,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
             <ul className="space-y-4">
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'privacy')} className="text-slate-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'terms')} className="text-slate-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
+              <li><a href="#" onClick={(e) => handleLinkClick(e, 'trust')} className="text-slate-400 hover:text-white transition-colors text-sm">Trust & Security</a></li>
               <li><a href="#" onClick={(e) => handleLinkClick(e, 'cookies')} className="text-slate-400 hover:text-white transition-colors text-sm">Cookie Settings</a></li>
               <li><a href="#portfolio" onClick={(e) => handleLinkClick(e, 'home', '#portfolio')} className="text-slate-400 hover:text-white transition-colors text-sm">Case Studies</a></li>
             </ul>

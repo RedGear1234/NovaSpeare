@@ -18,11 +18,12 @@ import TeamPage from './pages/TeamPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import CookiePolicyPage from './pages/CookiePolicyPage';
+import TrustSecurityPage from './pages/TrustSecurityPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import FAQPage from './pages/FAQPage';
 import ProductTour from './components/ProductTour';
 
-export type ViewType = 'home' | 'services' | 'team' | 'privacy' | 'terms' | 'cookies' | 'how-it-works' | 'faq';
+export type ViewType = 'home' | 'services' | 'team' | 'privacy' | 'terms' | 'cookies' | 'trust' | 'how-it-works' | 'faq';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -67,7 +68,7 @@ const App: React.FC = () => {
       {/* Dynamic Background Atmosphere - Layered Glows */}
       <div className="absolute top-[10%] left-0 w-full h-[800px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
       <div className="absolute top-[30%] right-0 w-[800px] h-[800px] bg-purple-600/5 blur-[150px] pointer-events-none rounded-full z-0"></div>
-      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-full h-[1000px] bg-indigo-600/5 blur-[150px] pointer-events-none rounded-full z-0"></div>
+      <div className="absolute top-[50%] left-1/2 -translate-x-1/2 w-full h-1000px bg-indigo-600/5 blur-[150px] pointer-events-none rounded-full z-0"></div>
       <div className="absolute top-[75%] right-1/4 w-[600px] h-[600px] bg-pink-600/5 blur-[130px] pointer-events-none rounded-full z-0"></div>
       <div className="absolute bottom-0 left-0 w-full h-[600px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full z-0"></div>
 
@@ -130,6 +131,7 @@ const App: React.FC = () => {
       case 'privacy': return <PrivacyPolicyPage />;
       case 'terms': return <TermsOfServicePage />;
       case 'cookies': return <CookiePolicyPage />;
+      case 'trust': return <TrustSecurityPage />;
       case 'faq': return <FAQPage />;
       case 'home':
       default: return renderHome();
