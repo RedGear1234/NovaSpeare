@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TEAM } from '../constants';
 
@@ -79,12 +78,36 @@ const Team: React.FC = () => {
                   <p className="text-white text-[11px] leading-relaxed font-medium">
                     {member.bio}
                   </p>
-                  <div className="flex gap-3 mt-4 pt-4 border-t border-white/10">
+                  <div className="flex gap-4 mt-4 pt-4 border-t border-white/10">
                     {member.socials.linkedin && (
-                      <i className="fa-brands fa-linkedin-in text-slate-400 hover:text-white transition-colors cursor-pointer text-xs"></i>
+                      <a 
+                        href={member.socials.linkedin} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                      >
+                        <i className="fa-brands fa-linkedin-in text-xs"></i>
+                      </a>
+                    )}
+                    {member.socials.github && (
+                      <a 
+                        href={member.socials.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                      >
+                        <i className="fa-brands fa-github text-xs"></i>
+                      </a>
                     )}
                     {member.socials.twitter && (
-                      <i className="fa-brands fa-x-twitter text-slate-400 hover:text-white transition-colors cursor-pointer text-xs"></i>
+                      <a 
+                        href={member.socials.twitter} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                      >
+                        <i className="fa-brands fa-x-twitter text-xs"></i>
+                      </a>
                     )}
                   </div>
                 </div>
