@@ -11,9 +11,9 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
     <section id="services" className="pt-16 pb-32 bg-transparent relative overflow-visible">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="max-w-4xl mb-20 animate-fadeInUp">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-8 h-[1px] bg-indigo-500"></span>
-            <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">What We Do</span>
+          <div className="inline-flex items-center gap-3 mb-6 group/label">
+            <span className="w-12 h-[1px] bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.5)]"></span>
+            <span className="text-indigo-400 font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">What We Do</span>
           </div>
           <h2 className="text-5xl md:text-7xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
             Expertise <br /> 
