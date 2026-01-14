@@ -132,7 +132,7 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
-    img: 'assets/kunal_DP',
+    img: 'assets/Kunal_DP.jpeg',
     bio: 'Founder of Novo, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: 'https://x.com', linkedin: 'https://www.linkedin.com/in/kunal-gaikwad-211b47186/' }
   },
