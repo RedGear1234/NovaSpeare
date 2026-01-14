@@ -132,7 +132,7 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
-    img: 'https://drive.google.com/file/d/1jd-owCKBM8-0BpYU_khNVGJ9jFYfc1oE/view?usp=sharing',
+    img: 'https://images.unsplash.com/photo-1768001151324-42ae92c70b69?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     bio: 'Founder of I Web Optimizer, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: 'https://x.com', linkedin: 'https://www.linkedin.com/in/kunal-gaikwad-211b47186/' }
   },
