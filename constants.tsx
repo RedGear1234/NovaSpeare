@@ -132,21 +132,21 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
-    img: 'assets/Kunal_DP.jpeg',
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQE1cnxezuiHDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712924815797?e=1770249600&v=beta&t=PyTnlDbsk9iBPCQMt38VNPqsOoLhgPrJi7W_X15d3Q0',
     bio: 'Founder of Novo, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: 'https://x.com', linkedin: 'https://www.linkedin.com/in/kunal-gaikwad-211b47186/' }
   },
   {
     name: 'Kaustubh Chaure',
     role: 'Social Media Head',
-    img: 'assets/kaustubh_DP',
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQGxok5bWCejzw/profile-displayphoto-crop_800_800/B4DZhsW3_NGkAI-/0/1754164594363?e=1770249600&v=beta&t=zwpB2U8w2DBijmU4uUs4IX0OkHQYzeX5lzrBepFOkFY',
     bio: 'A social media visionary, Kaustubh leads our engagement strategies, ensuring our clients\' brand authority is established across all digital platforms through data-backed content.',
     socials: { linkedin: 'https://www.linkedin.com/in/kaustubh-chaure-583143291/' }
   },
   {
     name: 'Neeraj Waghmare',
     role: 'Salesforce / Cloud Services Expert',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80',
+    img: 'https://media.licdn.com/dms/image/v2/D4D35AQFQM_imMs0vnA/profile-framedphoto-shrink_800_800/B4DZn0u8PTHsAg-/0/1760747570487?e=1768989600&v=beta&t=QQnl_FAxHCwFPT0vMV_oh9ndF04-hYbt9YTYzUGYZsM',
     bio: 'Neeraj focuses on high-performance cloud solutions and Salesforce architectures, ensuring enterprise-grade scalability and seamless integration for complex business ecosystems.',
     socials: { linkedin: 'https://www.linkedin.com/in/neeraj-waghmare-054324239/' }
   },
