@@ -65,7 +65,7 @@ const Team: React.FC = () => {
                      style={{ backgroundImage: 'radial-gradient(#6366f1 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
                 
                 <img 
-                  src="/assets/Kunal.png"
+                  src="/Kunal.png"
                   alt={member.name} 
                   className="w-full h-full object-cover grayscale brightness-90 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 z-0 will-change-transform"
                 />
