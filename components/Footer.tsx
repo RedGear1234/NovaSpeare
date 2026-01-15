@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> System Status: Operational
              </span>
              <span className="text-slate-500 text-xs uppercase tracking-widest">
-               Handcrafted in Pune
+               Precision Engineered in Pune
              </span>
           </div>
         </div>

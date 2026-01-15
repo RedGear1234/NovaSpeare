@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { generateMarketingStrategy } from '../services/geminiService';
 import { StrategyResult } from '../types';
@@ -7,6 +6,7 @@ const StrategyLab: React.FC = () => {
   const [businessName, setBusinessName] = useState('');
   const [niche, setNiche] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<StrategyResult | null>(null);
 
   const handleGenerate = async (e: React.FormEvent) => {
@@ -14,11 +14,15 @@ const StrategyLab: React.FC = () => {
     if (!businessName || !niche) return;
     
     setLoading(true);
+    setError(null);
+    setResult(null);
+    
     try {
       const data = await generateMarketingStrategy(businessName, niche);
       setResult(data);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setError("The neural engine encountered an error. Please check your connection or try again shortly.");
     } finally {
       setLoading(false);
     }
@@ -67,6 +71,7 @@ const StrategyLab: React.FC = () => {
                 />
               </div>
               <button 
+                type="submit"
                 disabled={loading}
                 className="w-full py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-black text-sm uppercase tracking-widest transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-indigo-600/20 active:scale-95"
               >
@@ -80,7 +85,7 @@ const StrategyLab: React.FC = () => {
           </div>
 
           <div className="glass-effect rounded-[3rem] p-10 md:p-14 min-h-[500px] flex flex-col justify-center border border-white/5 shadow-2xl relative">
-            {!result && !loading && (
+            {!result && !loading && !error && (
               <div className="text-center">
                 <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10">
                   <i className="fa-solid fa-microchip text-indigo-500/30 text-4xl"></i>
@@ -99,6 +104,22 @@ const StrategyLab: React.FC = () => {
                   <div className="h-20 bg-white/5 rounded-2xl w-1/2"></div>
                   <div className="h-20 bg-white/5 rounded-2xl w-1/2"></div>
                 </div>
+              </div>
+            )}
+
+            {error && !loading && (
+              <div className="text-center">
+                <div className="w-16 h-16 bg-rose-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-500/20">
+                  <i className="fa-solid fa-triangle-exclamation text-rose-500 text-2xl"></i>
+                </div>
+                <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Processing Failed</h3>
+                <p className="text-slate-400 max-w-xs mx-auto mb-8">{error}</p>
+                <button 
+                  onClick={handleGenerate}
+                  className="text-xs font-black uppercase tracking-widest text-indigo-400 hover:text-white transition-colors"
+                >
+                  Try Again
+                </button>
               </div>
             )}
 
