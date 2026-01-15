@@ -7,7 +7,7 @@ export const generateMarketingStrategy = async (businessName: string, niche: str
   }
 
   // Use API key directly from process.env.API_KEY as per instructions
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: AIzaSyCPPh6zPluwz9Eu8WjtejijZkAlNmEhxKY });
   
   try {
     const response = await ai.models.generateContent({
