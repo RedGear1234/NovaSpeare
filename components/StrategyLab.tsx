@@ -21,8 +21,9 @@ const StrategyLab: React.FC = () => {
       const data = await generateMarketingStrategy(businessName, niche);
       setResult(data);
     } catch (err: any) {
-      console.error("Strategy Lab Error:", err);
-      setError(err.message || "An unexpected error occurred. Please try again.");
+      console.error("Strategy Lab UI Error:", err);
+      // Display the exact message thrown by the service
+      setError(err.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -79,7 +80,7 @@ const StrategyLab: React.FC = () => {
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-3">
-                    <i className="fa-solid fa-circle-notch animate-spin"></i> Analyzing Business Model...
+                    <i className="fa-solid fa-circle-notch animate-spin"></i> Processing Neural Data...
                   </span>
                 ) : 'Generate Strategy'}
               </button>
@@ -110,18 +111,20 @@ const StrategyLab: React.FC = () => {
             )}
 
             {error && !loading && (
-              <div className="text-center">
+              <div className="text-center animate-fadeInUp">
                 <div className="w-16 h-16 bg-rose-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-500/20">
                   <i className="fa-solid fa-triangle-exclamation text-rose-500 text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Protocol Error</h3>
-                <p className="text-slate-400 max-w-xs mx-auto mb-8">{error}</p>
-                <button 
-                  onClick={handleGenerate}
-                  className="px-6 py-2 bg-white/5 hover:bg-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-400 hover:text-white transition-all"
-                >
-                  Retry Connection
-                </button>
+                <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Protocol Interrupted</h3>
+                <p className="text-slate-200 font-bold bg-rose-500/20 px-4 py-2 rounded-lg inline-block mb-8">{error}</p>
+                <div className="mt-4">
+                  <button 
+                    onClick={handleGenerate}
+                    className="px-6 py-2 bg-white/5 hover:bg-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-400 hover:text-white transition-all"
+                  >
+                    Retry Connection
+                  </button>
+                </div>
               </div>
             )}
 
@@ -130,14 +133,14 @@ const StrategyLab: React.FC = () => {
                 <div>
                   <div className="inline-flex items-center gap-2 mb-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
-                    <h4 className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px]">Strategic Overview</h4>
+                    <h4 className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px]">Strategic Summary</h4>
                   </div>
                   <p className="text-slate-200 leading-relaxed text-xl font-medium">{result.overview}</p>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
-                    <h4 className="text-purple-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Growth Tactics</h4>
+                    <h4 className="text-purple-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Execution Tactics</h4>
                     <ul className="space-y-4">
                       {result.tactics.map((t, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
@@ -148,7 +151,7 @@ const StrategyLab: React.FC = () => {
                     </ul>
                   </div>
                   <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
-                    <h4 className="text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Target Metrics</h4>
+                    <h4 className="text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Success KPI's</h4>
                     <ul className="space-y-4">
                       {result.metrics.map((m, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
@@ -162,9 +165,9 @@ const StrategyLab: React.FC = () => {
                 
                 <div className="pt-6 border-t border-white/5 flex justify-between items-center">
                   <button onClick={() => window.print()} className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                    <i className="fa-solid fa-download"></i> Save Report
+                    <i className="fa-solid fa-download"></i> Save Roadmap
                   </button>
-                  <span className="text-[8px] font-bold text-emerald-500/50 uppercase tracking-widest">AI Verified Result</span>
+                  <span className="text-[8px] font-bold text-indigo-500/50 uppercase tracking-widest">Neural Link Verified</span>
                 </div>
               </div>
             )}
