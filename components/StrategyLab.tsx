@@ -22,8 +22,8 @@ const StrategyLab: React.FC = () => {
       setResult(data);
     } catch (err: any) {
       console.error("Strategy Lab UI Error:", err);
-      // Display the exact message thrown by the service
-      setError(err.message || "Something went wrong. Please try again.");
+      // Display the specific message thrown (e.g., "API key is missing" or "API is wrong")
+      setError(err.message || "An unexpected system error occurred.");
     } finally {
       setLoading(false);
     }

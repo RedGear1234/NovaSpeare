@@ -97,8 +97,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
              <span className="text-slate-500 text-xs flex items-center gap-2">
                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> System Status: Operational
              </span>
-             <span className="text-slate-500 text-xs uppercase tracking-widest">
-               Precision Engineered in Pune
+             <span className="text-slate-500 text-xs uppercase tracking-[0.2em] flex items-center gap-1.5 font-bold">
+               Precision Engineered with <i className="fa-solid fa-heart text-rose-500 animate-pulse"></i> in Pune
              </span>
           </div>
         </div>
