@@ -11,7 +11,7 @@ const StrategyLab: React.FC = () => {
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!businessName || !niche) return;
+    if (!businessName.trim() || !niche.trim()) return;
     
     setLoading(true);
     setError(null);
@@ -21,8 +21,8 @@ const StrategyLab: React.FC = () => {
       const data = await generateMarketingStrategy(businessName, niche);
       setResult(data);
     } catch (err: any) {
-      console.error(err);
-      setError("The neural engine encountered an error. Please check your connection or try again shortly.");
+      console.error("Strategy Lab Error:", err);
+      setError(err.message || "An unexpected error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -30,7 +30,7 @@ const StrategyLab: React.FC = () => {
 
   return (
     <section id="ai-strategy" className="pt-32 pb-16 bg-transparent relative overflow-visible">
-      {/* Decorative Orbs - Positioned to bleed into the next section */}
+      {/* Decorative Orbs */}
       <div className="absolute -bottom-48 -left-24 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
       <div className="absolute top-1/2 -right-48 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
@@ -46,7 +46,7 @@ const StrategyLab: React.FC = () => {
               <span className="gradient-text">Strategy Lab</span>
             </h2>
             <p className="text-slate-400 text-xl mb-10 leading-relaxed max-w-xl">
-              Experience the power of our proprietary AI-driven approach. Enter your business details, and our custom-trained model will generate a foundational growth strategy in seconds.
+              Experience our proprietary AI-driven approach. Enter your business details, and our custom-trained model will generate a growth roadmap in seconds.
             </p>
             
             <form onSubmit={handleGenerate} className="space-y-6 max-w-lg">
@@ -55,6 +55,7 @@ const StrategyLab: React.FC = () => {
                 <input 
                   type="text" 
                   value={businessName}
+                  required
                   onChange={(e) => setBusinessName(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all placeholder:text-slate-600"
                   placeholder="e.g. BlueWave Fitness"
@@ -65,6 +66,7 @@ const StrategyLab: React.FC = () => {
                 <input 
                   type="text" 
                   value={niche}
+                  required
                   onChange={(e) => setNiche(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all placeholder:text-slate-600"
                   placeholder="e.g. Sustainable Apparel"
@@ -77,9 +79,9 @@ const StrategyLab: React.FC = () => {
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-3">
-                    <i className="fa-solid fa-circle-notch animate-spin"></i> Processing Neural Data...
+                    <i className="fa-solid fa-circle-notch animate-spin"></i> Analyzing Business Model...
                   </span>
-                ) : 'Generate My AI Strategy'}
+                ) : 'Generate Strategy'}
               </button>
             </form>
           </div>
@@ -90,7 +92,7 @@ const StrategyLab: React.FC = () => {
                 <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 border border-white/10">
                   <i className="fa-solid fa-microchip text-indigo-500/30 text-4xl"></i>
                 </div>
-                <h3 className="text-2xl font-black text-slate-500 uppercase tracking-widest mb-3">Awaiting Input</h3>
+                <h3 className="text-2xl font-black text-slate-500 uppercase tracking-widest mb-3">System Ready</h3>
                 <p className="text-slate-600 max-w-xs mx-auto">Input your vision on the left to activate our strategic neural engine.</p>
               </div>
             )}
@@ -112,13 +114,13 @@ const StrategyLab: React.FC = () => {
                 <div className="w-16 h-16 bg-rose-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-rose-500/20">
                   <i className="fa-solid fa-triangle-exclamation text-rose-500 text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Processing Failed</h3>
+                <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Protocol Error</h3>
                 <p className="text-slate-400 max-w-xs mx-auto mb-8">{error}</p>
                 <button 
                   onClick={handleGenerate}
-                  className="text-xs font-black uppercase tracking-widest text-indigo-400 hover:text-white transition-colors"
+                  className="px-6 py-2 bg-white/5 hover:bg-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-400 hover:text-white transition-all"
                 >
-                  Try Again
+                  Retry Connection
                 </button>
               </div>
             )}
@@ -128,14 +130,14 @@ const StrategyLab: React.FC = () => {
                 <div>
                   <div className="inline-flex items-center gap-2 mb-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
-                    <h4 className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px]">Executive Summary</h4>
+                    <h4 className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px]">Strategic Overview</h4>
                   </div>
                   <p className="text-slate-200 leading-relaxed text-xl font-medium">{result.overview}</p>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
-                    <h4 className="text-purple-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Strategic Tactics</h4>
+                    <h4 className="text-purple-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Growth Tactics</h4>
                     <ul className="space-y-4">
                       {result.tactics.map((t, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
@@ -146,7 +148,7 @@ const StrategyLab: React.FC = () => {
                     </ul>
                   </div>
                   <div className="bg-white/5 rounded-3xl p-6 border border-white/5">
-                    <h4 className="text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Success Metrics</h4>
+                    <h4 className="text-pink-400 font-black uppercase tracking-[0.2em] text-[10px] mb-6">Target Metrics</h4>
                     <ul className="space-y-4">
                       {result.metrics.map((m, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-slate-300">
@@ -158,10 +160,11 @@ const StrategyLab: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="pt-6 border-t border-white/5">
+                <div className="pt-6 border-t border-white/5 flex justify-between items-center">
                   <button onClick={() => window.print()} className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors flex items-center gap-2">
-                    <i className="fa-solid fa-download"></i> Save Strategic Report
+                    <i className="fa-solid fa-download"></i> Save Report
                   </button>
+                  <span className="text-[8px] font-bold text-emerald-500/50 uppercase tracking-widest">AI Verified Result</span>
                 </div>
               </div>
             )}
