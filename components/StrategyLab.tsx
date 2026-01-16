@@ -22,7 +22,7 @@ const StrategyLab: React.FC = () => {
       setResult(data);
     } catch (err: any) {
       console.error("Strategy Lab UI Error:", err);
-      // Display the specific message thrown (e.g., "API key is missing" or "API is wrong")
+      // Display the exact message thrown (e.g., "API key is missing" or "API is wrong")
       setError(err.message || "An unexpected system error occurred.");
     } finally {
       setLoading(false);
@@ -116,7 +116,9 @@ const StrategyLab: React.FC = () => {
                   <i className="fa-solid fa-triangle-exclamation text-rose-500 text-2xl"></i>
                 </div>
                 <h3 className="text-xl font-black text-rose-500 uppercase tracking-widest mb-3">Protocol Interrupted</h3>
-                <p className="text-slate-200 font-bold bg-rose-500/20 px-4 py-2 rounded-lg inline-block mb-8">{error}</p>
+                <div className="bg-rose-500/20 px-6 py-4 rounded-2xl border border-rose-500/20 inline-block mb-8">
+                  <p className="text-slate-200 font-black tracking-widest uppercase text-sm">{error}</p>
+                </div>
                 <div className="mt-4">
                   <button 
                     onClick={handleGenerate}
