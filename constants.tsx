@@ -146,7 +146,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Neeraj Waghmare',
     role: 'Salesforce / Cloud Services Expert',
-    img: 'https://media.licdn.com/dms/image/v2/D4D35AQFQM_imMs0vnA/profile-framedphoto-shrink_800_800/B4DZn0u8PTHsAg-/0/1760747570487?e=1768989600&v=beta&t=QQnl_FAxHCwFPT0vMV_oh9ndF04-hYbt9YTYzUGYZsM',
+    img: 'https://media.licdn.com/dms/image/v2/D4D35AQFQM_imMs0vnA/profile-framedphoto-shrink_800_800/B4DZn0u8PTHsAg-/0/1760747570487?e=1769673600&v=beta&t=azEcApLv1W36FLbjYQoVDJYbyDJ9g90NIS8QzaT3ZtQ',
     bio: 'Neeraj focuses on high-performance cloud solutions and Salesforce architectures, ensuring enterprise-grade scalability and seamless integration for complex business ecosystems.',
     socials: { linkedin: 'https://www.linkedin.com/in/neeraj-waghmare-054324239/' }
   },
