@@ -115,7 +115,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleNavigate('home', '#contact'); }}
                   className="px-12 py-6 bg-indigo-600 text-white rounded-[2rem] font-black text-xl hover:bg-indigo-500 transition-all shadow-2xl shadow-indigo-600/30 hover:scale-105 active:scale-95 whitespace-nowrap flex items-center gap-4"
                 >
-                  Book My Session <i className="fa-solid fa-bolt-lightning text-yellow-400"></i>
+                  Contact Now <i className="fa-solid fa-bolt-lightning text-yellow-400"></i>
                 </a>
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2">
