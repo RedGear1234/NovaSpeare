@@ -98,11 +98,27 @@ const ProductTour: React.FC<ProductTourProps> = ({ isActive, onClose }) => {
 
       {/* Guide Card */}
       <div className="relative w-full max-w-md glass-effect p-8 rounded-[2.5rem] border border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.2)] pointer-events-auto transform transition-all duration-500 animate-slideUp">
-        {/* Progress Bar */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-white/5 rounded-t-[2.5rem] overflow-hidden">
+        {/* Perfectly Bent Progress Bar */}
+        <div className="absolute inset-0 rounded-[2.5rem] pointer-events-none overflow-hidden">
+          {/* Track (Subtle) */}
+          <div className="absolute inset-0 rounded-[2.5rem] border border-white/5"></div>
+          
+          {/* Progress Path (Follows modal radius perfectly) */}
           <div 
-            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-500" 
-            style={{ width: `${progress}%` }}
+            className="absolute inset-0 rounded-[2.5rem] border-2 border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.3)] transition-all duration-1000 ease-in-out"
+            style={{ 
+              clipPath: `inset(0 ${100 - progress}% 90% 0)` 
+            }}
+          ></div>
+
+          {/* Leading Edge Glow */}
+          <div 
+            className="absolute top-0 h-[2px] w-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-40 blur-[2px] transition-all duration-1000 ease-in-out"
+            style={{ 
+              left: `${progress}%`,
+              transform: `translateX(-100%)`,
+              display: progress > 0 ? 'block' : 'none'
+            }}
           ></div>
         </div>
 
