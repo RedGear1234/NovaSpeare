@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { TEAM } from '../constants';
+import Team from '../components/Team';
 
 const TeamPage: React.FC = () => {
   useEffect(() => {
@@ -117,6 +118,9 @@ const TeamPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Team Grid Section */}
+      <Team />
+
       {/* Culture Section - Highly Optimized for Mobile */}
       <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -161,7 +165,7 @@ const TeamPage: React.FC = () => {
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-3 sm:space-y-4">
                   <div className="aspect-square bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Collaboration" />
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Collaboration" referrerPolicy="no-referrer" />
                   </div>
                   <div className="aspect-[3/4] bg-indigo-600 rounded-2xl sm:rounded-3xl flex flex-col justify-end p-4 sm:p-6 text-white border border-white/10 shadow-xl shadow-indigo-600/20">
                     <span className="text-2xl sm:text-4xl font-black mb-1 sm:mb-2">12+</span>
@@ -170,7 +174,7 @@ const TeamPage: React.FC = () => {
                 </div>
                 <div className="space-y-3 sm:space-y-4 pt-8 sm:pt-12">
                   <div className="aspect-[3/4] bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Workshop" />
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Workshop" referrerPolicy="no-referrer" />
                   </div>
                   <div className="aspect-square bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl flex flex-col justify-center items-center text-center p-4 sm:p-6">
                     <span className="text-indigo-400 text-xl sm:text-3xl mb-1 sm:mb-2 font-black">100%</span>

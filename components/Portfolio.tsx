@@ -93,6 +93,7 @@ const Portfolio: React.FC = () => {
                     <img 
                       src={project.image} 
                       alt={project.title}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-[2s] cubic-bezier(0.2, 0.8, 0.2, 1) group-hover:scale-110 group-hover:rotate-1"
                     />
                     

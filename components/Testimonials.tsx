@@ -46,7 +46,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ onNavigate }) => {
               </div>
               <p className="text-slate-300 italic mb-8 leading-relaxed flex-grow text-base">"{t.content}"</p>
               <div className="flex items-center gap-4 border-t border-white/5 pt-6">
-                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full border border-indigo-500/20 object-cover" />
+                <img src={t.avatar} alt={t.name} referrerPolicy="no-referrer" className="w-12 h-12 rounded-full border border-indigo-500/20 object-cover" />
                 <div>
                   <h4 className="text-white font-bold text-sm">{t.name}</h4>
                   <p className="text-slate-500 text-[11px] uppercase tracking-wider font-semibold">{t.role} @ {t.company}</p>
