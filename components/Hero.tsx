@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, onStartTour }) => {
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-400 text-[10px] md:text-xs font-bold tracking-wider mb-6 animate-bounce">
-          <i className="fa-solid fa-wand-magic-sparkles"></i> REINVENTING DIGITAL 
+          <i className="fa-solid fa-wand-magic-sparkles"></i> REINVENTING DIGITAL EXCELLENCE
         </div>
         
         <h1 className="text-[2.75rem] leading-[1.1] md:text-7xl lg:text-[8.5rem] font-black tracking-tighter text-white mb-8 md:leading-[0.85] animate-fadeInUp select-none">
