@@ -167,9 +167,9 @@ const TeamPage: React.FC = () => {
                   <div className="aspect-square bg-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/5">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Collaboration" referrerPolicy="no-referrer" />
                   </div>
-                  <div className="aspect-[3/4] bg-indigo-600 rounded-2xl sm:rounded-3xl flex flex-col justify-end p-4 sm:p-6 text-white border border-white/10 shadow-xl shadow-indigo-600/20">
-                    <span className="text-2xl sm:text-2xl font-black mb-1 sm:mb-2">Innovation Starts Here</span>
-                    {/* <span className="text-[8px] sm:text-xs uppercase font-bold tracking-widest opacity-80">Innovation Starts Here</span> */}
+                  <div className="aspect-[3/4] bg-indigo-600 rounded-2xl sm:rounded-3xl flex flex-col justify-end p-4 sm:p-6 text-white border border-white/10 shadow-xl shadow-indigo-600/20 transition-all duration-500 hover:scale-[1.02]">
+                    <span className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-black leading-none mb-1 sm:mb-2 tracking-tight">Innovation</span>
+                    <span className="text-[8px] xs:text-[9px] sm:text-xs uppercase font-bold tracking-widest opacity-80">Starts Here</span>
                   </div>
                 </div>
                 <div className="space-y-3 sm:space-y-4 pt-8 sm:pt-12">
