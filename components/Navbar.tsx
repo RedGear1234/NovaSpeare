@@ -119,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
             className={`px-8 py-4 bg-indigo-600 text-white rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl shadow-indigo-600/20 transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             style={{ transitionDelay: `${navLinks.length * 100}ms` }}
           >
-            AI Strategy Lab
+            AI  Lab
           </a>
         </div>
       </div>
