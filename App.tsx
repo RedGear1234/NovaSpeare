@@ -23,6 +23,7 @@ import TrustSecurityPage from './pages/TrustSecurityPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import FAQPage from './pages/FAQPage';
 import ProductTour from './components/ProductTour';
+import CookieConsent from './components/CookieConsent';
 
 export type ViewType = 'home' | 'services' | 'team' | 'privacy' | 'terms' | 'cookies' | 'trust' | 'how-it-works' | 'faq';
 
@@ -169,6 +170,7 @@ const App: React.FC = () => {
         <Footer currentView={currentView} onNavigate={handleNavigate} />
       </footer>
       <ChatWidget />
+      <CookieConsent />
       
       {/* Home Tour UI */}
       {currentView === 'home' && (

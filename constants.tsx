@@ -132,28 +132,28 @@ export const TEAM: TeamMember[] = [
   { 
     name: 'Kunal Gaikwad', 
     role: 'Founder & CEO', 
-    img: 'https://media.licdn.com/dms/image/v2/D4D03AQE1cnxezuiHDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712924815797?e=1775088000&v=beta&t=_W8DxRi26ktGBP1DwBI3iwUodwcJYIE_YEQFSEGSj6M',
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQE1cnxezuiHDA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712924815797?e=1781136000&v=beta&t=fW-w3EK2vfv9BFHf6A4l-tI5BJrxRopAJcE3MJ5agfA',
     bio: 'Founder of Novo, Kunal specializes in data-driven growth strategies that bridge the gap between high-end design and raw technical performance.',
     socials: { twitter: 'https://x.com', linkedin: 'https://www.linkedin.com/in/kunal-gaikwad-211b47186/' }
   },
   {
     name: 'Kaustubh Chaure',
     role: 'Social Media Head',
-    img: 'https://media.licdn.com/dms/image/v2/D4D03AQGxok5bWCejzw/profile-displayphoto-crop_800_800/B4DZhsW3_NGkAI-/0/1754164594363?e=1775088000&v=beta&t=LmYURZcNKrtZHf3RmEUi75rjkheM4dPzyKFwFX6_NTM',
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQGxok5bWCejzw/profile-displayphoto-crop_800_800/B4DZhsW3_NGkAI-/0/1754164594363?e=1781136000&v=beta&t=q1EsvynkqmkGHGGZIbBVo1Pzn3i03uMoAPUepuKj5ls',
     bio: 'A social media visionary, Kaustubh leads our engagement strategies, ensuring our clients\' brand authority is established across all digital platforms through data-backed content.',
     socials: { linkedin: 'https://www.linkedin.com/in/kaustubh-chaure-583143291/' }
   },
   {
     name: 'Neeraj Waghmare',
     role: 'Salesforce / Cloud Services Expert',
-    img: 'https://media.licdn.com/dms/image/v2/D4D03AQGi6raz-PECJw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1665798615160?e=1775088000&v=beta&t=NsWamAINIXUFqQ-RZpCVagJMkjUG82ZH8FQFQT-rvTA',
+    img: 'https://media.licdn.com/dms/image/v2/D4D03AQGqGDGsGZqyCg/profile-displayphoto-crop_800_800/B4DZ3XFHmNHQAI-/0/1777429939404?e=1781136000&v=beta&t=xpzWGCQ2IcySs3kD6CTRIt42WsCTbuL5O2PMPvxrMh0',
     bio: 'Neeraj focuses on high-performance cloud solutions and Salesforce architectures, ensuring enterprise-grade scalability and seamless integration for complex business ecosystems.',
     socials: { linkedin: 'https://www.linkedin.com/in/neeraj-waghmare-054324239/' }
   },
   {
     name: 'Shubham Chavan',
     role: 'Web Services',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80',
     bio: 'A technical powerhouse, Shubham manages our Web Services division, focusing on high-velocity performance, secure infrastructure, and pixel-perfect deployment.',
     socials: { github: 'https://github.com/RedGear1234' }
   }

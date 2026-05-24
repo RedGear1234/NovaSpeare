@@ -27,6 +27,7 @@
     .gradient-text {
       background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -71,6 +72,27 @@
       animation: float 4s ease-in-out infinite;
     }
 
+    @media print {
+      /* Hide standard page elements */
+      body * {
+        visibility: hidden;
+      }
+      
+      /* Make ONLY our target print area visible */
+      #strategy-print-area, #strategy-print-area * {
+        visibility: visible;
+      }
+      
+      #strategy-print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block !important;
+        background: white !important;
+        color: #0f172a !important;
+      }
+    }
   </style>
 <script type="importmap">
 {
