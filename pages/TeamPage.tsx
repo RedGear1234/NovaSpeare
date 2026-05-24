@@ -168,8 +168,8 @@ const TeamPage: React.FC = () => {
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover" alt="Collaboration" referrerPolicy="no-referrer" />
                   </div>
                   <div className="aspect-[3/4] bg-indigo-600 rounded-2xl sm:rounded-3xl flex flex-col justify-end p-4 sm:p-6 text-white border border-white/10 shadow-xl shadow-indigo-600/20">
-                    <span className="text-2xl sm:text-4xl font-black mb-1 sm:mb-2">12+</span>
-                    <span className="text-[8px] sm:text-xs uppercase font-bold tracking-widest opacity-80">Countries Represented</span>
+                    <span className="text-2xl sm:text-2xl font-black mb-1 sm:mb-2">Innovation Starts Here</span>
+                    {/* <span className="text-[8px] sm:text-xs uppercase font-bold tracking-widest opacity-80">Innovation Starts Here</span> */}
                   </div>
                 </div>
                 <div className="space-y-3 sm:space-y-4 pt-8 sm:pt-12">
