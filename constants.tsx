@@ -167,7 +167,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "TechFlow Systems",
     companyUrl: "#",
     projectLink: "#",
-    content: "NovaSphere transformed our lead generation. Their SEO and PPC strategy alone doubled our organic pipeline in under 4 months. The transparency in their reporting is refreshing.",
+    content: "5Crown Technologies transformed our lead generation. Their SEO and PPC strategy alone doubled our organic pipeline in under 4 months. The transparency in their reporting is refreshing.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
     rating: 5
   },

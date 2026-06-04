@@ -41,7 +41,7 @@ const Team: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-20 animate-fadeInUp">
           <h2 className="text-indigo-400 font-bold uppercase tracking-[0.4em] text-[10px] mb-4">The Collective</h2>
           <h3 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-none">
-            Architects of <span className="gradient-text">NovaSphere</span>
+            Architects of <span className="gradient-text">5Crown Technologies</span>
           </h3>
           <p className="text-slate-400 text-xl leading-relaxed">
             A global collective of engineers, designers, and strategists united by a mission to build the extraordinary.

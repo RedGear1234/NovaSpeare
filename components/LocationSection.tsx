@@ -2,7 +2,7 @@
 import React from 'react';
 
 const LocationSection: React.FC = () => {
-  // Coordinates for a fictional "NovaSphere HQ" in a tech hub (e.g., San Francisco)
+  // Coordinates for "5Crown Technologies HQ" in a tech hub (e.g., San Francisco)
   const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.123456789012!2d-122.3999!3d37.7878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085806440f99d9b%3A0x6a0f4c01d4a0f4c0!2sSalesforce%20Tower!5e0!3m2!1sen!2sus!4v1625000000000!5m2!1sen!2sus";
 
   return (
@@ -16,7 +16,7 @@ const LocationSection: React.FC = () => {
           style={{ border: 0 }}
           allowFullScreen={false}
           loading="lazy"
-          title="NovaSphere HQ Location"
+          title="5Crown Technologies HQ Location"
         ></iframe>
       </div>
 

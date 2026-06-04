@@ -75,7 +75,7 @@ const HowItWorksPage: React.FC = () => {
         "35% increase in order value",
         "Scaled to $2,500/month profitably"
       ],
-      quote: "NovaSphere didn't just run ads — they understood our business and helped us scale systematically. Revenue went from zero to ₹8 lakhs in 3 months.",
+      quote: "5Crown Technologies didn't just run ads — they understood our business and helped us scale systematically. Revenue went from zero to ₹8 lakhs in 3 months.",
       client: "Priya M., Fashion Store Owner"
     },
     {
@@ -259,7 +259,7 @@ const HowItWorksPage: React.FC = () => {
             Impact <span className="gradient-text">Reports</span>
           </h3>
           <p className="text-slate-400 text-base md:text-xl font-medium opacity-70">
-            Hard evidence of NovaSphere protocols in real-world deployment.
+            Hard evidence of 5Crown Technologies protocols in real-world deployment.
           </p>
         </div>
 

@@ -19,7 +19,7 @@ const TOUR_STEPS: TourStep[] = [
     id: 'hero',
     title: 'The Neural Core',
     subtitle: 'IDENTITY_ESTABLISHMENT',
-    content: 'Welcome to NovaSphere. This is where we define the future of digital. Our Hero section sets the stage for technical excellence and results-driven architecture.',
+    content: 'Welcome to 5Crown Technologies. This is where we define the future of digital. Our Hero section sets the stage for technical excellence and results-driven architecture.',
     targetId: 'hero',
     icon: 'fa-microchip'
   },

@@ -56,7 +56,7 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onNavigate }) => {
             Why Choose <br /> <span className="gradient-text">Us?</span>
           </h2>
           <p className="text-slate-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed opacity-80 italic">
-            "Legacy agencies operate on outdated logic. NovaSphere is the technical upgrade your business has been waiting for."
+           "Legacy agencies operate on outdated logic. 5Crown Technologies is the technical upgrade your business has been waiting for."
           </p>
         </div>
 

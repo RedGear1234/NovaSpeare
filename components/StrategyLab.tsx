@@ -74,7 +74,7 @@ const StrategyLab: React.FC = () => {
               <span className="text-indigo-400 font-bold uppercase tracking-[0.3em] text-[10px]">The Innovation Hub</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-white mb-8 leading-[0.9]">
-              NovaSphere <br /> 
+              5Crown Technologies <br /> 
               <span className="gradient-text">Strategy Lab</span>
             </h2>
             <p className="text-slate-400 text-xl mb-10 leading-relaxed max-w-xl">
@@ -335,7 +335,7 @@ const StrategyLab: React.FC = () => {
                 <div id="strategy-print-area" className="hidden print:block p-8 bg-white text-slate-900 rounded-[2rem]">
                   <div className="border-b-2 border-indigo-600 pb-6 mb-8 flex justify-between items-end">
                     <div>
-                      <h1 className="text-3xl font-black tracking-tight text-indigo-900">NOVASPHERE</h1>
+                      <h1 className="text-3xl font-black tracking-tight text-indigo-900">5CROWN TECHNOLOGIES</h1>
                       <p className="text-xs uppercase font-bold tracking-widest text-slate-500 mt-1">AI Strategic Intelligence Report</p>
                     </div>
                     <div className="text-right text-xs text-slate-500 font-medium">
@@ -377,7 +377,7 @@ const StrategyLab: React.FC = () => {
                   </div>
 
                   <div className="mt-16 pt-6 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                    <span>© {new Date().getFullYear()} NovaSphere. All rights reserved.</span>
+                    <span>© {new Date().getFullYear()} 5Crown Technologies. All rights reserved.</span>
                     <span>Generated via Strategy Lab Engine v3.9</span>
                   </div>
                 </div>

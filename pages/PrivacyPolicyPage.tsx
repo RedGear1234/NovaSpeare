@@ -28,7 +28,7 @@ const PrivacyPolicyPage: React.FC = () => {
             </h2>
             <div className="text-slate-300 leading-relaxed space-y-4">
               <p>
-                At NovaSphere Digital ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI-powered digital agency services.
+                At 5Crown Technologies ("we," "our," or "us"), we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI-powered digital agency services.
               </p>
               <p>
                 By accessing or using our services, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy.
@@ -91,7 +91,7 @@ const PrivacyPolicyPage: React.FC = () => {
               If you have any questions about this Privacy Policy, please contact our Data Privacy Officer:
             </p>
             <div className="bg-white/5 p-6 rounded-2xl border border-white/10 w-fit">
-              <p className="text-white font-bold">Email: privacy@novasphere.digital</p>
+              <p className="text-white font-bold">Email: privacy@5crowntechnologies.in</p>
               <p className="text-slate-400">Subject: Data Privacy Inquiry</p>
             </div>
           </section>

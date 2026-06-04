@@ -31,22 +31,35 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             {/* Consistent Logo Mark */}
-            <div 
-              className="flex items-center gap-4 mb-8 cursor-pointer w-fit group"
+            {/* Logo — Badge + Stacked Text */}
+            <div
+              className="flex items-center gap-2.5 mb-8 cursor-pointer w-fit group"
               onClick={() => { onNavigate('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             >
-              <div className="relative w-9 h-9">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg rotate-45 group-hover:rotate-[135deg] transition-transform duration-700 flex items-center justify-center">
-                  <i className="fa-solid fa-circle-nodes text-white text-xs -rotate-45 group-hover:rotate-[-135deg] transition-transform duration-700"></i>
-                </div>
+              {/* Badge — Animated Crown Icon */}
+              <div
+                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7)', perspective: '120px' }}
+              >
+                <i
+                  className="fa-solid fa-crown"
+                  style={{ fontSize: '13px', color: '#ffffff', animation: 'crownSpin 3s ease-in-out infinite', display: 'inline-block' }}
+                ></i>
               </div>
-              <span className="text-xl font-black tracking-[0.1em] text-white">NOVASPHERE</span>
+              {/* Stacked Wordmark */}
+              <div className="flex flex-col leading-none gap-0.5">
+                <span
+                  className="text-[1.05rem] font-black tracking-tight"
+                  style={{ background: 'linear-gradient(to right, #ffffff, #b19e9eff)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                >5Crown</span>
+                <span className="text-[9px] font-semibold text-indigo-400/70 uppercase tracking-[0.3em]">Technologies</span>
+              </div>
             </div>
             <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
               Ready to build the <br /> extraordinary?
             </h3>
             <p className="text-slate-400 max-w-sm text-lg mb-8">
-              Join the ranks of forward-thinking brands that choose NovaSphere for their digital evolution.
+              Join the ranks of forward-thinking brands that choose 5Crown Technologies for their digital evolution.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -91,7 +104,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, currentView }) => {
         
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-500 text-sm">
-            © 2026 NovaSphere Digital Agency. All rights reserved.
+            © 2026 5Crown Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
              <span className="text-slate-500 text-xs flex items-center gap-2">

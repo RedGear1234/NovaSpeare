@@ -32,7 +32,7 @@ const ContactMapSection: React.FC = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `NovaSphere Web Inquiry: ${formData.name}`
+          _subject: `5Crown Technologies Web Inquiry: ${formData.name}`
         })
       });
 

@@ -59,7 +59,7 @@ export const getAssistantResponse = async (history: {role: string, content: stri
     const chat = ai.chats.create({
       model: 'gemini-3-flash-preview',
       config: {
-        systemInstruction: 'You are Nova, the AI assistant for NovaSphere. Keep responses concise and technical.',
+        systemInstruction: 'You are Nova, the AI assistant for 5Crown Technologies. Keep responses concise and technical.',
       },
     });
 

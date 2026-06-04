@@ -45,22 +45,28 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isMobileMenuOpen ? 'bg-[#0f172a]/90 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* Logo Section */}
-          <div 
-            className="flex items-center gap-4 cursor-pointer z-[60] group"
+          {/* Logo — Badge + Stacked Text */}
+          <div
+            className="flex items-center gap-2.5 cursor-pointer z-[60] group"
             onClick={() => { onNavigate('home'); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           >
-            <div className="relative w-9 h-9">
-              {/* Outer Glow */}
-              <div className="absolute inset-0 bg-indigo-500/30 blur-lg rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              {/* Diamond Mark */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg shadow-indigo-600/20 rotate-45 group-hover:rotate-[135deg] transition-transform duration-700 flex items-center justify-center">
-                <i className="fa-solid fa-circle-nodes text-white text-xs -rotate-45 group-hover:rotate-[-135deg] transition-transform duration-700"></i>
-              </div>
+            {/* Badge — Animated Crown Icon */}
+            <div
+              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7)', perspective: '120px' }}
+            >
+              <i
+                className="fa-solid fa-crown"
+                style={{ fontSize: '13px', color: '#ffffff', animation: 'crownSpin 3s ease-in-out infinite', display: 'inline-block' }}
+              ></i>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black tracking-[0.1em] text-white leading-none">NOVASPHERE</span>
-              <span className="text-[8px] font-bold text-indigo-400 uppercase tracking-[0.3em] mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Digital Solutions</span>
+            {/* Stacked Wordmark */}
+            <div className="flex flex-col leading-none gap-0.5">
+              <span
+                className="text-[1.05rem] font-black tracking-tight"
+                style={{ background: 'linear-gradient(to right, #ffffff, #b19e9eff)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent', textTransform: 'uppercase' }}
+              >5Crown.</span>
+              <span className="text-[9px] font-semibold text-indigo-400/70 uppercase tracking-[0.3em]">Technologies</span>
             </div>
           </div>
           
@@ -123,6 +129,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           </a>
         </div>
       </div>
+      <style>{`
+        @keyframes crownSpin {
+          0%   { transform: rotateY(0deg);   color: #ffffff; filter: drop-shadow(0 0 5px rgba(255,255,255,0.95)); }
+          25%  { transform: rotateY(90deg);  color: #a5b4fc; filter: drop-shadow(0 0 4px rgba(165,180,252,0.8)); }
+          50%  { transform: rotateY(180deg); color: #e879f9; filter: drop-shadow(0 0 6px rgba(232,121,249,1)); }
+          75%  { transform: rotateY(270deg); color: #f9a8d4; filter: drop-shadow(0 0 4px rgba(249,168,212,0.8)); }
+          100% { transform: rotateY(360deg); color: #ffffff; filter: drop-shadow(0 0 5px rgba(255,255,255,0.95)); }
+        }
+      `}</style>
     </>
   );
 };

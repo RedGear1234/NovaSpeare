@@ -29,7 +29,7 @@ const TermsOfServicePage: React.FC = () => {
               1. Acceptance of Terms
             </h2>
             <p className="text-slate-300 leading-relaxed">
-              By accessing NovaSphere Digital Agency's website or engaging our services, you agree to be bound by these Terms of Service. If you do not agree to all of these terms, you are prohibited from using this site and our services.
+              By accessing 5Crown Technologies' website or engaging our services, you agree to be bound by these Terms of Service. If you do not agree to all of these terms, you are prohibited from using this site and our services.
             </p>
           </section>
 
@@ -40,7 +40,7 @@ const TermsOfServicePage: React.FC = () => {
             </h2>
             <div className="text-slate-300 leading-relaxed space-y-4">
               <p>
-                NovaSphere provides digital marketing, strategy consulting, and AI integration services. While we strive for maximum ROI and technical excellence, results are subject to market volatility and third-party platform algorithm changes (Google, Meta, etc.).
+                5Crown Technologies provides digital marketing, strategy consulting, and AI integration services. While we strive for maximum ROI and technical excellence, results are subject to market volatility and third-party platform algorithm changes (Google, Meta, etc.).
               </p>
               <p>
                 We reserve the right to refuse service to any entity that promotes illegal activities, hate speech, or unethical business practices.
@@ -54,7 +54,7 @@ const TermsOfServicePage: React.FC = () => {
               3. Intellectual Property
             </h2>
             <p className="text-slate-300 leading-relaxed">
-              Unless otherwise stated in a specific service agreement, all intellectual property rights for custom strategies and software developed by NovaSphere remain our property until full payment is received. Brand assets provided by the client remain the property of the client.
+              Unless otherwise stated in a specific service agreement, all intellectual property rights for custom strategies and software developed by 5Crown Technologies remain our property until full payment is received. Brand assets provided by the client remain the property of the client.
             </p>
           </section>
 
@@ -64,7 +64,7 @@ const TermsOfServicePage: React.FC = () => {
               4. Limitations
             </h2>
             <p className="text-slate-300 leading-relaxed">
-              In no event shall NovaSphere or its partners be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website.
+              In no event shall 5Crown Technologies or its partners be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on our website.
             </p>
           </section>
 

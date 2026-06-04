@@ -76,7 +76,7 @@ const TeamPage: React.FC = () => {
         </div>
       </section>
 
-      {/* About NovaSphere Section */}
+      {/* About 5Crown Technologies Section */}
       <section className="max-w-7xl mx-auto px-6 mb-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-24 mb-24">
           <div className="space-y-8">
@@ -85,7 +85,7 @@ const TeamPage: React.FC = () => {
                 <span className="w-8 h-1 bg-indigo-500 rounded-full"></span> Who We Are
               </h2>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
-                NovaSphere is a results-driven digital marketing agency based in Pune, specializing in helping local businesses and national brands grow online. Since our founding, we've generated <span className="text-white font-bold">1,500+ qualified leads</span> for clients and helped businesses scale their revenue through strategic digital marketing.
+                5Crown Technologies is a results-driven digital marketing agency based in Pune, specializing in helping local businesses and national brands grow online. Since our founding, we've generated <span className="text-white font-bold">1,500+ qualified leads</span> for clients and helped businesses scale their revenue through strategic digital marketing.
               </p>
             </div>
             <div className="glass-effect p-6 sm:p-12 rounded-[2rem] sm:rounded-[3rem] border border-white/5 relative overflow-hidden group">
@@ -93,7 +93,7 @@ const TeamPage: React.FC = () => {
                 <span className="w-8 h-1 bg-purple-500 rounded-full"></span> Our Story
               </h2>
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-medium italic opacity-90">
-                "We started NovaSphere with a simple belief: digital marketing should be transparent, data-driven, and focused on real business results — not vanity metrics. We saw too many agencies running campaigns for the sake of running campaigns. So we built something different."
+                "We started 5Crown Technologies with a simple belief: digital marketing should be transparent, data-driven, and focused on real business results — not vanity metrics. We saw too many agencies running campaigns for the sake of running campaigns. So we built something different."
               </p>
             </div>
           </div>
@@ -189,9 +189,9 @@ const TeamPage: React.FC = () => {
 
       {/* Hiring CTA */}
       <section className="max-w-7xl mx-auto px-6 mt-32 text-center pb-24 relative z-10">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Want to join the sphere?</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Want to join the crown?</h2>
         <p className="text-slate-400 mb-10 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">We're always looking for world-class designers and engineers who want to build the future of the digital world.</p>
-        <a href="mailto:careers@novasphere.digital" className="px-8 sm:px-10 py-3 sm:py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl sm:rounded-2xl font-bold transition-all inline-block shadow-xl shadow-indigo-600/20 hover:scale-105 active:scale-95 text-sm sm:text-base">
+        <a href="mailto:careers@5crowntechnologies.in" className="px-8 sm:px-10 py-3 sm:py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl sm:rounded-2xl font-bold transition-all inline-block shadow-xl shadow-indigo-600/20 hover:scale-105 active:scale-95 text-sm sm:text-base">
           View Open Roles
         </a>
       </section>

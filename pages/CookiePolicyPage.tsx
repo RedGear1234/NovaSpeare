@@ -66,7 +66,7 @@ const CookiePolicyPage: React.FC = () => {
 
           <section className="glass-effect p-8 md:p-12 rounded-[2.5rem] border border-white/5 text-center">
             <p className="text-slate-300 mb-8">Have questions about our data protocols?</p>
-            <a href="mailto:privacy@novasphere.digital" className="inline-block px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-2xl font-bold transition-all">
+            <a href="mailto:privacy@5crowntechnologies.in" className="inline-block px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-2xl font-bold transition-all">
               Contact Privacy Team
             </a>
           </section>

@@ -107,7 +107,7 @@ const App: React.FC = () => {
                   Your vision deserves <br /> <span className="gradient-text">legendary execution.</span>
                 </h2>
                 <p className="text-slate-400 text-xl font-medium leading-relaxed">
-                  Ready to transform your business? Let's map out your next move with NovaSphere's free, high-intensity strategy deep dive.
+                  Ready to transform your business? Let's map out your next move with 5Crown Technologies' free, high-intensity strategy deep dive.
                 </p>
               </div>
               <div className="flex flex-col items-center lg:items-end gap-6">
