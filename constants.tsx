@@ -1,4 +1,5 @@
 import { Service, Project, TeamMember, Testimonial } from './types';
+import shubhamImg from './assets/shubham.jpg';
 
 export const SERVICES: Service[] = [
   {
@@ -153,7 +154,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Shubham Chavan',
     role: 'Web Services',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80',
+    img: shubhamImg,
     bio: 'A technical powerhouse, Shubham manages our Web Services division, focusing on high-velocity performance, secure infrastructure, and pixel-perfect deployment.',
     socials: { github: 'https://github.com/RedGear1234' }
   }
